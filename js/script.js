@@ -24,7 +24,7 @@ $(function() {
         var url = window.location.href,
             winHeight = $(window).height(),
             lock = 0;
-        if (url == "http://localhost:4000/") {
+        if (url == "http://waynecz.github.io/") {
             lock = 1;
         };
         return lock;
