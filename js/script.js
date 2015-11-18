@@ -1,3 +1,7 @@
+$(window).load(function() {
+    // Animate loader off screen
+    $(".se-pre-con").fadeOut("slow");;
+});
 (function($) {
     // Caption
     $('.article-entry').each(function(i) {
@@ -19,12 +23,13 @@
         $('#header').toggleClass('mobile-on');
     });
 })(jQuery);
+
 $(function() {
     var inIndex = function() {
         var url = window.location.href,
             winHeight = $(window).height(),
             lock = 0;
-        if (url == "http://waynecz.github.io/") {
+        if (url == "http://localhost:4000/") {
             lock = 1;
         };
         return lock;
@@ -57,3 +62,9 @@ $(function() {
         }
     })
 })
+
+
+
+
+
+
