@@ -415,7 +415,7 @@ a.article-title,
 .article-entry .gist .gist-file .gist-meta a,
 .layout-wrap-inner .category-list a,
 .tag-cloud a {
-  color: #111;
+  color: #444;
   text-decoration: none;
   border-bottom: 1px dotted transparent;
 }
@@ -462,6 +462,7 @@ a.article-title:hover,
 }
 .article-entry strong {
   font-weight: bold;
+  color: #000;
 }
 .article-entry em,
 .article-entry cite {
@@ -665,7 +666,7 @@ a.article-title:hover,
   float: left;
   font-size: 14px;
   background: none;
-  color: #111;
+  color: #444;
   outline: none;
 }
 .search-form-input::-webkit-search-results-decoration,
@@ -736,7 +737,7 @@ a.article-title:hover,
   line-height: 1em;
 }
 .article-entry {
-  color: #111;
+  color: #444;
   padding: 0;
 }
 .article-entry:before,
@@ -867,7 +868,7 @@ a.article-title:hover,
   text-decoration: none;
 }
 .article-footer a:hover {
-  color: #111;
+  color: #444;
 }
 .article-tag-list-item {
   float: left;
@@ -899,7 +900,7 @@ a.article-title:hover,
   display: block;
 }
 .article-nav-link-wrap:hover {
-  color: #111;
+  color: #444;
 }
 @media screen and (min-width: 840px) {
   .article-nav-link-wrap {
