@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2015-08-24T09:43:51.000Z</updated>
+  <updated>2015-12-24T10:21:35.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,26 +15,63 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[［自译］CSS 动画中的 Transition]]></title>
-    <link href="http://waynecz.github.io/2015/08/24/%EF%BC%BB%E8%87%AA%E8%AF%91%EF%BC%BD%E7%90%86%E8%A7%A3CSS%E5%8A%A8%E7%94%BB%EF%BC%9A%E7%AE%80%E5%8D%95%E7%9A%84%E5%8E%9F%E5%88%99%E5%92%8C%E4%BE%8B%E5%AD%90/"/>
-    <id>http://waynecz.github.io/2015/08/24/［自译］理解CSS动画：简单的原则和例子/</id>
-    <published>2015-08-24T09:22:07.000Z</published>
-    <updated>2015-08-24T09:43:51.000Z</updated>
-    <content type="html"><![CDATA[<p>  我们仅仅通过输入些许css3代码来改变元素的过渡动画对css来说无疑是一个好消息。前端开发者的前辈们长久来来寻找不依赖于Javascript和Flash的网页交互好多年了。Now it’s time!</p>
-<p>设置了css3过渡属性的元素便拥有了无限的潜能来表现自身的变化，无论何时状态改变</p>
+    <title><![CDATA[响应式设计下img标签如何设置才在移动端不下载图片]]></title>
+    <link href="http://waynecz.github.io/2015/12/24/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%8Bimg%E6%A0%87%E7%AD%BE%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%89%8D%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/"/>
+    <id>http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/</id>
+    <published>2015-12-24T09:22:07.000Z</published>
+    <updated>2015-12-24T10:21:35.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
+<p>之前在一个页面中有一张很普通的图片，普通到像这个样子</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+</code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾厄。  </p>
+<p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>
+<a id="more"></a>
+<p>关于<code>srcset</code>单个使用，简单的说就是<strong><code>让浏览器根据像素密度切换图片源</code></strong>，类似这个样子：</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"1.jpg"</span> srcset=<span class="string">" 2.jpg 2x, 3.jpg 3x"</span>/&gt;
+</code></pre><p>浏览器默认选择<code>1.jpg</code>，但是当设备像素密度为2的时候比如nexus5加载<code>2.jpg</code>，咦？？！！！有没有想到什么？！！！现在移动端貌似都是高像素比啊！，那我岂不是可以这样！：</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> srcset=<span class="string">"null.jpg 1.5x, null.jpg 2x, null.jpg 3x"</span> alt=<span class="string">"以此类推"</span>/&gt;
+</code></pre><p> <code>null.jpg</code>是一张并不存在的图片，也可以是一张1K的小图。啊哈哈天真的我真这样写进公司的官网里面去了～ 自测：完美；用别人手机电脑测试：完美！天啊噜，简单到窒</p>
+<p> <img src="http://pic.baike.soso.com/p/20130609/bki-20130609135228-704795420.jpg" alt="">  </p>
+<p> 红红火火恍恍惚惚哈哈哈哈哈哈哈哈哈哈哈哈哈哈好！～～～～～个屁啊</p>
+<p> 嗑嗑，听说苹果有5倍像素比的iMac，听说Dell的4K屏不错，听说。。。好吧，现在桌面端也早就步入了高清时代，so，这样做在这些设备里图片就是卖女孩的小火柴——全靠意淫。</p>
+<p> <img src="http://2d.zol-img.com.cn/product/87/187/cekJDCv3RNGw2.gif" alt=""></p>
+<p>好吧，东问西问思索后再三还是得用CSS解决［下面都是把图片作为<code>background-image</code>呈现，这也是我刚开始是想极力避免的，我觉得作为背景就是复杂了，大小控制也不那么简单粗暴（需要通过<code>background-size</code>）］在segmentfault提问之后得到这么一篇文章：<strong><a href="https://timkadlec.com/2012/04/media-query-asset-downloading-results/" target="_blank" rel="external">Media Query &amp; Asset Downloading Results</a></strong></p>
+<p>里面很详细的测试了各种方案图片加载情况，我这里就不多废话了，直接上一个有效的方案</p>
+<h3 id="嵌套父元素，父元素设置为diaplay:none">嵌套父元素，父元素设置为<code>diaplay:none</code></h3><p>我也叫它 <strong>给一个爸爸，然后打死爸爸，就没有儿子了大法</strong></p>
+<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"par"</span>&gt;
+    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"pic"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
+&lt;/<span class="keyword">div</span>&gt;
+
+.pic {
+    background-image:url('images/test.png');
+    width:<span class="number">200</span>px;
+    height:<span class="number">75</span>px;
+}
+@media all <span class="keyword">and</span> (max-width: <span class="number">600</span>px) {
+    .par  {
+        display:none;
+    }
+}
+</code></pre><p>结果呢？嘿嘿，异常理想，除了Fennec (10.0+)［也就是火狐开发的移动版本］照例下载了图片之外，其他各种浏览器都只在大于<code>600px</code>的时候下载了图片，如果不闲套个容器麻烦的话，这是个很好的方案！<br><img src="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&amp;fm=11&amp;gp=0.jpg" alt="棒呆"></p>
+<p>最后感谢下<strong><a href="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&amp;fm=11&amp;gp=0.jpg" target="_blank" rel="external">鑫旭大神</a></strong> 和 <strong><a href="http://segmentfault.com/q/1010000004170311?_ea=521263" target="_blank" rel="external">回答过这个问题的大家</a></strong> </p>
+<p>话说今天平安夜，这篇是2015年第一也是最后一篇文章哈哈，明年再见～<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/hahhaha.jpg" alt=""></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p>  我们仅仅通过输入些许css3代码来改变元素的过渡动画对css来说无疑是一个好消息。前端开发者的前辈们长久来来寻找不依赖于Javascript和Flash的网页交互好多年了。Now it’s time!</p>
-<p>设置了css3过渡属性的元素便拥有了无限的潜能来表现自]]>
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
+<p>之前在一个页面中有一张很普通的图片，普通到像这个样子</p>
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+</code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾厄。  </p>
+<p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>]]>
+    
     </summary>
     
       <category term="css3" scheme="http://waynecz.github.io/tags/css3/"/>
     
-      <category term="transition" scheme="http://waynecz.github.io/tags/transition/"/>
+      <category term="html" scheme="http://waynecz.github.io/tags/html/"/>
     
-      <category term="动画" scheme="http://waynecz.github.io/tags/%E5%8A%A8%E7%94%BB/"/>
+      <category term="移动端" scheme="http://waynecz.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
-      <category term="翻译" scheme="http://waynecz.github.io/categories/%E7%BF%BB%E8%AF%91/"/>
+      <category term="CSS" scheme="http://waynecz.github.io/categories/CSS/"/>
     
   </entry>
   
