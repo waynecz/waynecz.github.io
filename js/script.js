@@ -10,16 +10,18 @@ var inIndex = function() {
 $(window).load(function() {
     // Animate loader off screen
     $(".load-wrap").fadeOut("slow").promise().done(function(){
-        if (inIndex()) {
-            $('.welcome').addClass('index');
-            $('#container').addClass('rollDown').delay(900);
-            $('#word').find('span').addClass('zoomIn');
-        } else {
-            $('#main, #footer').addClass('topIn').css({
-                'opacity': '1',
-                'transform': 'translate3d(0,0,0)'
-            })
-        }
+        setTimeout(function(){
+            if (inIndex()) {
+                $('.welcome').addClass('index');
+                $('#container').addClass('rollDown').delay(900);
+                $('#word').find('span').addClass('zoomIn');
+            } else {
+                $('#main, #footer').addClass('topIn').css({
+                    'opacity': '1',
+                    'transform': 'translate3d(0,0,0)'
+                })
+            }
+        }, 1000);
     });
 });
 (function($) {
