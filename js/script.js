@@ -41,9 +41,11 @@ function isImgLoad(callback) {
         }, 500); // 我这里设置的是500毫秒就扫描一次，可以自己调整
     }
 }
+function index() {isImgLoad(bannerAnimation);}
 (function($) {
     if (inIndex()) {
-        isImgLoad(bannerAnimation);    
+        setTimeout(index, 2000)
+
     } else {
         $(".load-wrap").fadeOut(300);
         $('#main, #footer').css({
