@@ -85,6 +85,117 @@ s.parentNode.insertBefore(hm, s);
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-纪录几个CSS奇技淫巧" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/25/纪录几个CSS奇技淫巧/">几个CSS奇技淫巧</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/01/25/纪录几个CSS奇技淫巧/" class="article-date">
+  <time datetime="2016-01-25T07:10:36.000Z" itemprop="datePublished">2016-01-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/CSS/">CSS</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
+<p>###摘抄自<a href="http://www.wtoutiao.com/p/1deszDn.html" target="_blank" rel="external">前端开发者应该知道的 CSS 小技巧</a>，以后不断更新</p>
+<ol>
+<li>除去最后一个li的边框<br><code>li:not(:last-child)</code>    </li>
+</ol>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
+      <article id="post-一次网页访问各互联网协议实例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/01/12/一次网页访问各互联网协议实例/">［摘抄］一次网页访问各互联网协议实例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/01/12/一次网页访问各互联网协议实例/" class="article-date">
+  <time datetime="2016-01-12T11:20:16.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/互网协议/">互网协议</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"></p>
+<p>###摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html">互联网协议入门</a>2####首先假定这是本机器设置</p>
+<pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
+*  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
+*  网关的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>
+*  DNS的IP地址：<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>
+</code></pre><ol>
+<li>访问<code>www.google.com</code>
+        
+          <p class="article-more-link">
+            <a href="/2016/01/12/一次网页访问各互联网协议实例/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/互网协议/">互网协议</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-响应式设计下img标签如何设置才在移动端不下载图片" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -118,7 +229,7 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
 </code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  </p>
 <p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>
         
@@ -145,7 +256,7 @@ s.parentNode.insertBefore(hm, s);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Wayne&nbsp;
+      &copy; 2016 Wayne&nbsp;
       by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

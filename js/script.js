@@ -45,7 +45,6 @@ function index() {isImgLoad(bannerAnimation);}
 (function($) {
     if (inIndex()) {
         setTimeout(index, 2000)
-
     } else {
         $(".load-wrap").fadeOut(300);
         $('#main, #footer').css({

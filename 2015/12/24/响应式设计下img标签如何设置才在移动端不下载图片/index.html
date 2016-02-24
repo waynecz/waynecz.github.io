@@ -6,29 +6,29 @@
   <title>响应式设计下img标签如何设置才在移动端不下载图片 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;😁&quot;/&amp;gt;  
+&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想">
+于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
 <meta property="og:type" content="article">
 <meta property="og:title" content="响应式设计下img标签如何设置才在移动端不下载图片">
 <meta property="og:url" content="http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;😁&quot;/&amp;gt;  
+&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想">
+于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg">
 <meta property="og:image" content="http://pic.baike.soso.com/p/20130609/bki-20130609135228-704795420.jpg">
 <meta property="og:image" content="http://2d.zol-img.com.cn/product/87/187/cekJDCv3RNGw2.gif">
 <meta property="og:image" content="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&fm=11&gp=0.jpg">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/shengdan.jpg">
-<meta property="og:updated_time" content="2015-12-25T08:19:58.000Z">
+<meta property="og:updated_time" content="2016-02-24T15:03:16.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式设计下img标签如何设置才在移动端不下载图片">
 <meta name="twitter:description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;😁&quot;/&amp;gt;  
+&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想">
+于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -132,7 +132,7 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
 </code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  </p>
 <p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>
 <a id="more"></a>
@@ -180,6 +180,19 @@ s.parentNode.insertBefore(hm, s);
   </div>
   
     
+<nav id="article-nav">
+  
+    <a href="/2016/01/12/一次网页访问各互联网协议实例/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          ［摘抄］一次网页访问各互联网协议实例
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
   
 </article>
 
@@ -205,7 +218,7 @@ s.parentNode.insertBefore(hm, s);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2015 Wayne&nbsp;
+      &copy; 2016 Wayne&nbsp;
       by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>

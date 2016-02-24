@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2015-12-25T08:19:58.000Z</updated>
+  <updated>2016-02-24T15:41:46.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,14 +15,119 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[几个CSS奇技淫巧]]></title>
+    <link href="http://waynecz.github.io/2016/01/25/%E7%BA%AA%E5%BD%95%E5%87%A0%E4%B8%AACSS%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
+    <id>http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/</id>
+    <published>2016-01-25T07:10:36.000Z</published>
+    <updated>2016-02-24T15:41:46.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
+<p>###摘抄自<a href="http://www.wtoutiao.com/p/1deszDn.html" target="_blank" rel="external">前端开发者应该知道的 CSS 小技巧</a>，以后不断更新</p>
+<ol>
+<li>除去最后一个li的边框<br><code>li:not(:last-child)</code>    </li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
+<p>###摘抄自<a href="http://www.wtoutiao.com/p/1deszDn.html" targ]]>
+    </summary>
+    
+      <category term="css" scheme="http://waynecz.github.io/tags/css/"/>
+    
+      <category term="CSS" scheme="http://waynecz.github.io/categories/CSS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[［摘抄］一次网页访问各互联网协议实例]]></title>
+    <link href="http://waynecz.github.io/2016/01/12/%E4%B8%80%E6%AC%A1%E7%BD%91%E9%A1%B5%E8%AE%BF%E9%97%AE%E5%90%84%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B/"/>
+    <id>http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/</id>
+    <published>2016-01-12T11:20:16.000Z</published>
+    <updated>2016-02-24T15:44:02.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"></p>
+<p>###摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门</a>2####首先假定这是本机器设置</p>
+<pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
+*  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
+*  网关的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>
+*  DNS的IP地址：<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>
+</code></pre><ol>
+<li>访问<code>www.google.com</code><a id="more"></a></li>
+<li>DNS协议        <ul>
+<li>将网址转化为IP地址，已知DNS服务器为<code>8.8.8.8</code>，于是向这个地址发送一个DNS数据包（53端口），数据包如下<br><img src="http://image.beekka.com/blog/201206/bg2012061105.png" alt="image"><br>然后DNS服务器作出响应，告诉我们<code>Google</code>的IP地址是<code>172.194.72.105</code>。</li>
+</ul>
+</li>
+<li><p>子网掩码</p>
+<ul>
+<li>解析来判断这个IP地址是不是在同一个子网络，这里用到子网掩码   ，已知子网掩码时<code>255.255.255.0</code>，本机用自己的IP地址<code>192.168.1.100</code>做一个二进制AND运算，计算结果为<code>192.168.1.0</code>，然后对Google的IP也做一下AND运算，结果为<code>172.194.72.0</code>，两个结果不相等，所以不为同一个子网络。                     </li>
+<li>因此，我们要向Google发送数据包，<strong>必须通过网管<code>192.168.1.1</code>转发</strong>，也就是说，接收方的MAC地址是网关的MAC地址。</li>
+</ul>
+</li>
+<li><p>应用层协议    </p>
+<ul>
+<li>浏览网页用的是HTTP协议，他的整个数据包结构是这样的<br><img src="http://image.beekka.com/blog/201206/bg2012061106.png" alt="image"><br>HTTP部分的内容类似于下面这样：    <pre><code><span class="keyword">*</span> GET / HTTP/1.1            
+<span class="keyword">*</span> Host: www.google.com      
+<span class="keyword">*</span> Connection: keep-alive       
+<span class="keyword">*</span> User-Agent: Mozilla/5.0 (Windows NT 6.1) ......    
+<span class="keyword">*</span> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<span class="keyword">*</span>/<span class="keyword">*</span>;q=0.8    
+<span class="keyword">*</span> Accept-Encoding: gzip,deflate,sdch    
+<span class="keyword">*</span> Accept-Language: zh-CN,zh;q=0.8     
+<span class="keyword">*</span> Accept-Charset: GBK,utf-8;q=0.7,<span class="keyword">*</span>;q=0.3    
+<span class="keyword">*</span> Cookie: ... ...
+</code></pre>我们假定这个部分的长度为<code>4960</code>字节，它被嵌在TCP数据包中。</li>
+</ul>
+</li>
+<li>TCP协议            <ul>
+<li>TCP数据包数据包需要设置端口，接收方（Google）的HTTP默认端口是80，发送方（本机）的端口是<code>1024－65535</code>之间的整数，这里假定是51375。</li>
+<li>TCP标头的长度为<code>20</code>字节，加上嵌入HTTP数据包，总长度变为<code>4980</code>字节。</li>
+</ul>
+</li>
+<li>IP协议<ul>
+<li>然后，TCP数据包再嵌入IP数据包。IP数据包需要设置双方的IP地址，这是已知的，发送方是<code>192.168.1.100</code>（本机），接收方是<code>172.194.72.105</code>（Google）</li>
+<li>IP数据包标头为<code>20</code>字节，加上嵌入的TCP数据包，总大小为<code>5000</code>字节。</li>
+</ul>
+</li>
+<li>以太网协议<ul>
+<li>最后，IP    数据包嵌入以太网数据包，以太网数据包需要设置双方的MAC地址，发送方为本机的网卡MAC地址，接收方为网关192.168.1.1的MAC地址（通过ARP协议得到，这里ARP即本机<ul>
+<li>发送一个包含在以太网数据包中的数据包，其中包含网关的IP地址，在对方的MAC地址这一栏，填<code>FF.FF.FF.FF</code>，表示这是一个<em>广播</em>地址它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址，否则就丢弃这个包。）。</li>
+</ul>
+</li>
+<li>以太网数据包的部分，最大长度为<code>1500</code>字节，而现在的IP数据包长度为<code>5000</code>字节，因为每个包都有自己的IP标头（20字节），所以四个的IP数据包长度分别为<code>1500</code>，<code>1500</code>，<code>1500</code>，<code>560</code>。<br><img src="http://image.beekka.com/blog/201206/bg2012061107.png" alt="image"></li>
+</ul>
+</li>
+<li>服务器响应<ul>
+<li>经过多个网关转发，Google的服务器<code>172.194.72.105</code>收到了这四个以太网数据包。</li>
+<li>根据IP标头的序列号，Google将这四个包拼接起来，取出完整的TCP数据包，然后读出里面的<code>HTTP请求</code>，接着做出<code>HTTP响应</code>，用TCP协议发回去</li>
+<li>本机收到HTTP响应以后，就可以将网页显示出来，完成一次网络通信.    </li>
+</ul>
+</li>
+</ol>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"></p>
+<p>###摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html">互联网协议入门</a>2####首先假定这是本机器设置</p>
+<pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
+*  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
+*  网关的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>
+*  DNS的IP地址：<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>
+</code></pre><ol>
+<li>访问<code>www.google.com</code>]]>
+    
+    </summary>
+    
+      <category term="互网协议" scheme="http://waynecz.github.io/tags/%E4%BA%92%E7%BD%91%E5%8D%8F%E8%AE%AE/"/>
+    
+      <category term="互网协议" scheme="http://waynecz.github.io/categories/%E4%BA%92%E7%BD%91%E5%8D%8F%E8%AE%AE/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[响应式设计下img标签如何设置才在移动端不下载图片]]></title>
     <link href="http://waynecz.github.io/2015/12/24/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%8Bimg%E6%A0%87%E7%AD%BE%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%89%8D%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/"/>
     <id>http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/</id>
     <published>2015-12-24T09:22:07.000Z</published>
-    <updated>2015-12-25T08:19:58.000Z</updated>
+    <updated>2016-02-24T15:03:16.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
 </code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  </p>
 <p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>
 <a id="more"></a>
@@ -61,7 +166,7 @@
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"😁"</span>/&gt;  
+<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
 </code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  </p>
 <p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>]]>
     

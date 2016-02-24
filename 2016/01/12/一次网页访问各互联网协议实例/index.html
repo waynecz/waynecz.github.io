@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>［摘抄］一次网页访问各互联网协议实例 - Wayne</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="###摘抄自阮大的互联网协议入门2####首先假定这是本机器设置
+*  本机的IP地址：192.168.1.100
+*  子网掩码：255.255.255.0
+*  网关的IP地址：192.168.1.1
+*  DNS的IP地址：8.8.8.8
+
+访问www.google.com">
+<meta property="og:type" content="article">
+<meta property="og:title" content="［摘抄］一次网页访问各互联网协议实例">
+<meta property="og:url" content="http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/index.html">
+<meta property="og:site_name" content="Wayne">
+<meta property="og:description" content="###摘抄自阮大的互联网协议入门2####首先假定这是本机器设置
+*  本机的IP地址：192.168.1.100
+*  子网掩码：255.255.255.0
+*  网关的IP地址：192.168.1.1
+*  DNS的IP地址：8.8.8.8
+
+访问www.google.com">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg">
+<meta property="og:image" content="http://image.beekka.com/blog/201206/bg2012061105.png">
+<meta property="og:image" content="http://image.beekka.com/blog/201206/bg2012061106.png">
+<meta property="og:image" content="http://image.beekka.com/blog/201206/bg2012061107.png">
+<meta property="og:updated_time" content="2016-02-24T15:44:02.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="［摘抄］一次网页访问各互联网协议实例">
+<meta name="twitter:description" content="###摘抄自阮大的互联网协议入门2####首先假定这是本机器设置
+*  本机的IP地址：192.168.1.100
+*  子网掩码：255.255.255.0
+*  网关的IP地址：192.168.1.1
+*  DNS的IP地址：8.8.8.8
+
+访问www.google.com">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?a263c908beac42a00a8426f995864225";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+<!-- <div class="load-wrap">
+  <div id="load">
+    <div>G</div>
+    <div>N</div>
+    <div>I</div>
+    <div>D</div>
+    <div>A</div>
+    <div>O</div>
+    <div>L</div>
+  </div>
+</div> -->
+<div class="load-wrap">
+<img src="http://7xntdk.com1.z0.glb.clouddn.com/loading.gif"/>
+</div>
+<img id="shadow" src="css/images/wayne.png" alt="" style="display: none">
+<div class="welcome">
+  <div id="word" class="wordWrap">
+    <span class="word word1" data-ratio="-.2"></span>
+    <span class="word word2" data-ratio=".6"></span>
+    <span class="word word3" data-ratio="-0.1"></span>
+    <span class="word word4" data-ratio="-.6"></span>
+    <span class="word word5" data-ratio="-.3"></span>
+  </div>
+</div>
+  <div id="container">
+
+    
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">日期</a>
+        
+          <a class="main-nav-link" href="/about">关于</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-一次网页访问各互联网协议实例" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ［摘抄］一次网页访问各互联网协议实例
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/01/12/一次网页访问各互联网协议实例/" class="article-date">
+  <time datetime="2016-01-12T11:20:16.000Z" itemprop="datePublished">2016-01-12</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/互网协议/">互网协议</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"></p>
+<p>###摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门</a>2####首先假定这是本机器设置</p>
+<pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
+*  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
+*  网关的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>
+*  DNS的IP地址：<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>
+</code></pre><ol>
+<li>访问<code>www.google.com</code><a id="more"></a></li>
+<li>DNS协议        <ul>
+<li>将网址转化为IP地址，已知DNS服务器为<code>8.8.8.8</code>，于是向这个地址发送一个DNS数据包（53端口），数据包如下<br><img src="http://image.beekka.com/blog/201206/bg2012061105.png" alt="image"><br>然后DNS服务器作出响应，告诉我们<code>Google</code>的IP地址是<code>172.194.72.105</code>。</li>
+</ul>
+</li>
+<li><p>子网掩码</p>
+<ul>
+<li>解析来判断这个IP地址是不是在同一个子网络，这里用到子网掩码   ，已知子网掩码时<code>255.255.255.0</code>，本机用自己的IP地址<code>192.168.1.100</code>做一个二进制AND运算，计算结果为<code>192.168.1.0</code>，然后对Google的IP也做一下AND运算，结果为<code>172.194.72.0</code>，两个结果不相等，所以不为同一个子网络。                     </li>
+<li>因此，我们要向Google发送数据包，<strong>必须通过网管<code>192.168.1.1</code>转发</strong>，也就是说，接收方的MAC地址是网关的MAC地址。</li>
+</ul>
+</li>
+<li><p>应用层协议    </p>
+<ul>
+<li>浏览网页用的是HTTP协议，他的整个数据包结构是这样的<br><img src="http://image.beekka.com/blog/201206/bg2012061106.png" alt="image"><br>HTTP部分的内容类似于下面这样：    <pre><code><span class="keyword">*</span> GET / HTTP/1.1            
+<span class="keyword">*</span> Host: www.google.com      
+<span class="keyword">*</span> Connection: keep-alive       
+<span class="keyword">*</span> User-Agent: Mozilla/5.0 (Windows NT 6.1) ......    
+<span class="keyword">*</span> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<span class="keyword">*</span>/<span class="keyword">*</span>;q=0.8    
+<span class="keyword">*</span> Accept-Encoding: gzip,deflate,sdch    
+<span class="keyword">*</span> Accept-Language: zh-CN,zh;q=0.8     
+<span class="keyword">*</span> Accept-Charset: GBK,utf-8;q=0.7,<span class="keyword">*</span>;q=0.3    
+<span class="keyword">*</span> Cookie: ... ...
+</code></pre>我们假定这个部分的长度为<code>4960</code>字节，它被嵌在TCP数据包中。</li>
+</ul>
+</li>
+<li>TCP协议            <ul>
+<li>TCP数据包数据包需要设置端口，接收方（Google）的HTTP默认端口是80，发送方（本机）的端口是<code>1024－65535</code>之间的整数，这里假定是51375。</li>
+<li>TCP标头的长度为<code>20</code>字节，加上嵌入HTTP数据包，总长度变为<code>4980</code>字节。</li>
+</ul>
+</li>
+<li>IP协议<ul>
+<li>然后，TCP数据包再嵌入IP数据包。IP数据包需要设置双方的IP地址，这是已知的，发送方是<code>192.168.1.100</code>（本机），接收方是<code>172.194.72.105</code>（Google）</li>
+<li>IP数据包标头为<code>20</code>字节，加上嵌入的TCP数据包，总大小为<code>5000</code>字节。</li>
+</ul>
+</li>
+<li>以太网协议<ul>
+<li>最后，IP    数据包嵌入以太网数据包，以太网数据包需要设置双方的MAC地址，发送方为本机的网卡MAC地址，接收方为网关192.168.1.1的MAC地址（通过ARP协议得到，这里ARP即本机<ul>
+<li>发送一个包含在以太网数据包中的数据包，其中包含网关的IP地址，在对方的MAC地址这一栏，填<code>FF.FF.FF.FF</code>，表示这是一个<em>广播</em>地址它所在子网络的每一台主机，都会收到这个数据包，从中取出IP地址，与自身的IP地址进行比较。如果两者相同，都做出回复，向对方报告自己的MAC地址，否则就丢弃这个包。）。</li>
+</ul>
+</li>
+<li>以太网数据包的部分，最大长度为<code>1500</code>字节，而现在的IP数据包长度为<code>5000</code>字节，因为每个包都有自己的IP标头（20字节），所以四个的IP数据包长度分别为<code>1500</code>，<code>1500</code>，<code>1500</code>，<code>560</code>。<br><img src="http://image.beekka.com/blog/201206/bg2012061107.png" alt="image"></li>
+</ul>
+</li>
+<li>服务器响应<ul>
+<li>经过多个网关转发，Google的服务器<code>172.194.72.105</code>收到了这四个以太网数据包。</li>
+<li>根据IP标头的序列号，Google将这四个包拼接起来，取出完整的TCP数据包，然后读出里面的<code>HTTP请求</code>，接着做出<code>HTTP响应</code>，用TCP协议发回去</li>
+<li>本机收到HTTP响应以后，就可以将网页显示出来，完成一次网络通信.    </li>
+</ul>
+</li>
+</ol>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/互网协议/">互网协议</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/25/纪录几个CSS奇技淫巧/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          几个CSS奇技淫巧
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">响应式设计下img标签如何设置才在移动端不下载图片&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'waynecz';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Wayne&nbsp;
+      by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'waynecz';
+  
+  var disqus_url = 'http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
