@@ -3,25 +3,64 @@
 <head>
   <meta charset="utf-8">
   
-  <title>几个CSS奇技淫巧 - Wayne</title>
+  <title>自己几个常用的CSS片段,多为CSS3 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="###摘抄自前端开发者应该知道的 CSS 小技巧，以后不断更新
+  <meta name="description" content="##偶尔添加
 
-除去最后一个li的边框li:not(:last-child)">
+除去最后一个li的边框
+  `li:not(:last-child) {
+  border: 1px solid black;
+}`
+浏览器支持情况：IE9+
+
+
+
+文字过长省略号显示             
+  `p {
+  width: 100px;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowra">
 <meta property="og:type" content="article">
-<meta property="og:title" content="几个CSS奇技淫巧">
+<meta property="og:title" content="自己几个常用的CSS片段,多为CSS3">
 <meta property="og:url" content="http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="###摘抄自前端开发者应该知道的 CSS 小技巧，以后不断更新
+<meta property="og:description" content="##偶尔添加
 
-除去最后一个li的边框li:not(:last-child)">
+除去最后一个li的边框
+  `li:not(:last-child) {
+  border: 1px solid black;
+}`
+浏览器支持情况：IE9+
+
+
+
+文字过长省略号显示             
+  `p {
+  width: 100px;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowra">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg">
-<meta property="og:updated_time" content="2016-02-24T15:41:46.000Z">
+<meta property="og:updated_time" content="2016-03-02T15:38:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="几个CSS奇技淫巧">
-<meta name="twitter:description" content="###摘抄自前端开发者应该知道的 CSS 小技巧，以后不断更新
+<meta name="twitter:title" content="自己几个常用的CSS片段,多为CSS3">
+<meta name="twitter:description" content="##偶尔添加
 
-除去最后一个li的边框li:not(:last-child)">
+除去最后一个li的边框
+  `li:not(:last-child) {
+  border: 1px solid black;
+}`
+浏览器支持情况：IE9+
+
+
+
+文字过长省略号显示             
+  `p {
+  width: 100px;
+  text-overflow: clip;
+  overflow: hidden;
+  white-space: nowra">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -100,7 +139,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      几个CSS奇技淫巧
+      自己几个常用的CSS片段,多为CSS3
     </h1>
   
 
@@ -124,9 +163,52 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
-<p>###摘抄自<a href="http://www.wtoutiao.com/p/1deszDn.html" target="_blank" rel="external">前端开发者应该知道的 CSS 小技巧</a>，以后不断更新</p>
+<p>##偶尔添加</p>
 <ol>
-<li>除去最后一个li的边框<br><code>li:not(:last-child)</code>    </li>
+<li><p>除去最后一个li的边框</p>
+<p>  `li:not(:last-child) {</p>
+<pre><code>  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
+}`
+</code></pre><p>浏览器支持情况：<strong>IE9+</strong></p>
+</li>
+</ol>
+<ol>
+<li><p>文字过长省略号显示             </p>
+<p>  `p {</p>
+<pre><code>  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
+  <span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;
+  <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
+  <span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span>
+}`
+</code></pre><p>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
+</li>
+<li><p>去浮动，撑开元素！</p>
+<p>  `.clearfix {</p>
+<pre><code>  *<span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="comment">/* 兼容IE*/</span>
+}
+<span class="rule"><span class="attribute">.clearfix</span>:<span class="value">after {
+  content: <span class="string">'\200B'</span> </span></span>; <span class="comment">/* 空字符*/</span>
+  <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
+}`
+</code></pre><p>浏览器支持情况：<strong>allllllll</strong>      </p>
+</li>
+<li><p>绝对居中</p>
+<p>  `.parent {</p>
+<pre><code>  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; 
+}
+<span class="class">.child</span> <span class="rules">{
+  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
+  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;
+  <span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;
+  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;
+  <span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span>
+}</span>`    
+</code></pre></li>
 </ol>
 
       
@@ -134,7 +216,7 @@ s.parentNode.insertBefore(hm, s);
   
     <footer class="article-footer">
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li></ul>
 
     </footer>
   
@@ -142,6 +224,14 @@ s.parentNode.insertBefore(hm, s);
   
     
 <nav id="article-nav">
+  
+    <a href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          判断当前浏览器是否支持某个CSS属性
+        
+      </div>
+    </a>
   
   
     <a href="/2016/01/12/一次网页访问各互联网协议实例/" id="article-nav-older" class="article-nav-link-wrap">
