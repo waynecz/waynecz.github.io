@@ -5,35 +5,31 @@
   
   <title>判断当前浏览器是否支持某个CSS属性 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="直接上代码
-function supportCss3(style) {
-    var prefix = [&apos;webkit&apos;, &apos;Moz&apos;, &apos;ms&apos;, &apos;o&apos;],
-        i,
-        humpString = [],
-        htmlStyle = document.documentElement.style,
-        _toHumb = function (s">
+  <meta name="description" content="虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。
+直接开始吧，先上几个 CSS动画相关属性的兼容图:
+
+animation / keyframes 浏览器支持情况 :">
 <meta property="og:type" content="article">
 <meta property="og:title" content="判断当前浏览器是否支持某个CSS属性">
 <meta property="og:url" content="http://waynecz.github.io/2016/02/01/判断当前浏览器是否支持某个CSS属性/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="直接上代码
-function supportCss3(style) {
-    var prefix = [&apos;webkit&apos;, &apos;Moz&apos;, &apos;ms&apos;, &apos;o&apos;],
-        i,
-        humpString = [],
-        htmlStyle = document.documentElement.style,
-        _toHumb = function (s">
-<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg">
-<meta property="og:updated_time" content="2016-03-02T15:46:50.000Z">
+<meta property="og:description" content="虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。
+直接开始吧，先上几个 CSS动画相关属性的兼容图:
+
+animation / keyframes 浏览器支持情况 :">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/transform2d-caniuse.png">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/perspective-caniuse.png">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/transition-caniuse.png">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/depu.gif">
+<meta property="og:updated_time" content="2016-03-03T16:03:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="判断当前浏览器是否支持某个CSS属性">
-<meta name="twitter:description" content="直接上代码
-function supportCss3(style) {
-    var prefix = [&apos;webkit&apos;, &apos;Moz&apos;, &apos;ms&apos;, &apos;o&apos;],
-        i,
-        humpString = [],
-        htmlStyle = document.documentElement.style,
-        _toHumb = function (s">
+<meta name="twitter:description" content="虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。
+直接开始吧，先上几个 CSS动画相关属性的兼容图:
+
+animation / keyframes 浏览器支持情况 :">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -135,10 +131,20 @@ s.parentNode.insertBefore(hm, s);
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
-<p>直接上代码</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">supportCss3</span>(<span class="params">style</span>) </span>{
-    <span class="keyword">var</span> prefix = [<span class="string">'webkit'</span>, <span class="string">'Moz'</span>, <span class="string">'ms'</span>, <span class="string">'o'</span>],
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
+<p>虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。</p>
+<p>直接开始吧，先上几个 <a href="http://caniuse.com" target="_blank" rel="external">CSS动画相关属性的兼容图</a>:</p>
+<ol>
+<li><code>animation / keyframes</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png" alt="animation浏览器支持情况"><a id="more"></a></li>
+<li><code>transform 2D</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/transform2d-caniuse.png" alt="transform2D浏览器支持情况"></li>
+<li><code>transform 3D / perspective</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/perspective-caniuse.png" alt="transform2D浏览器支持情况"></li>
+<li><code>transition</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/transition-caniuse.png" alt="transition 浏览器支持情况"></li>
+</ol>
+<p>可以看到动画在IE8（<em>这里主要讨论IE</em>）及以下完全不支持，IE9由于只支持<code>transform</code>所以也和动画 <strong>say goodbye</strong> 了。<br>但是项目一定要兼容IE9，又不肯因为一个浏览器放弃整个罗马，怎么办？</p>
+<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/depu.gif" alt="">  </p>
+<p>优雅降级啊！所以就有了以下代码</p>
+<pre><code><span class="function"><span class="keyword">function</span> <span class="title">isSupportThis</span>(<span class="params">attrName</span>) </span>{
+    <span class="keyword">var</span> prefixs = [<span class="string">'webkit'</span>, <span class="string">'Moz'</span>, <span class="string">'ms'</span>, <span class="string">'o'</span>],
         i,
         humpString = [],
         htmlStyle = <span class="built_in">document</span>.documentElement.style,
@@ -151,7 +157,7 @@ s.parentNode.insertBefore(hm, s);
     <span class="keyword">for</span> (i <span class="keyword">in</span> prefix)
         humpString.push(_toHumb(prefix[i] + <span class="string">'-'</span> + style));
 
-    humpString.push(_toHumb(style));
+    humpString.push(_toHumb(attrName));
 
     <span class="keyword">for</span> (i <span class="keyword">in</span> humpString)
         <span class="keyword">if</span> (humpString[i] <span class="keyword">in</span> htmlStyle) <span class="keyword">return</span> <span class="literal">true</span>;

@@ -116,30 +116,16 @@ s.parentNode.insertBefore(hm, s);
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
-<p>直接上代码</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">supportCss3</span>(<span class="params">style</span>) </span>{
-    <span class="keyword">var</span> prefix = [<span class="string">'webkit'</span>, <span class="string">'Moz'</span>, <span class="string">'ms'</span>, <span class="string">'o'</span>],
-        i,
-        humpString = [],
-        htmlStyle = <span class="built_in">document</span>.documentElement.style,
-        _toHumb = <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>{
-            <span class="keyword">return</span> string.replace(<span class="regexp">/-(\w)/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$0, $1</span>) </span>{
-                <span class="keyword">return</span> $<span class="number">1.</span>toUpperCase();
-            });
-        };
-
-    <span class="keyword">for</span> (i <span class="keyword">in</span> prefix)
-        humpString.push(_toHumb(prefix[i] + <span class="string">'-'</span> + style));
-
-    humpString.push(_toHumb(style));
-
-    <span class="keyword">for</span> (i <span class="keyword">in</span> humpString)
-        <span class="keyword">if</span> (humpString[i] <span class="keyword">in</span> htmlStyle) <span class="keyword">return</span> <span class="literal">true</span>;
-
-    <span class="keyword">return</span> <span class="literal">false</span>;
-}
-</code></pre>
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
+<p>虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。</p>
+<p>直接开始吧，先上几个 <a href="http://caniuse.com">CSS动画相关属性的兼容图</a>:</p>
+<ol>
+<li><code>animation / keyframes</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png" alt="animation浏览器支持情况">
+        
+          <p class="article-more-link">
+            <a href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/#more">Read More</a>
+          </p>
+        
       
     </div>
   
@@ -187,54 +173,18 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
-<p>##偶尔添加</p>
-<ol>
+<h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
-<p>  `li:not(:last-child) {</p>
-<pre><code>  <span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
-}`
-</code></pre><p>浏览器支持情况：<strong>IE9+</strong></p>
+<p>  li:not(:last-child) {</p>
+<pre><code><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
+</code></pre><p>   }<br>浏览器支持情况：<strong>IE9+</strong></p>
 </li>
 </ol>
-<ol>
-<li><p>文字过长省略号显示             </p>
-<p>  `p {</p>
-<pre><code>  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-  <span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;
-  <span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-  <span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span>
-}`
-</code></pre><p>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
-</li>
-<li><p>去浮动，撑开元素！</p>
-<p>  `.clearfix {</p>
-<pre><code>  *<span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="comment">/* 兼容IE*/</span>
-}
-<span class="rule"><span class="attribute">.clearfix</span>:<span class="value">after {
-  content: <span class="string">'\200B'</span> </span></span>; <span class="comment">/* 空字符*/</span>
-  <span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
-  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
-  <span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
-}`
-</code></pre><p>浏览器支持情况：<strong>allllllll</strong>      </p>
-</li>
-<li><p>绝对居中</p>
-<p>  `.parent {</p>
-<pre><code>  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; 
-}
-<span class="class">.child</span> <span class="rules">{
-  <span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-  <span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
-  <span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
-  <span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;
-  <span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;
-  <span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;
-  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;
-  <span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span>
-}</span>`    
-</code></pre></li>
-</ol>
-
+        
+          <p class="article-more-link">
+            <a href="/2016/01/25/纪录几个CSS奇技淫巧/#more">Read More</a>
+          </p>
+        
       
     </div>
   
