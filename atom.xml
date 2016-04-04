@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-03-03T16:03:05.000Z</updated>
+  <updated>2016-04-04T13:26:07.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,49 +15,35 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[判断当前浏览器是否支持某个CSS属性]]></title>
+    <title><![CDATA[关于CSS动画优雅降级的简单总结]]></title>
     <link href="http://waynecz.github.io/2016/02/01/%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E6%9F%90%E4%B8%AACSS%E5%B1%9E%E6%80%A7/"/>
     <id>http://waynecz.github.io/2016/02/01/判断当前浏览器是否支持某个CSS属性/</id>
     <published>2016-02-01T03:20:16.000Z</published>
-    <updated>2016-03-03T16:03:05.000Z</updated>
+    <updated>2016-04-04T13:26:07.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
-<p>虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。</p>
-<p>直接开始吧，先上几个 <a href="http://caniuse.com" target="_blank" rel="external">CSS动画相关属性的兼容图</a>:</p>
+<p>虽然一直在现在的项目中用css动画，但是没去仔细思考兼容问题，现在做个思路总结</p>
+<p>列几个 <a href="http://caniuse.com" target="_blank" rel="external">CSS动画相关属性的兼容图</a>:</p>
 <ol>
 <li><code>animation / keyframes</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png" alt="animation浏览器支持情况"><a id="more"></a></li>
 <li><code>transform 2D</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/transform2d-caniuse.png" alt="transform2D浏览器支持情况"></li>
 <li><code>transform 3D / perspective</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/perspective-caniuse.png" alt="transform2D浏览器支持情况"></li>
 <li><code>transition</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/transition-caniuse.png" alt="transition 浏览器支持情况"></li>
 </ol>
-<p>可以看到动画在IE8（<em>这里主要讨论IE</em>）及以下完全不支持，IE9由于只支持<code>transform</code>所以也和动画 <strong>say goodbye</strong> 了。<br>但是项目一定要兼容IE9，又不肯因为一个浏览器放弃整个罗马，怎么办？</p>
+<p>可以看到动画在IE8（<em>这里主要讨论IE</em>）及以下完全不支持，IE9由于只支持<code>transform(非transform3d)</code>所以也和css动画 <strong>say goodbye</strong> 了。<br>但是项目一定要兼容IE9，又不肯因为一个浏览器放弃整个迪士尼，怎么办？</p>
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/depu.gif" alt="">  </p>
-<p>优雅降级啊！所以就有了以下代码</p>
-<pre><code><span class="function"><span class="keyword">function</span> <span class="title">isSupportThis</span>(<span class="params">attrName</span>) </span>{
-    <span class="keyword">var</span> prefixs = [<span class="string">'webkit'</span>, <span class="string">'Moz'</span>, <span class="string">'ms'</span>, <span class="string">'o'</span>],
-        i,
-        humpString = [],
-        htmlStyle = <span class="built_in">document</span>.documentElement.style,
-        _toHumb = <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>{
-            <span class="keyword">return</span> string.replace(<span class="regexp">/-(\w)/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$0, $1</span>) </span>{
-                <span class="keyword">return</span> $<span class="number">1.</span>toUpperCase();
-            });
-        };
-
-    <span class="keyword">for</span> (i <span class="keyword">in</span> prefix)
-        humpString.push(_toHumb(prefix[i] + <span class="string">'-'</span> + style));
-
-    humpString.push(_toHumb(attrName));
-
-    <span class="keyword">for</span> (i <span class="keyword">in</span> humpString)
-        <span class="keyword">if</span> (humpString[i] <span class="keyword">in</span> htmlStyle) <span class="keyword">return</span> <span class="literal">true</span>;
-
-    <span class="keyword">return</span> <span class="literal">false</span>;
-}
-</code></pre>]]></content>
+<p>优雅降级咯，先说下一个简单的小例子：<code>一个元素在页面加载时渐进入页面</code>，上面可以我看到气势IE9不支持animation和transform3d以及transition，所以一个的方案就是让IE9没有动画（主要就是让IE9下元素呆在动画结束的最后位置），这里元素初始状态需要在画面外并且是隐身，看代码    </p>
+<p>HTML<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>CSS<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#3ea5ff</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.a</span> <span class="rules">&#123; <span class="comment">/*a初始化元素动画前样式及加入动画*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="comment">/*现代浏览器下移开元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="comment">/*IE10+下移开元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="comment">/*透明元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">opacity</span>:<span class="value"><span class="number">1</span>\<span class="number">9</span>\<span class="number">0</span></span></span>; <span class="comment">/*IE9hack，是元素不透明*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">animation</span>:<span class="value"> leftIn .<span class="number">7s</span> ease-out forwards</span></span>;  </span><br><span class="line">  </span><br><span class="line">&#125;</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">keyframes</span> leftIn </span>&#123;</span><br><span class="line">  0% <span class="rules">&#123;<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0</span>&#125;</span><br><span class="line">  <span class="number">100%</span> &#123;transform: <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">1</span>&#125;</span><br><span class="line">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
+<p>好简单是不是。。主要功臣自然是<code>translate3d</code>,因为IE9不支持自然会忽略掉，所以translate也在IE下不起效了，opacity等简单属性做个hack即可。</p>
+<p>接下来随便写下第二种的思路，用JQ动画来替代，还是上面那个例子吧：<br>首先当然要判断浏览器支不支持要用到的CSS属性，判断函数如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">isSupportThis</span>(<span class="params">attrName</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> prefixs = [<span class="string">'webkit'</span>, <span class="string">'Moz'</span>, <span class="string">'ms'</span>, <span class="string">'o'</span>],</span><br><span class="line">		i,</span><br><span class="line">		humpString = [],</span><br><span class="line">		htmlStyle = <span class="built_in">document</span>.documentElement.style,</span><br><span class="line">		<span class="comment">// 将animation-delay这种带杠转化为htmlStyle中的驼峰属性名</span></span><br><span class="line">		toHumb = <span class="function"><span class="keyword">function</span> (<span class="params">string</span>) </span>&#123;</span><br><span class="line"> 			<span class="keyword">return</span> string.replace(<span class="regexp">/-(\w)/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$0, $1</span>) </span>&#123;</span><br><span class="line">				<span class="keyword">return</span> $<span class="number">1.</span>toUpperCase();</span><br><span class="line">			&#125;);</span><br><span class="line">		&#125;;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">for</span> (i <span class="keyword">in</span> prefixs) &#123;</span><br><span class="line">		humpString.push(toHumb(prefixs[i] + <span class="string">'-'</span> + attrName))</span><br><span class="line">	&#125;;</span><br><span class="line"> </span><br><span class="line">	humpString.push(toHumb(attrName));</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">for</span> (i <span class="keyword">in</span> humpString) &#123;</span><br><span class="line">		<span class="keyword">if</span> (humpString[i] <span class="keyword">in</span> htmlStyle) <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">	&#125;;</span><br><span class="line"> </span><br><span class="line">	<span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">isSupportThis(<span class="string">'animation'</span>) <span class="comment">// IE9下false</span></span><br></pre></td></tr></table></figure>
+<p>然后如果不支持的话就对<code>$(&#39;.a&#39;)</code>做下动画处理，当然，如果动画元素很多且很杂，我们可以事先未那些要进行动画的元素统一加上<code>class=&quot;animation&quot;</code>之类的后面好处理，<code>animation-delay</code>之类的也可以用<code>delay()</code>代替</p>
+<p>就到这</p>
+]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
-<p>虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。</p>
-<p>直接开始吧，先上几个 <a href="http://caniuse.com">CSS动画相关属性的兼容图</a>:</p>
+<p>虽然一直在现在的项目中用css动画，但是没去仔细思考兼容问题，现在做个思路总结</p>
+<p>列几个 <a href="http://caniuse.com">CSS动画相关属性的兼容图</a>:</p>
 <ol>
 <li><code>animation / keyframes</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png" alt="animation浏览器支持情况">]]>
     
@@ -76,49 +62,25 @@
     <link href="http://waynecz.github.io/2016/01/25/%E7%BA%AA%E5%BD%95%E5%87%A0%E4%B8%AACSS%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     <id>http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/</id>
     <published>2016-01-25T07:10:36.000Z</published>
-    <updated>2016-03-03T02:34:20.000Z</updated>
+    <updated>2016-04-04T12:05:26.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
 <h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
-<p>  li:not(:last-child) {</p>
-<pre><code><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE9+</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">li</span>:<span class="value"><span class="function">not</span>(:last-child) &#123;</span><br><span class="line">	border: <span class="number">1px</span> solid black</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE9+</strong></p>
 </li>
 </ol>
 <a id="more"></a>
 <ol>
 <li><p>文字过长省略号显示             </p>
-<p>  p {</p>
-<pre><code><span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;
-<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-<span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span>
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span></span><br><span class="line"> &#125;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
 </li>
-<li><p>去浮动，撑开元素！</p>
-<p>  .clearfix {</p>
-<pre><code>*<span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="comment">/* 兼容IE*/</span>
-</code></pre><p>   }<br>   .clearfix:after {</p>
-<pre><code><span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">'\200B'</span> </span></span>; <span class="comment">/* 空字符*/</span>
-<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
-<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>allllllll</strong>      </p>
+<li><p>去浮动，撑开元素！其实一般情况之遥氟元素一个<code>overflow:hidden</code>就可以了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.clearfix &#123;</span><br><span class="line">	*zoom: 1; /* 兼容IE*/</span><br><span class="line"> &#125;</span><br><span class="line"> .clearfix:after &#123;</span><br><span class="line">	content: '\200B' ; /* 空字符*/</span><br><span class="line">	display: block;</span><br><span class="line">	height: 0;</span><br><span class="line">	clear: both;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>allllllll</strong>      </p>
 </li>
-<li><p>绝对居中</p>
-<p>  .parent {</p>
-<pre><code>  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; 
-}
-</code></pre><p>   .child {</p>
-<pre><code><span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;
-<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;
-<span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span>
-</code></pre><p>   }    </p>
+<li>绝对居中<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; </span><br><span class="line">  &#125;</span></span><br><span class="line"> <span class="class">.child</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;</span><br><span class="line">	<span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span></span><br><span class="line"> &#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 ]]></content>
@@ -126,9 +88,8 @@
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
 <h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
-<p>  li:not(:last-child) {</p>
-<pre><code><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE9+</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">li</span>:<span class="value"><span class="function">not</span>(:last-child) &#123;</span><br><span class="line">	border: <span class="number">1px</span> solid black</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE9+</strong></p>
 </li>
 </ol>]]>
     
@@ -225,7 +186,7 @@
     <link href="http://waynecz.github.io/2015/12/24/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%8Bimg%E6%A0%87%E7%AD%BE%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%89%8D%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/"/>
     <id>http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/</id>
     <published>2015-12-24T09:22:07.000Z</published>
-    <updated>2016-02-24T15:03:16.000Z</updated>
+    <updated>2016-04-02T12:56:59.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
 <pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
@@ -260,8 +221,8 @@
 }
 </code></pre><p>结果呢？嘿嘿，异常理想，除了Fennec (10.0+)［火狐开发的移动版本？］照例下载了图片之外，其他各种浏览器都只在大于<code>600px</code>的时候下载了图片，如果不闲套个容器麻烦的话，这是个很好的方案！</p>
 <p><img src="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&amp;fm=11&amp;gp=0.jpg" alt="棒呆"></p>
-<p>最后感谢下<strong><a href="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&amp;fm=11&amp;gp=0.jpg" target="_blank" rel="external">鑫旭大神</a></strong> 和 <strong><a href="http://segmentfault.com/q/1010000004170311?_ea=521263" target="_blank" rel="external">回答过这个问题的大家</a></strong> 水平有限，有错误在所难免，请诸位多多包。</p>
-<p>话说今天平安夜，圣诞快乐！！！！这篇是2015年第一也是最后一篇文章哈哈，明年再见～</p>
+<p>感谢<strong><a href="http://img0.imgtn.bdimg.com/it/u=235478332,2866600352&amp;fm=11&amp;gp=0.jpg" target="_blank" rel="external">鑫旭大神</a></strong> 和 <strong><a href="http://segmentfault.com/q/1010000004170311?_ea=521263" target="_blank" rel="external">回答过这个问题的大家</a></strong> </p>
+<p>平安夜，圣诞快乐！！！！这篇是2015年第一也是最后一篇文章哈哈，明年再见～</p>
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shengdan.jpg" alt=""></p>
 ]]></content>
     <summary type="html">

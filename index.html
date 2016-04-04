@@ -74,11 +74,7 @@ s.parentNode.insertBefore(hm, s);
         
           <a class="main-nav-link" href="/archives">日期</a>
         
-          <a class="main-nav-link" href="/about">关于</a>
-        
           <a class="main-nav-link" href="/tags">标签</a>
-        
-          <a class="main-nav-link" href="/categories">分类</a>
         
       </nav>
     </div>
@@ -93,7 +89,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/">判断当前浏览器是否支持某个CSS属性</a>
+      <a class="article-title" href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/">关于CSS动画优雅降级的简单总结</a>
     </h1>
   
 
@@ -117,8 +113,8 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
-<p>虽然一直在现在的项目中用css动画，但是虽然一直隐患的知道只支持现代浏览器，但一直没去仔细思考。</p>
-<p>直接开始吧，先上几个 <a href="http://caniuse.com">CSS动画相关属性的兼容图</a>:</p>
+<p>虽然一直在现在的项目中用css动画，但是没去仔细思考兼容问题，现在做个思路总结</p>
+<p>列几个 <a href="http://caniuse.com">CSS动画相关属性的兼容图</a>:</p>
 <ol>
 <li><code>animation / keyframes</code> 浏览器支持情况 :<br><img src="http://7xntdk.com1.z0.glb.clouddn.com/animation-caniuse.png" alt="animation浏览器支持情况">
         
@@ -175,9 +171,8 @@ s.parentNode.insertBefore(hm, s);
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
 <h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
-<p>  li:not(:last-child) {</p>
-<pre><code><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE9+</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">li</span>:<span class="value"><span class="function">not</span>(:last-child) &#123;</span><br><span class="line">	border: <span class="number">1px</span> solid black</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE9+</strong></p>
 </li>
 </ol>
         

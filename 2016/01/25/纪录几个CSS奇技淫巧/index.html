@@ -7,27 +7,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="偶尔添加
 除去最后一个li的边框
-  li:not(:last-child) {
-border: 1px solid black;
-   }浏览器支持情况：IE9+">
+123li:not(:last-child) &amp;#123;	border: 1px solid black;&amp;#125;
+浏览器支持情况：IE9+">
 <meta property="og:type" content="article">
 <meta property="og:title" content="自己几个常用的CSS片段,多为CSS3">
 <meta property="og:url" content="http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="偶尔添加
 除去最后一个li的边框
-  li:not(:last-child) {
-border: 1px solid black;
-   }浏览器支持情况：IE9+">
+123li:not(:last-child) &amp;#123;	border: 1px solid black;&amp;#125;
+浏览器支持情况：IE9+">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg">
-<meta property="og:updated_time" content="2016-03-03T02:34:20.000Z">
+<meta property="og:updated_time" content="2016-04-04T12:05:26.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="自己几个常用的CSS片段,多为CSS3">
 <meta name="twitter:description" content="偶尔添加
 除去最后一个li的边框
-  li:not(:last-child) {
-border: 1px solid black;
-   }浏览器支持情况：IE9+">
+123li:not(:last-child) &amp;#123;	border: 1px solid black;&amp;#125;
+浏览器支持情况：IE9+">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -88,11 +85,7 @@ s.parentNode.insertBefore(hm, s);
         
           <a class="main-nav-link" href="/archives">日期</a>
         
-          <a class="main-nav-link" href="/about">关于</a>
-        
           <a class="main-nav-link" href="/tags">标签</a>
-        
-          <a class="main-nav-link" href="/categories">分类</a>
         
       </nav>
     </div>
@@ -132,45 +125,21 @@ s.parentNode.insertBefore(hm, s);
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
 <h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
-<p>  li:not(:last-child) {</p>
-<pre><code><span class="rule"><span class="attribute">border</span>:<span class="value"> <span class="number">1px</span> solid black</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE9+</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="rule"><span class="attribute">li</span>:<span class="value"><span class="function">not</span>(:last-child) &#123;</span><br><span class="line">	border: <span class="number">1px</span> solid black</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE9+</strong></p>
 </li>
 </ol>
 <a id="more"></a>
 <ol>
 <li><p>文字过长省略号显示             </p>
-<p>  p {</p>
-<pre><code><span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;
-<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;
-<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;
-<span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span>
-</code></pre><p>   }<br>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">p</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">text-overflow</span>:<span class="value"> clip</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">overflow</span>:<span class="value"> hidden</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">white-space</span>:<span class="value"> nowrap</span></span>; <span class="comment">/*强制不换行*/</span></span><br><span class="line"> &#125;</span></span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>IE11都不支持！firefox加前缀</strong></p>
 </li>
-<li><p>去浮动，撑开元素！</p>
-<p>  .clearfix {</p>
-<pre><code>*<span class="rule"><span class="attribute">zoom</span>:<span class="value"> <span class="number">1</span></span></span>; <span class="comment">/* 兼容IE*/</span>
-</code></pre><p>   }<br>   .clearfix:after {</p>
-<pre><code><span class="rule"><span class="attribute">content</span>:<span class="value"> <span class="string">'\200B'</span> </span></span>; <span class="comment">/* 空字符*/</span>
-<span class="rule"><span class="attribute">display</span>:<span class="value"> block</span></span>;
-<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">clear</span>:<span class="value"> both</span></span>;
-</code></pre><p>   }<br>浏览器支持情况：<strong>allllllll</strong>      </p>
+<li><p>去浮动，撑开元素！其实一般情况之遥氟元素一个<code>overflow:hidden</code>就可以了</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.clearfix &#123;</span><br><span class="line">	*zoom: 1; /* 兼容IE*/</span><br><span class="line"> &#125;</span><br><span class="line"> .clearfix:after &#123;</span><br><span class="line">	content: '\200B' ; /* 空字符*/</span><br><span class="line">	display: block;</span><br><span class="line">	height: 0;</span><br><span class="line">	clear: both;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+<p>浏览器支持情况：<strong>allllllll</strong>      </p>
 </li>
-<li><p>绝对居中</p>
-<p>  .parent {</p>
-<pre><code>  <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; 
-}
-</code></pre><p>   .child {</p>
-<pre><code><span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;
-<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;
-<span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;
-<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;
-<span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span>
-</code></pre><p>   }    </p>
+<li>绝对居中<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class">.parent</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>; </span><br><span class="line">  &#125;</span></span><br><span class="line"> <span class="class">.child</span> <span class="rules">&#123;</span><br><span class="line">	<span class="rule"><span class="attribute">position</span>:<span class="value"> absolute</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">top</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">left</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">right</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">bottom</span>:<span class="value"> <span class="number">0</span></span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">margin</span>:<span class="value"> auto</span></span>;</span><br><span class="line">	<span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">999px</span></span></span>;</span><br><span class="line">	<span class="comment">/* 这个方案需要子容器有一个固定的高，或百分比自适应于外部。它的高度不能是height:auto*/</span></span><br><span class="line"> &#125;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 
@@ -191,7 +160,7 @@ s.parentNode.insertBefore(hm, s);
     <a href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/" id="article-nav-newer" class="article-nav-link-wrap">
       <div class="article-nav-title"><span>&lt;</span>&nbsp;
         
-          判断当前浏览器是否支持某个CSS属性
+          关于CSS动画优雅降级的简单总结
         
       </div>
     </a>
