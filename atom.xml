@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-05T15:51:16.000Z</updated>
+  <updated>2016-04-05T15:55:18.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -19,12 +19,12 @@
     <link href="http://waynecz.github.io/2016/03/05/Ajax%E7%9A%84%E6%87%92%E4%BA%BA%E5%A7%BF%E5%8A%BF/"/>
     <id>http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/</id>
     <published>2016-03-05T01:56:02.000Z</published>
-    <updated>2016-04-05T15:51:16.000Z</updated>
+    <updated>2016-04-05T15:55:18.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
 <p>jq的ajax是个好东西，之前每次是这么写的</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<p>写多了就发现，其实业务交互都在<code>.done()</code>里处理了，<code>.fail()</code>和<code>.always()</code>看起来都是些重复处理的动作。直到发现了<a href="https://segmentfault.com/a/1190000003691961" target="_blank" rel="external">这个！</a></p>
+<p>写多了就发现，其实业务交互都在<code>.done()</code>里处理，<code>.fail()</code>和<code>.always()</code>看起来都是些重复处理的动作。然后再看异步流程控制时看到了<a href="https://segmentfault.com/a/1190000003691961" target="_blank" rel="external">这个！</a></p>
 <p>抽出来说就是写个公共的ajax方法来让每次ajax都只要处理<code>.done()</code>多酷！！主要用到JQ的异步控制，主角就是<code>Deferred</code> 和 <code>Promise</code>,这两个的关系就是：</p>
 <ul>
 <li>Deffered 触发 resolve 或 reject</li>
