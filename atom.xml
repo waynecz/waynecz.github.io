@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-04T13:26:07.000Z</updated>
+  <updated>2016-04-05T15:51:16.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,11 +15,47 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[关于CSS动画优雅降级的简单总结]]></title>
+    <title><![CDATA[Ajax的懒人姿势]]></title>
+    <link href="http://waynecz.github.io/2016/03/05/Ajax%E7%9A%84%E6%87%92%E4%BA%BA%E5%A7%BF%E5%8A%BF/"/>
+    <id>http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/</id>
+    <published>2016-03-05T01:56:02.000Z</published>
+    <updated>2016-04-05T15:51:16.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
+<p>jq的ajax是个好东西，之前每次是这么写的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>写多了就发现，其实业务交互都在<code>.done()</code>里处理了，<code>.fail()</code>和<code>.always()</code>看起来都是些重复处理的动作。直到发现了<a href="https://segmentfault.com/a/1190000003691961" target="_blank" rel="external">这个！</a></p>
+<p>抽出来说就是写个公共的ajax方法来让每次ajax都只要处理<code>.done()</code>多酷！！主要用到JQ的异步控制，主角就是<code>Deferred</code> 和 <code>Promise</code>,这两个的关系就是：</p>
+<ul>
+<li>Deffered 触发 resolve 或 reject</li>
+<li>Promise 中申明 resolve 或 reject 后应该做什么（回调） </li>
+</ul>
+<p>初步改善代码,这里封装在jQuery对象上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">    $.extend(&#123;</span><br><span class="line">        jax: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> <span class="keyword">default</span> = &#123;</span><br><span class="line">                data  : &#123;&#125;,</span><br><span class="line">                <span class="keyword">async</span> : <span class="literal">true</span>,</span><br><span class="line">                type  : <span class="string">'post'</span>,</span><br><span class="line">                ctrl  : <span class="string">''</span>,</span><br><span class="line">                button: <span class="literal">undefined</span>,</span><br><span class="line">                errmsg: <span class="string">'服务器炸了,稍后再试吧 - -||'</span></span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> setting = $.extend(<span class="keyword">default</span>, options);</span><br><span class="line">			</span><br><span class="line">	    <span class="comment">// 提交控制</span></span><br><span class="line">            <span class="keyword">if</span> (setting.ctrl) &#123;</span><br><span class="line">                xhrCtrl[setting.ctrl] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 按钮控制</span></span><br><span class="line">            <span class="keyword">if</span> (setting.button) &#123;</span><br><span class="line">                setting.button.prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 等待动画</span></span><br><span class="line">            $(<span class="string">'#ajaxLoader'</span>).fadeIn(<span class="number">150</span>);</span><br><span class="line">			</span><br><span class="line">	    <span class="comment">// 创建一个deferred对象</span></span><br><span class="line">            <span class="keyword">var</span> deferred = $.Deferred();</span><br><span class="line"></span><br><span class="line">            $.ajax(setting.url, &#123;</span><br><span class="line">                type    : setting.type,</span><br><span class="line">                dataType: <span class="string">'json'</span>,</span><br><span class="line">                <span class="keyword">async</span>   : setting.async,</span><br><span class="line">                data    : setting.data</span><br><span class="line">            &#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            	 <span class="comment">// 第一个注意点，根据后台灵活调整</span></span><br><span class="line">                <span class="keyword">if</span> (data &amp;&amp; !data.success) &#123;</span><br><span class="line">                	<span class="comment">//假设消息提示为$.toast</span></span><br><span class="line">                    $.toast(data.msg || <span class="string">"发生了奇异的错误"</span>);</span><br><span class="line">                    </span><br><span class="line">                    deferred.reject();</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data &amp;&amp; data.success) &#123;</span><br><span class="line">                	<span class="comment">//  成功，传递数据</span></span><br><span class="line">                    deferred.resolve(data);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    $.toast(<span class="string">"oops! 服务器未返回任何数据"</span>);</span><br><span class="line">                    </span><br><span class="line">                    deferred.reject();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $.toast(setting.errmsg, <span class="string">'warning'</span>);</span><br><span class="line">                </span><br><span class="line">                deferred.reject();</span><br><span class="line">            &#125;).always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (setting.ctrl) &#123;</span><br><span class="line">                    xhrCtrl[setting.ctrl] = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (setting.button) &#123;</span><br><span class="line">                    setting.button.prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                $(<span class="string">'#ajaxLoader'</span>).fadeOut(<span class="number">150</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> deferred.promise();</span><br><span class="line">        &#125;,</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure></p>
+<p>调用的话简直干净！！！！！:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	$.jax(&#123;</span><br><span class="line">		url   : url,</span><br><span class="line">	    data  : postData,</span><br><span class="line">	    button: $(<span class="string">'#button'</span>),</span><br><span class="line">	    ctrl  : <span class="string">'doAjax'</span></span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		<span class="comment">//do something</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不过这里有几个注意点，第一个注意点就是需要和后台约定下返回数据中success标识的结构，然后，然后就没有然后了，就是这么简单</p>
+<p><img src="http://i40.tinypic.com/w8we8m.jpg" alt="笑"><br>世界和平，火锅好吃，再见。</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
+<p>jq的ajax是个好东西，之前每次是这么写的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
+    
+      <category term="jquery" scheme="http://waynecz.github.io/tags/jquery/"/>
+    
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title><![CDATA[CSS动画优雅降级的简单总结]]></title>
     <link href="http://waynecz.github.io/2016/02/01/%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E6%9F%90%E4%B8%AACSS%E5%B1%9E%E6%80%A7/"/>
     <id>http://waynecz.github.io/2016/02/01/判断当前浏览器是否支持某个CSS属性/</id>
     <published>2016-02-01T03:20:16.000Z</published>
-    <updated>2016-04-04T13:26:07.000Z</updated>
+    <updated>2016-04-05T15:53:06.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
 <p>虽然一直在现在的项目中用css动画，但是没去仔细思考兼容问题，现在做个思路总结</p>
 <p>列几个 <a href="http://caniuse.com" target="_blank" rel="external">CSS动画相关属性的兼容图</a>:</p>
@@ -53,7 +89,7 @@
     
       <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
     
-      <category term="Javascript" scheme="http://waynecz.github.io/categories/Javascript/"/>
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -62,7 +98,7 @@
     <link href="http://waynecz.github.io/2016/01/25/%E7%BA%AA%E5%BD%95%E5%87%A0%E4%B8%AACSS%E5%A5%87%E6%8A%80%E6%B7%AB%E5%B7%A7/"/>
     <id>http://waynecz.github.io/2016/01/25/纪录几个CSS奇技淫巧/</id>
     <published>2016-01-25T07:10:36.000Z</published>
-    <updated>2016-04-04T12:05:26.000Z</updated>
+    <updated>2016-04-05T15:03:35.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/shushu.jpeg" alt="叔叔"></p>
 <h2 id="偶尔添加">偶尔添加</h2><ol>
 <li><p>除去最后一个li的边框</p>
@@ -97,7 +133,7 @@
     
       <category term="css3" scheme="http://waynecz.github.io/tags/css3/"/>
     
-      <category term="CSS" scheme="http://waynecz.github.io/categories/CSS/"/>
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
@@ -106,7 +142,7 @@
     <link href="http://waynecz.github.io/2016/01/12/%E4%B8%80%E6%AC%A1%E7%BD%91%E9%A1%B5%E8%AE%BF%E9%97%AE%E5%90%84%E4%BA%92%E8%81%94%E7%BD%91%E5%8D%8F%E8%AE%AE%E5%AE%9E%E4%BE%8B/"/>
     <id>http://waynecz.github.io/2016/01/12/一次网页访问各互联网协议实例/</id>
     <published>2016-01-12T11:20:16.000Z</published>
-    <updated>2016-02-24T15:47:24.000Z</updated>
+    <updated>2016-04-05T15:03:25.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"><br>摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门</a>首先假定这是本机器设置</p>
 <pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
 *  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
@@ -177,7 +213,7 @@
     
       <category term="互网协议" scheme="http://waynecz.github.io/tags/%E4%BA%92%E7%BD%91%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="互网协议" scheme="http://waynecz.github.io/categories/%E4%BA%92%E7%BD%91%E5%8D%8F%E8%AE%AE/"/>
+      <category term="计算机" scheme="http://waynecz.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
     
   </entry>
   
@@ -186,7 +222,7 @@
     <link href="http://waynecz.github.io/2015/12/24/%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E4%B8%8Bimg%E6%A0%87%E7%AD%BE%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%89%8D%E5%9C%A8%E7%A7%BB%E5%8A%A8%E7%AB%AF%E4%B8%8D%E4%B8%8B%E8%BD%BD%E5%9B%BE%E7%89%87/"/>
     <id>http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/</id>
     <published>2015-12-24T09:22:07.000Z</published>
-    <updated>2016-04-02T12:56:59.000Z</updated>
+    <updated>2016-04-05T15:03:06.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
 <pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
@@ -240,7 +276,7 @@
     
       <category term="移动端" scheme="http://waynecz.github.io/tags/%E7%A7%BB%E5%8A%A8%E7%AB%AF/"/>
     
-      <category term="CSS" scheme="http://waynecz.github.io/categories/CSS/"/>
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Ajax的懒人姿势 - Wayne</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="jq的ajax是个好东西，之前每次是这么写的
+12345678910111213141516171819202122232425262728window.xhrCtrl = &amp;#123;&amp;#125;;var doAjax = function () &amp;#123;	if (xhr.doAjax)&amp;#123;		// 重复点击控制		return false 	&amp;#125;	//按钮控制	$(&quot;#th">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax的懒人姿势">
+<meta property="og:url" content="http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/index.html">
+<meta property="og:site_name" content="Wayne">
+<meta property="og:description" content="jq的ajax是个好东西，之前每次是这么写的
+12345678910111213141516171819202122232425262728window.xhrCtrl = &amp;#123;&amp;#125;;var doAjax = function () &amp;#123;	if (xhr.doAjax)&amp;#123;		// 重复点击控制		return false 	&amp;#125;	//按钮控制	$(&quot;#th">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg">
+<meta property="og:image" content="http://i40.tinypic.com/w8we8m.jpg">
+<meta property="og:updated_time" content="2016-04-05T15:51:16.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax的懒人姿势">
+<meta name="twitter:description" content="jq的ajax是个好东西，之前每次是这么写的
+12345678910111213141516171819202122232425262728window.xhrCtrl = &amp;#123;&amp;#125;;var doAjax = function () &amp;#123;	if (xhr.doAjax)&amp;#123;		// 重复点击控制		return false 	&amp;#125;	//按钮控制	$(&quot;#th">
+  
+  
+    <link rel="icon" href="/favicon.ico">
+  
+  <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+  <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  
+<script type="text/javascript">
+var _hmt = _hmt || [];
+(function() {
+var hm = document.createElement("script");
+hm.src = "//hm.baidu.com/hm.js?a263c908beac42a00a8426f995864225";
+var s = document.getElementsByTagName("script")[0];
+s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+
+<body>
+<!-- <div class="load-wrap">
+  <div id="load">
+    <div>G</div>
+    <div>N</div>
+    <div>I</div>
+    <div>D</div>
+    <div>A</div>
+    <div>O</div>
+    <div>L</div>
+  </div>
+</div> -->
+<div class="load-wrap">
+<img src="http://7xntdk.com1.z0.glb.clouddn.com/loading.gif"/>
+</div>
+<img id="shadow" src="css/images/wayne.png" alt="" style="display: none">
+<div class="welcome">
+  <div id="word" class="wordWrap">
+    <span class="word word1" data-ratio="-.2"></span>
+    <span class="word word2" data-ratio=".6"></span>
+    <span class="word word3" data-ratio="-0.1"></span>
+    <span class="word word4" data-ratio="-.6"></span>
+    <span class="word word5" data-ratio="-.3"></span>
+  </div>
+</div>
+  <div id="container">
+
+    
+
+<header id="header">
+  <div id="header-outer" class="outer">
+    <div id="header-inner" class="inner">
+      <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+      <a id="logo" class="logo" href="/"></a>
+      <nav id="main-nav">
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">日期</a>
+        
+          <a class="main-nav-link" href="/tags">标签</a>
+        
+          <a class="main-nav-link" href="/categories">分类</a>
+        
+      </nav>
+    </div>
+  </div>
+</header>
+    <section id="main" class="outer"><article id="post-Ajax的懒人姿势" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Ajax的懒人姿势
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/03/05/Ajax的懒人姿势/" class="article-date">
+  <time datetime="2016-03-05T01:56:02.000Z" itemprop="datePublished">2016-03-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
+<p>jq的ajax是个好东西，之前每次是这么写的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>写多了就发现，其实业务交互都在<code>.done()</code>里处理了，<code>.fail()</code>和<code>.always()</code>看起来都是些重复处理的动作。直到发现了<a href="https://segmentfault.com/a/1190000003691961" target="_blank" rel="external">这个！</a></p>
+<p>抽出来说就是写个公共的ajax方法来让每次ajax都只要处理<code>.done()</code>多酷！！主要用到JQ的异步控制，主角就是<code>Deferred</code> 和 <code>Promise</code>,这两个的关系就是：</p>
+<ul>
+<li>Deffered 触发 resolve 或 reject</li>
+<li>Promise 中申明 resolve 或 reject 后应该做什么（回调） </li>
+</ul>
+<p>初步改善代码,这里封装在jQuery对象上<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">;(<span class="function"><span class="keyword">function</span> (<span class="params">$</span>) </span>&#123;</span><br><span class="line">    $.extend(&#123;</span><br><span class="line">        jax: <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</span><br><span class="line">            <span class="keyword">var</span> <span class="keyword">default</span> = &#123;</span><br><span class="line">                data  : &#123;&#125;,</span><br><span class="line">                <span class="keyword">async</span> : <span class="literal">true</span>,</span><br><span class="line">                type  : <span class="string">'post'</span>,</span><br><span class="line">                ctrl  : <span class="string">''</span>,</span><br><span class="line">                button: <span class="literal">undefined</span>,</span><br><span class="line">                errmsg: <span class="string">'服务器炸了,稍后再试吧 - -||'</span></span><br><span class="line">            &#125;;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">var</span> setting = $.extend(<span class="keyword">default</span>, options);</span><br><span class="line">			</span><br><span class="line">	    <span class="comment">// 提交控制</span></span><br><span class="line">            <span class="keyword">if</span> (setting.ctrl) &#123;</span><br><span class="line">                xhrCtrl[setting.ctrl] = <span class="literal">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 按钮控制</span></span><br><span class="line">            <span class="keyword">if</span> (setting.button) &#123;</span><br><span class="line">                setting.button.prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 等待动画</span></span><br><span class="line">            $(<span class="string">'#ajaxLoader'</span>).fadeIn(<span class="number">150</span>);</span><br><span class="line">			</span><br><span class="line">	    <span class="comment">// 创建一个deferred对象</span></span><br><span class="line">            <span class="keyword">var</span> deferred = $.Deferred();</span><br><span class="line"></span><br><span class="line">            $.ajax(setting.url, &#123;</span><br><span class="line">                type    : setting.type,</span><br><span class="line">                dataType: <span class="string">'json'</span>,</span><br><span class="line">                <span class="keyword">async</span>   : setting.async,</span><br><span class="line">                data    : setting.data</span><br><span class="line">            &#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">            	 <span class="comment">// 第一个注意点，根据后台灵活调整</span></span><br><span class="line">                <span class="keyword">if</span> (data &amp;&amp; !data.success) &#123;</span><br><span class="line">                	<span class="comment">//假设消息提示为$.toast</span></span><br><span class="line">                    $.toast(data.msg || <span class="string">"发生了奇异的错误"</span>);</span><br><span class="line">                    </span><br><span class="line">                    deferred.reject();</span><br><span class="line">                &#125; <span class="keyword">else</span> <span class="keyword">if</span> (data &amp;&amp; data.success) &#123;</span><br><span class="line">                	<span class="comment">//  成功，传递数据</span></span><br><span class="line">                    deferred.resolve(data);</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    $.toast(<span class="string">"oops! 服务器未返回任何数据"</span>);</span><br><span class="line">                    </span><br><span class="line">                    deferred.reject();</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;).fail(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                $.toast(setting.errmsg, <span class="string">'warning'</span>);</span><br><span class="line">                </span><br><span class="line">                deferred.reject();</span><br><span class="line">            &#125;).always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">                <span class="keyword">if</span> (setting.ctrl) &#123;</span><br><span class="line">                    xhrCtrl[setting.ctrl] = <span class="literal">null</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (setting.button) &#123;</span><br><span class="line">                    setting.button.prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">                &#125;</span><br><span class="line">                $(<span class="string">'#ajaxLoader'</span>).fadeOut(<span class="number">150</span>);</span><br><span class="line">            &#125;)</span><br><span class="line">            <span class="keyword">return</span> deferred.promise();</span><br><span class="line">        &#125;,</span><br><span class="line">   &#125;)</span><br><span class="line">&#125;)(jQuery);</span><br></pre></td></tr></table></figure></p>
+<p>调用的话简直干净！！！！！:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	$.jax(&#123;</span><br><span class="line">		url   : url,</span><br><span class="line">	    data  : postData,</span><br><span class="line">	    button: $(<span class="string">'#button'</span>),</span><br><span class="line">	    ctrl  : <span class="string">'doAjax'</span></span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		<span class="comment">//do something</span></span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>不过这里有几个注意点，第一个注意点就是需要和后台约定下返回数据中success标识的结构，然后，然后就没有然后了，就是这么简单</p>
+<p><img src="http://i40.tinypic.com/w8we8m.jpg" alt="笑"><br>世界和平，火锅好吃，再见。</p>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/01/判断当前浏览器是否支持某个CSS属性/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS动画优雅降级的简单总结&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'waynecz';
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+    <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 Wayne&nbsp;
+      by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
+    </div>
+  </div>
+</footer>
+    
+<script>
+  var disqus_shortname = 'waynecz';
+  
+  var disqus_url = 'http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+  </div>
+</body>
+</html>
