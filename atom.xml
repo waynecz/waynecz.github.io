@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-05T15:55:18.000Z</updated>
+  <updated>2016-04-06T10:12:34.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -13,6 +13,43 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[从git+add+commit+push 到 gamp!]]></title>
+    <link href="http://waynecz.github.io/2016/03/06/%E4%BB%8Egit-add-commit-push-%E5%88%B0gamp/"/>
+    <id>http://waynecz.github.io/2016/03/06/从git-add-commit-push-到gamp/</id>
+    <published>2016-03-06T09:29:52.000Z</published>
+    <updated>2016-04-06T10:12:34.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
+<p>啊，新功能写完啦，提交！<br><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p>咦？好想有个字写错了，没事，改！改完，提交！<br><a id="more"></a><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"fix word"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p>喔？这里还不如这样，再来！</p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"xixixi"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
+<p>。。。。。。。。。</p>
+<p><img src="http://d.hiphotos.baidu.com/zhidao/wh%3D450%2C600/sign=3a5b1ac5d71373f0f56a679b913f67cd/d009b3de9c82d15827a7db0f860a19d8bc3e4263.jpg" alt=""></p>
+<p>虽然不会每次都这么极端，但是有时候按步骤提交真的很烦。。</p>
+<p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开这个.bash_profile </span></span><br><span class="line">vi ~/.bash_profile </span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入下面这些</span></span><br><span class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></span><br><span class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></span><br><span class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></span><br><span class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></span><br><span class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></span><br><span class="line">...<span class="comment">// 其他看着加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后</span></span><br><span class="line">vi ~/.zshrc </span><br><span class="line"><span class="comment">//加入下面这段</span></span><br><span class="line"><span class="keyword">source</span> ~/.nash_profile <span class="comment">//这样每次命令行启动都会初始化alias了</span></span><br></pre></td></tr></table></figure></p>
+<p>保存,然后！<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交就变成了</span></span><br><span class="line">gaa</span><br><span class="line">gm <span class="string">""</span></span><br><span class="line">gp</span><br></pre></td></tr></table></figure></p>
+<p>就只需要这样了，<em>BUT</em> 一次提交明显还是可以压缩！干脆写个脚本</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash.sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#添加所有文件到本地仓库</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交文件到本地仓库</span></span><br><span class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交到远程分支</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<p>OK，保存到｀~/shell｀ 下<br>然后<code>vi ~/.bash_profile</code>加入这句</p>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> gamp=<span class="string">"sh ~/shell/gitpush.sh"</span> <span class="comment">// 这里只要指定文件就行</span></span><br></pre></td></tr></table></figure>
+<p>嘻嘻嘻，使用的话</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">gamp</span> <span class="string">"something"</span></span><br></pre></td></tr></table></figure>
+<p>煲仔饭！再见<br><img src="http://img4.duitang.com/uploads/item/201410/02/20141002113847_GxnvP.png" alt=""></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
+<p>啊，新功能写完啦，提交！<br><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p>咦？好想有个字写错了，没事，改！改完，提交！<br>]]>
+    
+    </summary>
+    
+      <category term="shell" scheme="http://waynecz.github.io/tags/shell/"/>
+    
+      <category term="计算机" scheme="http://waynecz.github.io/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Ajax的懒人姿势]]></title>
