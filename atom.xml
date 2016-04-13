@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-06T10:28:27.000Z</updated>
+  <updated>2016-04-12T02:37:52.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,11 +15,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[express＋webpack+gulp＋nodemon初级自动化！]]></title>
+    <link href="http://waynecz.github.io/2016/04/11/express%EF%BC%8Bwebpack-gulp%EF%BC%8Bnodemon%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
+    <id>http://waynecz.github.io/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/</id>
+    <published>2016-04-11T13:26:37.000Z</published>
+    <updated>2016-04-12T02:37:52.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/11.jpg" alt=""></p>
+<p>之前接触React时解除了webpack，不过后来看angular和其他事就搁置了。最近碰到Vue时，体验了下<a href="http://cn.vuejs.org/guide/application.html" target="_blank" rel="external">vue-cli 脚手架</a>构建的项目，只能说，<em>哇！！</em> 好爽。。什么热加载，保存时检查代码，单元测试以及一堆我还不知道的但是很强大的功能！无比顺畅<br><a id="more"></a><br>虽然之前在用的 <code>Gulp</code>加上各种插件貌似也能达到差不多的效果，但是还是心痒，所以这几天笨手笨脚地学者搭了<a href="https://github.com/waynecz/Thrones" target="_blank" rel="external">这个</a>, 一个OA的demo。</p>
+<p>开始，主要用到：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// web框架 前端模版</span></span><br><span class="line">express + art-template</span><br><span class="line"><span class="comment">// 自动化构建 打包(sass)</span></span><br><span class="line">gulp + webpack +</span><br><span class="line"><span class="comment">// 浏览器刷新 node重启 热加载</span></span><br><span class="line">browser-sync + nodemon + webpack-hot-middleware</span><br></pre></td></tr></table></figure></p>
+<p>然后新建项目，这里用express应用生成器,具体可以看<a href="http://www.expressjs.com.cn/starter/generator.html" target="_blank" rel="external">这里</a></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可能要求权限，所以sudo，然后感谢淘宝</span></span><br><span class="line">sudo cnpm install express-generator -g </span><br><span class="line"><span class="comment">//express + 项目名</span></span><br><span class="line">express myapp</span><br><span class="line"><span class="comment">//然后一路回车，塔哒，然后就好了</span></span><br></pre></td></tr></table></figure>
+<p>生成的项目模版引擎默认用的<code>jade</code>,前几天突然发现了国人开发的一款引擎<code>art-template</code>,性能强劲，语法干净，express亲和力又强，这次就用上了！<a href="http://aui.github.io/artTemplate/" target="_blank" rel="external">贴上地址</a>.</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/11.jpg" alt=""></p>
+<p>之前接触React时解除了webpack，不过后来看angular和其他事就搁置了。最近碰到Vue时，体验了下<a href="http://cn.vuejs.org/guide/application.html">vue-cli 脚手架</a>构建的项目，只能说，<em>哇！！</em> 好爽。。什么热加载，保存时检查代码，单元测试以及一堆我还不知道的但是很强大的功能！无比顺畅<br>]]>
+    
+    </summary>
+    
+      <category term="自动化构建" scheme="http://waynecz.github.io/tags/%E8%87%AA%E5%8A%A8%E5%8C%96%E6%9E%84%E5%BB%BA/"/>
+    
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[从git+add+commit+push 到 gamp!]]></title>
     <link href="http://waynecz.github.io/2016/03/06/%E4%BB%8Egit-add-commit-push-%E5%88%B0gamp/"/>
     <id>http://waynecz.github.io/2016/03/06/从git-add-commit-push-到gamp/</id>
     <published>2016-03-06T09:29:52.000Z</published>
-    <updated>2016-04-06T10:28:27.000Z</updated>
+    <updated>2016-04-11T13:35:45.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
 <p><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
@@ -28,7 +53,7 @@
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"xixixi"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
 <p>。。。。。。。。。</p>
 <p>虽然不会每次都这么极端，但是有时候按步骤提交真的很烦。。</p>
-<p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开这个.bash_profile </span></span><br><span class="line">vi ~/.bash_profile </span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入下面这些</span></span><br><span class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></span><br><span class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></span><br><span class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></span><br><span class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></span><br><span class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></span><br><span class="line">...<span class="comment">// 其他看着加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后</span></span><br><span class="line">vi ~/.zshrc </span><br><span class="line"><span class="comment">//加入下面这段</span></span><br><span class="line"><span class="keyword">source</span> ~/.nash_profile <span class="comment">//这样每次命令行启动都会初始化alias了</span></span><br></pre></td></tr></table></figure></p>
+<p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开这个.bash_profile </span></span><br><span class="line">vi ~/.bash_profile </span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入下面这些</span></span><br><span class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></span><br><span class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></span><br><span class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></span><br><span class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></span><br><span class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></span><br><span class="line">...<span class="comment">// 其他看着加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后</span></span><br><span class="line">vi ~/.zshrc </span><br><span class="line"><span class="comment">//加入下面这段</span></span><br><span class="line"><span class="keyword">source</span> ~/.nash_profile <span class="comment">//这样每次zsh的shell启动都会初始化alias了</span></span><br></pre></td></tr></table></figure></p>
 <p>保存,然后！<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交就变成了</span></span><br><span class="line">gaa</span><br><span class="line">gm <span class="string">""</span></span><br><span class="line">gp</span><br></pre></td></tr></table></figure></p>
 <p>就只需要这样了，<em>BUT</em> 一次提交还是要三行命令啊！敢不敢再短点？！好吧接下去新建一个<code>gitpush.sh</code>，里面内容写：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash.sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#添加所有文件到本地仓库</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交文件到本地仓库</span></span><br><span class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交到远程分支</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
@@ -36,7 +61,8 @@
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> gamp=<span class="string">"sh ~/shell/gitpush.sh"</span> <span class="comment">// 这里只要指定文件就行</span></span><br></pre></td></tr></table></figure>
 <p>嘻嘻嘻，使用的话</p>
 <figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">gamp</span> <span class="string">"something"</span></span><br></pre></td></tr></table></figure>
-<p>煲仔饭！再见（最后谢敏强，因为这一切其实是他的做的！）<br><img src="http://i1.mopimg.cn/img/tt/2014-08/1186/20140819110843792.gif230x170.gif" alt=""></p>
+<p>煲仔饭！再见（最后谢敏强，因为这一切其实是他的做的！）</p>
+<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>

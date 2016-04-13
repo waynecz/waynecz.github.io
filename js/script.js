@@ -17,7 +17,6 @@ function bannerAnimation() {
             $('.welcome').addClass('index');
             $('#container').addClass('rollDown');
             $('#word').find('span').addClass('zoomIn');
-        
     });
 }
 

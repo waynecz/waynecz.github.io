@@ -534,6 +534,11 @@ a.article-title:hover,
 .welcome.index {
   display: block;
 }
+@media (max-width: 900px) {
+  .welcome.index {
+    display: none;
+  }
+}
 .wordWrap {
   display: inline-block;
   will-change: transform;
@@ -966,6 +971,11 @@ a.article-title:hover,
   display: block;
   max-width: 100%;
   margin: 0 auto;
+}
+@media (max-width: 900px) {
+  .article-title {
+    font-size: 1em;
+  }
 }
 #comments {
   margin: 50px 0;
