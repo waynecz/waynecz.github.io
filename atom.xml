@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-17T15:36:46.000Z</updated>
+  <updated>2016-04-17T15:37:14.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -19,17 +19,17 @@
     <link href="http://waynecz.github.io/2016/04/17/ES6-Promise-%E5%85%A5%E9%97%A8/"/>
     <id>http://waynecz.github.io/2016/04/17/ES6-Promise-入门/</id>
     <published>2016-04-17T15:35:42.000Z</published>
-    <updated>2016-04-17T15:36:46.000Z</updated>
+    <updated>2016-04-17T15:37:14.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<p>占坑</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<p>占坑</p>
 ]]>
     </summary>
     
       <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
-    
-      <category term="异步流程控制" scheme="http://waynecz.github.io/tags/%E5%BC%82%E6%AD%A5%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
     
       <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
