@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>ES6 Promise 入门 - Wayne</title>
+  <title>jquery Deffered 到 ES6 Promise 入坑 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="占坑">
+  <meta name="description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ES6 Promise 入门">
-<meta property="og:url" content="http://waynecz.github.io/2016/04/17/ES6-Promise-入门/index.html">
+<meta property="og:title" content="jquery Deffered 到 ES6 Promise 入坑">
+<meta property="og:url" content="http://waynecz.github.io/2016/03/25/ES6-Promise-入门/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="占坑">
+<meta property="og:description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg">
-<meta property="og:updated_time" content="2016-04-17T15:37:14.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/160325/1.png">
+<meta property="og:updated_time" content="2016-04-19T15:55:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ES6 Promise 入门">
-<meta name="twitter:description" content="占坑">
+<meta name="twitter:title" content="jquery Deffered 到 ES6 Promise 入坑">
+<meta name="twitter:description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -92,15 +93,15 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      ES6 Promise 入门
+      jquery Deffered 到 ES6 Promise 入坑
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/2016/04/17/ES6-Promise-入门/" class="article-date">
-  <time datetime="2016-04-17T15:35:42.000Z" itemprop="datePublished">2016-04-17</time>
+      <a href="/2016/03/25/ES6-Promise-入门/" class="article-date">
+  <time datetime="2016-03-25T15:35:42.000Z" itemprop="datePublished">2016-03-25</time>
 </a>
       
   <div class="article-category">
@@ -109,14 +110,15 @@ s.parentNode.insertBefore(hm, s);
 
       
         <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/04/17/ES6-Promise-入门/#disqus_thread" class="article-comment-link">评论</a>
+          <a href="http://waynecz.github.io/2016/03/25/ES6-Promise-入门/#disqus_thread" class="article-comment-link">评论</a>
         </div>
       
     </div>
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<p>占坑</p>
+<p>说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：<br><img src="http://waynecz.github.io/css/images/160325/1.png" alt=""><br>可以看到就是个构造函数，实例化后具有熟悉的<code>done</code>, <code>fail</code>, <code>always</code>方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deffered();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		dfd.resolve(<span class="string">'这里是成功后的数据'</span>);</span><br><span class="line">	&#125;, <span class="number">2000</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line">Async().done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	log(data) <span class="comment">// 输出 这里是成功后的数据</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>```</p>
 
       
     </div>
@@ -132,9 +134,17 @@ s.parentNode.insertBefore(hm, s);
     
 <nav id="article-nav">
   
+    <a href="/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          express＋webpack+gulp＋nodemon初级自动化！
+        
+      </div>
+    </a>
   
-    <a href="/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">express＋webpack+gulp＋nodemon初级自动化！&nbsp;<span>&gt;</span></div>
+  
+    <a href="/2016/03/06/从git-add-commit-push-到gamp/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">从git+add+commit+push 到 gamp!&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -173,7 +183,7 @@ s.parentNode.insertBefore(hm, s);
 <script>
   var disqus_shortname = 'waynecz';
   
-  var disqus_url = 'http://waynecz.github.io/2016/04/17/ES6-Promise-入门/';
+  var disqus_url = 'http://waynecz.github.io/2016/03/25/ES6-Promise-入门/';
   
   (function(){
     var dsq = document.createElement('script');

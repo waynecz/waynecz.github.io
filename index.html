@@ -83,55 +83,6 @@ s.parentNode.insertBefore(hm, s);
   </div>
 </header>
     <section id="main" class="outer">
-      <article id="post-ES6-Promise-入门" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/17/ES6-Promise-入门/">ES6 Promise 入门</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/04/17/ES6-Promise-入门/" class="article-date">
-  <time datetime="2016-04-17T15:35:42.000Z" itemprop="datePublished">2016-04-17</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/04/17/ES6-Promise-入门/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<p>占坑</p>
-
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
       <article id="post-express＋webpack-gulp＋nodemon前端自动化" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -185,6 +136,56 @@ s.parentNode.insertBefore(hm, s);
 
 
     
+      <article id="post-ES6-Promise-入门" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/03/25/ES6-Promise-入门/">jquery Deffered 到 ES6 Promise 入坑</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/03/25/ES6-Promise-入门/" class="article-date">
+  <time datetime="2016-03-25T15:35:42.000Z" itemprop="datePublished">2016-03-25</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/前端/">前端</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/03/25/ES6-Promise-入门/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<p>说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：<br><img src="http://waynecz.github.io/css/images/160325/1.png" alt=""><br>可以看到就是个构造函数，实例化后具有熟悉的<code>done</code>, <code>fail</code>, <code>always</code>方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deffered();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		dfd.resolve(<span class="string">'这里是成功后的数据'</span>);</span><br><span class="line">	&#125;, <span class="number">2000</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line">Async().done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	log(data) <span class="comment">// 输出 这里是成功后的数据</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>```</p>
+
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-从git-add-commit-push-到gamp" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -218,7 +219,7 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
-<p><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
 <p>咦？好想有个字写错了，没事，改！改完，提交！<br>
         
           <p class="article-more-link">

@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-17T15:37:14.000Z</updated>
+  <updated>2016-04-18T01:36:08.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,34 +15,13 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[ES6 Promise 入门]]></title>
-    <link href="http://waynecz.github.io/2016/04/17/ES6-Promise-%E5%85%A5%E9%97%A8/"/>
-    <id>http://waynecz.github.io/2016/04/17/ES6-Promise-入门/</id>
-    <published>2016-04-17T15:35:42.000Z</published>
-    <updated>2016-04-17T15:37:14.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<p>占坑</p>
-]]></content>
-    <summary type="html">
-    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<p>占坑</p>
-]]>
-    </summary>
-    
-      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
-    
-      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
-    
-  </entry>
-  
-  <entry>
     <title><![CDATA[express＋webpack+gulp＋nodemon初级自动化！]]></title>
     <link href="http://waynecz.github.io/2016/04/11/express%EF%BC%8Bwebpack-gulp%EF%BC%8Bnodemon%E5%89%8D%E7%AB%AF%E8%87%AA%E5%8A%A8%E5%8C%96/"/>
     <id>http://waynecz.github.io/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/</id>
     <published>2016-04-11T13:26:37.000Z</published>
-    <updated>2016-04-17T15:34:33.000Z</updated>
+    <updated>2016-04-18T01:36:08.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/11.jpg" alt=""></p>
-<p>主要是为了彻底解放刷新键。。。。。咳咳。开始<br>之前接触React时解除了webpack，不过后来看angular和其他事就搁置了。最近碰到Vue时，体验了下<a href="http://cn.vuejs.org/guide/application.html" target="_blank" rel="external">vue-cli 脚手架</a>构建的项目，只能说，<em>哇！！</em> 好爽。。什么热加载，保存时检查代码，单元测试以及一堆我还不知道的但是很强大的功能！无比顺畅<br><a id="more"></a><br>虽然之前在用的 <code>Gulp</code>加上各种插件貌似也能达到差不多的效果，但是还是心痒，所以这几天笨手笨脚地学者搭了<a href="https://github.com/waynecz/Thrones" target="_blank" rel="external">这个</a>, 一个OA的demo。</p>
+<p>主要是为了彻底解放刷新键。。。。。咳咳。开始<br>之前接触React时解除了webpack，不过后来看angular和其他事就搁置了。最近碰到Vue时，体验了下<a href="http://cn.vuejs.org/guide/application.html" target="_blank" rel="external">vue-cli 脚手架</a>构建的项目，只能说，<em>哇！！</em> 好爽。。什么热加载，保存时检查代码，单元测试以及一堆我还不知道的但是很强大的功能！无比顺畅<br><a id="more"></a><br>虽然之前在用的 <code>Gulp</code>(盖欧破)加上各种插件貌似也能达到差不多的效果，但是还是心痒，所以这几天笨手笨脚地学者搭了<a href="https://github.com/waynecz/Thrones" target="_blank" rel="external">这个</a>, 一个OA的demo。</p>
 <p>开始，主要用到：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// web框架 前端模版</span></span><br><span class="line">express + art-template</span><br><span class="line"><span class="comment">// 自动化构建 打包(sass)</span></span><br><span class="line">gulp + webpack +</span><br><span class="line"><span class="comment">// 浏览器刷新 node重启 热加载</span></span><br><span class="line">browser-sync + nodemon + webpack-hot-middleware</span><br></pre></td></tr></table></figure></p>
 <p>然后新建项目，这里用express应用生成器,具体可以看<a href="http://www.expressjs.com.cn/starter/generator.html" target="_blank" rel="external">这里</a></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可能要求权限，所以sudo，然后感谢淘宝</span></span><br><span class="line">sudo cnpm install express-generator -g </span><br><span class="line"><span class="comment">//express + 项目名</span></span><br><span class="line">express myapp</span><br><span class="line"><span class="comment">//然后一路回车，塔哒，然后就好了</span></span><br></pre></td></tr></table></figure>
@@ -79,14 +58,35 @@
   </entry>
   
   <entry>
+    <title><![CDATA[jquery Deffered 到 ES6 Promise 入坑]]></title>
+    <link href="http://waynecz.github.io/2016/03/25/ES6-Promise-%E5%85%A5%E9%97%A8/"/>
+    <id>http://waynecz.github.io/2016/03/25/ES6-Promise-入门/</id>
+    <published>2016-03-25T15:35:42.000Z</published>
+    <updated>2016-04-19T15:55:30.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<p>说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：<br><img src="http://waynecz.github.io/css/images/160325/1.png" alt=""><br>可以看到就是个构造函数，实例化后具有熟悉的<code>done</code>, <code>fail</code>, <code>always</code>方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deffered();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		dfd.resolve(<span class="string">'这里是成功后的数据'</span>);</span><br><span class="line">	&#125;, <span class="number">2000</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line">Async().done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	log(data) <span class="comment">// 输出 这里是成功后的数据</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>```</p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
+<p>说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：<br><img src="ht]]>
+    </summary>
+    
+      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
+    
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[从git+add+commit+push 到 gamp!]]></title>
     <link href="http://waynecz.github.io/2016/03/06/%E4%BB%8Egit-add-commit-push-%E5%88%B0gamp/"/>
     <id>http://waynecz.github.io/2016/03/06/从git-add-commit-push-到gamp/</id>
     <published>2016-03-06T09:29:52.000Z</published>
-    <updated>2016-04-11T13:35:45.000Z</updated>
+    <updated>2016-04-17T15:39:56.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
-<p><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
 <p>咦？好想有个字写错了，没事，改！改完，提交！<br><a id="more"></a><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"fix word"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
 <p>喔？这里还不如这样，再来！</p>
 <figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"xixixi"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
@@ -106,7 +106,7 @@
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
-<p><img src="http://easyread.ph.126.net/NC4naiTyBWUaQ5-JdmyvEg==/7917079655292253559.gif" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
 <p>咦？好想有个字写错了，没事，改！改完，提交！<br>]]>
     
     </summary>
