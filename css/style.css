@@ -779,6 +779,9 @@ a.article-title:hover,
   line-height: 1.4em;
   margin: 1em 0;
 }
+.article-entry a {
+  color: #47a9e8;
+}
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
