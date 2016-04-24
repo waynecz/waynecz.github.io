@@ -5,18 +5,18 @@
   
   <title>jquery Deffered 到 ES6 Promise 入坑 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
+  <meta name="description" content="从 jQuery $.Deferred() 开始说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jquery Deffered 到 ES6 Promise 入坑">
 <meta property="og:url" content="http://waynecz.github.io/2016/03/25/ES6-Promise-入门/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
+<meta property="og:description" content="从 jQuery $.Deferred() 开始说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg">
-<meta property="og:image" content="http://waynecz.github.io/css/images/160325/1.png">
-<meta property="og:updated_time" content="2016-04-19T15:55:30.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160325/1.png">
+<meta property="og:updated_time" content="2016-04-24T15:52:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jquery Deffered 到 ES6 Promise 入坑">
-<meta name="twitter:description" content="说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：可以看到就是个构造函数，实例化后具有熟悉的done, fail, always方法12345678910111213var Async = function () &amp;#123;	// 创建一个Deffered对象	var dfd = $.Deffered();	// 这里调用一个异步操作	setTi">
+<meta name="twitter:description" content="从 jQuery $.Deferred() 开始说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -117,8 +117,24 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
-<p>说到异步流程控制，之前用的比较多的是jQ的Deffered。那Deffered是个啥呢，来打印看下：<br><img src="http://waynecz.github.io/css/images/160325/1.png" alt=""><br>可以看到就是个构造函数，实例化后具有熟悉的<code>done</code>, <code>fail</code>, <code>always</code>方法<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deffered();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		dfd.resolve(<span class="string">'这里是成功后的数据'</span>);</span><br><span class="line">	&#125;, <span class="number">2000</span>)</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line">Async().done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>)</span>&#123;</span><br><span class="line">	log(data) <span class="comment">// 输出 这里是成功后的数据</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>```</p>
+<h2 id="从_jQuery_$-Deferred()_开始">从 jQuery $.Deferred() 开始</h2><p>说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：</p>
+<p><img src="http://waynecz.github.io/css/images/postimg/160325/1.png" alt=""><br><a id="more"></a><br>喔！看得出$.Deferred()后是个对象，其<em>下面</em>有着熟悉的<code>done</code>, <code>fail</code>, <code>always</code>字眼（对，没错，ajax里经常用到的就是这些货色）, 当然了，还有最最重要的<code>reject</code>和<code>resolve</code>方法。</p>
+<p>看图味道不够，来试着用下！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(msg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 申明个异步操作</span></span><br><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 生成一个0到8秒的延迟</span></span><br><span class="line">	<span class="keyword">var</span> delay = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">8</span>);</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deferred();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (delay &lt;= <span class="number">3</span>) &#123;</span><br><span class="line">			dfd.resolve(<span class="string">'一切正常!'</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			dfd.reject(<span class="string">'超时了!'</span>);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;, delay * <span class="number">1000</span>)</span><br><span class="line">	<span class="comment">// 这里要返回Deferred下的promise对象Dererred对象的原因下面会解释</span></span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Async()</span><br><span class="line">	.done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		log(data) <span class="comment">// 如果延迟不大于三秒 输出dfd.resolve()中的数据 '一切正常!'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	.fail(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">		log(err) <span class="comment">// 反之则 输出dfd.reject()中的数据 '超时了!' </span></span><br><span class="line">	&#125;)</span><br><span class="line">	.always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		log(<span class="string">'执行完毕!'</span>); <span class="comment">// 总是输出 '执行完毕!'</span></span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>尝试下通俗的理解就是</p>
+<ul>
+<li>在某个操作<em>开始前</em>创建一个<code>Deferred</code>对象，然后执行操作</li>
+<li>操作成功之行relove方法并传入数据，反之之行 reject方法传入错误数据</li>
+<li>最后返回出dfd的对象下的一个promise对象，这里不直接返回dfd对象是因为dfd对象的状态是在第一次resolve或者reject后还可以更改的（不过里面的数据以第一次为准）！！</li>
+<li>操作执行后用<code>done</code>和<code>fail</code>方法分别接受resolve和reject状态和数据（一一对应）然后执行回调</li>
+<li><code>always</code>是无论resolve还是reject都会执行。</li>
+</ul>
+<p>这里讲个比较烂的比喻啊，你是一个流水线车间质检工人，就在平常的这样的一天，来了一批玩具熊，嗯，接下来应该是这样的</p>
+<ul>
+<li>来了一个检查目标（<em>$.Dererred()</em>），这时你还不知道它是好是坏</li>
+<li>你靠你几十年的新东方偷师生涯判断好坏并给良品贴上了合格标签（<em>dfd.resolve(合格标签)</em>），次品贴上回厂标签（<em>dfd.reject(回厂标签及原因)</em>）</li>
+<li>然后通过的良品和次品都来到了各自的包装口打好包，不能对里面的标签做更改了！（<em>dfd.promise()</em>）去往自己下一个目的地(<em>return dfd.promise</em>)</li>
+<li>再然后良品来到了熊孩子手中（<em>.done()</em>）,次品回到了厂里（<em>.fail()</em>）,虽然到这里玩具熊命运不同，但是它们最终都会被开膛破肚（<em>.always()</em>）</li>
+</ul>
 
       
     </div>
