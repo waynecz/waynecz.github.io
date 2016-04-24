@@ -782,6 +782,9 @@ a.article-title:hover,
 .article-entry a {
   color: #47a9e8;
 }
+.article-entry a:hover {
+  color: #2b6990;
+}
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
