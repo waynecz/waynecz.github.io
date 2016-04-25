@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-04-24T15:56:37.000Z</updated>
+  <updated>2016-04-25T07:23:08.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,17 +15,19 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title><![CDATA[好用的 HTML5 API]]></title>
-    <link href="http://waynecz.github.io/2016/04/24/HTML5-API-%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://waynecz.github.io/2016/04/24/HTML5-API-学习/</id>
+    <title><![CDATA[CSS3 animation 动画的流程控制！]]></title>
+    <link href="http://waynecz.github.io/2016/04/24/%20CSS3%20animation%20%E5%8A%A8%E7%94%BB%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6%EF%BC%81/"/>
+    <id>http://waynecz.github.io/2016/04/24/ CSS3 animation 动画的流程控制！/</id>
     <published>2016-04-24T15:53:53.000Z</published>
-    <updated>2016-04-24T15:56:37.000Z</updated>
+    <updated>2016-04-25T07:23:08.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
 <h3 id="先占坑😆">先占坑😆</h3>]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
 <h3 id="先占坑😆">先占坑😆</h3>]]>
     </summary>
+    
+      <category term="css3" scheme="http://waynecz.github.io/tags/css3/"/>
     
       <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
     
@@ -77,41 +79,47 @@
   </entry>
   
   <entry>
-    <title><![CDATA[jquery Deffered 到 ES6 Promise 入坑]]></title>
+    <title><![CDATA[jquery Deffered 和 ES6 Promise 初步用法解释]]></title>
     <link href="http://waynecz.github.io/2016/03/25/ES6-Promise-%E5%85%A5%E9%97%A8/"/>
     <id>http://waynecz.github.io/2016/03/25/ES6-Promise-入门/</id>
     <published>2016-03-25T15:35:42.000Z</published>
-    <updated>2016-04-25T03:50:27.000Z</updated>
+    <updated>2016-04-25T07:19:46.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
 <h2 id="从_jQuery_$-Deferred()_开始">从 jQuery $.Deferred() 开始</h2><p>说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：</p>
-<p><img src="http://waynecz.github.io/css/images/postimg/160325/1.png" alt=""><br><a id="more"></a><br>喔！看得出$.Deferred()后是个对象，其<em>下面</em>有着熟悉的<code>done</code>, <code>fail</code>, <code>always</code>字眼（对，没错，ajax里经常用到的就是这些货色）, 当然了，还有最最重要的<code>reject</code>和<code>resolve</code>方法。</p>
-<p>看图味道不够，来试着用下！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(msg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 申明个异步操作</span></span><br><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 生成一个0到8秒的延迟</span></span><br><span class="line">	<span class="keyword">var</span> delay = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">8</span>);</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deferred();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (delay &lt;= <span class="number">3</span>) &#123;</span><br><span class="line">			dfd.resolve(<span class="string">'一切正常!'</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			dfd.reject(<span class="string">'超时了!'</span>);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;, delay * <span class="number">1000</span>)</span><br><span class="line">	<span class="comment">// 这里要返回Deferred下的promise对象Dererred对象的原因下面会解释</span></span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Async()</span><br><span class="line">	.done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		log(data) <span class="comment">// 如果延迟不大于三秒 输出dfd.resolve()中的数据 '一切正常!'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	.fail(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">		log(err) <span class="comment">// 反之则 输出dfd.reject()中的数据 '超时了!' </span></span><br><span class="line">	&#125;)</span><br><span class="line">	.always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		log(<span class="string">'执行完毕!'</span>); <span class="comment">// 总是输出 '执行完毕!'</span></span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>尝试下通俗的理解就是</p>
+<p><img src="http://waynecz.github.io/css/images/postimg/160325/1.png" alt=""><br><a id="more"></a><br>喔！看得出$.Deferred()后是个对象，其<em>下面</em>有着熟悉的<code>done</code>, <code>fail</code>, <code>always</code>字眼（对，没错，ajax里经常用到的就是这些货色）, 当然了，还有最最重要的<code>reject</code>和<code>resolve</code>方法，说到这两个方法，就得引出下Deferred的状态机制了，其实很简单，实例化后用上图中的<code>state</code>方法就可以查看(<code>$.Deferred().state()</code>),有三种状态</p>
 <ul>
+<li>执行resolve/reject前，返回值是pending</li>
+<li>执行了resolve，返回值是resolved</li>
+<li>执行了reject，返回值是rejected</li>
+</ul>
+<p>来试着用下！<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">log</span> (<span class="params">msg</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(msg);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 申明个异步操作</span></span><br><span class="line"><span class="keyword">var</span> Async = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">// 生成一个0到8秒的延迟</span></span><br><span class="line">	<span class="keyword">var</span> delay = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * <span class="number">8</span>);</span><br><span class="line">	<span class="comment">// 创建一个Deffered对象</span></span><br><span class="line">	<span class="keyword">var</span> dfd = $.Deferred();</span><br><span class="line">	<span class="comment">// 这里调用一个异步操作</span></span><br><span class="line">	setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">		<span class="keyword">if</span> (delay &lt;= <span class="number">3</span>) &#123;</span><br><span class="line">			<span class="comment">// 置dfd状态为resolved</span></span><br><span class="line">			dfd.resolve(<span class="string">'一切正常!'</span>);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="comment">// 置dfd状态为rejected</span></span><br><span class="line">			dfd.reject(<span class="string">'超时了!'</span>);</span><br><span class="line">		&#125;			</span><br><span class="line">	&#125;, delay * <span class="number">1000</span>)</span><br><span class="line">	<span class="comment">// 这里要返回Deferred下的promise对象Dererred对象的原因下面会解释</span></span><br><span class="line">	<span class="keyword">return</span> dfd.promise();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Async()</span><br><span class="line">	.done(<span class="function"><span class="keyword">function</span> (<span class="params">data</span>) </span>&#123;</span><br><span class="line">		log(data) <span class="comment">// 如果延迟不大于三秒 输出dfd.resolve()中的数据 '一切正常!'</span></span><br><span class="line">	&#125;)</span><br><span class="line">	.fail(<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">		log(err) <span class="comment">// 反之则 输出dfd.reject()中的数据 '超时了!' </span></span><br><span class="line">	&#125;)</span><br><span class="line">	.always(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">		log(<span class="string">'执行完毕!'</span>); <span class="comment">// 总是输出 '执行完毕!'</span></span><br><span class="line">	&#125;)</span><br></pre></td></tr></table></figure></p>
+<p>尝试下通俗理解整个流程就是</p>
+<ol>
 <li><p>在某个操作<em>开始前</em>创建一个<code>Deferred</code>对象，然后执行操作</p>
 </li>
-<li><p>操作成功之行relove方法并传入数据，反之之行 reject方法传入错误数据</p>
+<li><p>操作间可根据情况给dfd执行<code>relove</code>或者<code>reject</code>方法改变状态并传入数据</p>
 </li>
 <li><p>最后返回出dfd的对象下的一个promise对象，这里不直接返回dfd对象是因为dfd对象的状态是在第一次resolve或者reject后还可以更改的（不过里面的数据以第一次为准）！！</p>
 </li>
 <li><p>操作执行后用<code>done</code>和<code>fail</code>方法分别接受resolve和reject状态和数据（一一对应）然后执行回调</p>
 </li>
-<li><p><code>always</code>是无论resolve还是reject都会执行。</p>
+<li><p><code>always</code>是无论<code>resolve</code>还是<code>reject</code>都会执行。</p>
 </li>
-</ul>
-<p>这里讲个比较烂的比喻啊，你是一个流水线车间质检工人，就在平常的这样的一天，来了一批玩具熊，嗯，接下来应该是这样的</p>
-<ul>
-<li>来了一个检查目标（<code>$.Dererred()</code>），这时你还不知道它是好是坏</li>
-<li></li>
-<li>你靠你几十年的新东方偷师生涯判断好坏并给良品贴上了合格标签（<code>dfd.res* olve(合格标签)</code>），次品贴上回厂标签* （<code>dfd.reject(回厂标签及原因)</code>）</li>
-<li></li>
-<li>然后通过的良品和次品都来到了各自的包装口打好包，不能对里面的标签做更改了！（<code>dfd.promise()</code>）去往自己下一个目的地(<code>return dfd.promise</code>)</li>
-<li></li>
-<li>再然后良品来到了熊孩子手中（<code>.done()</code>）,次品回到了厂里（<code>.fail()</code>）,最后不管玩具熊到了哪里，其实都会被开膛破肚（<code>.always()</code>好吧这里有点牵强）</li>
-</ul>
+</ol>
+<p><strong>讲个比较烂的比喻啊，我是一个流水线车间质检工人，就在平常的这样的一天，来了一批玩具熊，嗯，接下来应该是这样的</strong></p>
+<ol>
+<li><p>来了一个检查目标（<code>$.Dererred()</code>），这时你还不知道它是好是坏</p>
+</li>
+<li><p>我靠我几十年的新东方炒菜技巧检验产品并给良品贴上了合格标签（<code>dfd.res* olve(合格标签)</code>），次品贴上回厂标签* （<code>dfd.reject(回厂标签及原因)</code>）</p>
+</li>
+<li><p>然后通过的良品和次品都来到了各自的包装口打好包，不能对里面的标签做更改了！（<code>dfd.promise()</code>）去往自己下一个目的地(<code>return dfd.promise</code>)</p>
+</li>
+<li><p>再然后良品来到了熊孩子手中（<code>.done()</code>）,次品回到了厂里（<code>.fail()</code>）,最后不管玩具熊到了哪里，其实都会被开膛破肚（<code>.always()</code>好吧这里有点牵强）</p>
+</li>
+</ol>
 <p>这里再上一张图来解释下！</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160325/2.png" alt=""></p>
-<p>这里说一下<code>always</code>我在实际中使用时</p>
+<p>还有值得说一下的是<code>always</code>里的回调，我在实际中使用时发现总是在<code>done</code>和<code>fail</code>里的回调(假设为同步)执行完毕后后执行的。</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
@@ -170,13 +178,13 @@
     <link href="http://waynecz.github.io/2016/03/05/Ajax%E7%9A%84%E6%87%92%E4%BA%BA%E5%A7%BF%E5%8A%BF/"/>
     <id>http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/</id>
     <published>2016-03-05T01:56:02.000Z</published>
-    <updated>2016-04-05T15:55:18.000Z</updated>
+    <updated>2016-04-25T06:23:18.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
 <p>jq的ajax是个好东西，之前每次是这么写的</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <p>写多了就发现，其实业务交互都在<code>.done()</code>里处理，<code>.fail()</code>和<code>.always()</code>看起来都是些重复处理的动作。然后再看异步流程控制时看到了<a href="https://segmentfault.com/a/1190000003691961" target="_blank" rel="external">这个！</a></p>
-<p>抽出来说就是写个公共的ajax方法来让每次ajax都只要处理<code>.done()</code>多酷！！主要用到JQ的异步控制，主角就是<code>Deferred</code> 和 <code>Promise</code>,这两个的关系就是：</p>
+<p>摘抄出来一段说就是写个公共的ajax方法来让每次ajax都只要处理<code>.done()</code>多酷！！主要用到JQ的异步控制，主角就是<code>Deferred</code> 和 <code>Promise</code>,这两个的关系就是：</p>
 <ul>
 <li>Deffered 触发 resolve 或 reject</li>
 <li>Promise 中申明 resolve 或 reject 后应该做什么（回调） </li>
@@ -206,7 +214,7 @@
     <link href="http://waynecz.github.io/2016/02/01/%E5%88%A4%E6%96%AD%E5%BD%93%E5%89%8D%E6%B5%8F%E8%A7%88%E5%99%A8%E6%98%AF%E5%90%A6%E6%94%AF%E6%8C%81%E6%9F%90%E4%B8%AACSS%E5%B1%9E%E6%80%A7/"/>
     <id>http://waynecz.github.io/2016/02/01/判断当前浏览器是否支持某个CSS属性/</id>
     <published>2016-02-01T03:20:16.000Z</published>
-    <updated>2016-04-05T15:53:06.000Z</updated>
+    <updated>2016-04-25T06:15:07.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Rough%20Sea.jpg" alt=""></p>
 <p>虽然一直在现在的项目中用css动画，但是没去仔细思考兼容问题，现在做个思路总结</p>
 <p>列几个 <a href="http://caniuse.com" target="_blank" rel="external">CSS动画相关属性的兼容图</a>:</p>
@@ -218,7 +226,7 @@
 </ol>
 <p>可以看到动画在IE8（<em>这里主要讨论IE</em>）及以下完全不支持，IE9由于只支持<code>transform(非transform3d)</code>所以也和css动画 <strong>say goodbye</strong> 了。<br>但是项目一定要兼容IE9，又不肯因为一个浏览器放弃整个迪士尼，怎么办？</p>
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/depu.gif" alt="">  </p>
-<p>优雅降级咯，先说下一个简单的小例子：<code>一个元素在页面加载时渐进入页面</code>，上面可以我看到气势IE9不支持animation和transform3d以及transition，所以一个的方案就是让IE9没有动画（主要就是让IE9下元素呆在动画结束的最后位置），这里元素初始状态需要在画面外并且是隐身，看代码    </p>
+<p>优雅降级咯，先说下一个简单的小例子：<code>一个元素在页面加载时渐进入页面</code>，上面可以看到气势IE9不支持animation和transform3d以及transition，所以一个的方案就是让IE9没有动画（主要就是让IE9下元素呆在动画结束的最后位置），这里元素初始状态需要在画面外并且是隐身，看代码    </p>
 <p>HTML<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"a"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>CSS<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">div</span> <span class="rules">&#123;</span><br><span class="line">  <span class="rule"><span class="attribute">width</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">height</span>:<span class="value"> <span class="number">100px</span></span></span>;</span><br><span class="line">  <span class="rule"><span class="attribute">background</span>:<span class="value"> <span class="hexcolor">#3ea5ff</span></span></span>;</span><br><span class="line">&#125;</span></span><br><span class="line"><span class="class">.a</span> <span class="rules">&#123; <span class="comment">/*a初始化元素动画前样式及加入动画*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="comment">/*现代浏览器下移开元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">-ms-transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="comment">/*IE10+下移开元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0</span></span></span>;<span class="comment">/*透明元素*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">opacity</span>:<span class="value"><span class="number">1</span>\<span class="number">9</span>\<span class="number">0</span></span></span>; <span class="comment">/*IE9hack，是元素不透明*/</span></span><br><span class="line">  <span class="rule"><span class="attribute">animation</span>:<span class="value"> leftIn .<span class="number">7s</span> ease-out forwards</span></span>;  </span><br><span class="line">  </span><br><span class="line">&#125;</span></span><br><span class="line"><span class="at_rule">@<span class="keyword">keyframes</span> leftIn </span>&#123;</span><br><span class="line">  0% <span class="rules">&#123;<span class="rule"><span class="attribute">transform</span>:<span class="value"> <span class="function">translate3d</span>(-<span class="number">300px</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">0</span>&#125;</span><br><span class="line">  <span class="number">100%</span> &#123;transform: <span class="function">translate3d</span>(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>)</span></span>;<span class="rule"><span class="attribute">opacity</span>:<span class="value"> <span class="number">1</span>&#125;</span><br><span class="line">&#125;</span></span></span></span><br></pre></td></tr></table></figure></p>
 <p>好简单是不是。。主要功臣自然是<code>translate3d</code>,因为IE9不支持自然会忽略掉，所以translate也在IE下不起效了，opacity等简单属性做个hack即可。</p>
