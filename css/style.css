@@ -780,7 +780,7 @@ a.article-title:hover,
   margin: 1em 0;
 }
 .article-entry a {
-  color: #47a9e8;
+  color: #c7254e;
 }
 .article-entry a:hover {
   color: #2b6990;
@@ -1111,8 +1111,9 @@ a.article-title:hover,
   font-family: "Source Code Pro", Consolas, Monaco, Menlo, Consolas, monospace, '华文中宋';
 }
 .article-entry code {
-  background: #f2f2f2;
-  padding: 0 0.3em;
+  background: #f9f2f4;
+  padding: 0 0.4em;
+  color: #c7254e;
 }
 .article-entry pre {
   padding: 20px;

@@ -81,7 +81,7 @@
     <link href="http://waynecz.github.io/2016/03/25/ES6-Promise-%E5%85%A5%E9%97%A8/"/>
     <id>http://waynecz.github.io/2016/03/25/ES6-Promise-入门/</id>
     <published>2016-03-25T15:35:42.000Z</published>
-    <updated>2016-04-25T03:47:12.000Z</updated>
+    <updated>2016-04-25T03:50:27.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
 <h2 id="从_jQuery_$-Deferred()_开始">从 jQuery $.Deferred() 开始</h2><p>说到异步流程控制，之前用的比较多的是jQ的Deferred。那Deferred是个啥呢，控制台来打印看下：</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160325/1.png" alt=""><br><a id="more"></a><br>喔！看得出$.Deferred()后是个对象，其<em>下面</em>有着熟悉的<code>done</code>, <code>fail</code>, <code>always</code>字眼（对，没错，ajax里经常用到的就是这些货色）, 当然了，还有最最重要的<code>reject</code>和<code>resolve</code>方法。</p>
@@ -111,6 +111,7 @@
 </ul>
 <p>这里再上一张图来解释下！</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160325/2.png" alt=""></p>
+<p>这里说一下<code>always</code>我在实际中使用时</p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
