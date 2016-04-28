@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CSS3 animation 动画的流程控制！ - Wayne</title>
+  <title>CSS3 animation 动画的流程控制探索 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="先占坑😆">
+  <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3 animation 动画的流程控制！">
+<meta property="og:title" content="CSS3 animation 动画的流程控制探索">
 <meta property="og:url" content="http://waynecz.github.io/2016/04/24/ CSS3 animation 动画的流程控制！/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="先占坑😆">
+<meta property="og:description">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg">
-<meta property="og:updated_time" content="2016-04-25T07:23:08.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160424/1.png">
+<meta property="og:updated_time" content="2016-04-28T08:36:28.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3 animation 动画的流程控制！">
-<meta name="twitter:description" content="先占坑😆">
+<meta name="twitter:title" content="CSS3 animation 动画的流程控制探索">
+<meta name="twitter:description">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -92,7 +93,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      CSS3 animation 动画的流程控制！
+      CSS3 animation 动画的流程控制探索
     </h1>
   
 
@@ -115,8 +116,12 @@ s.parentNode.insertBefore(hm, s);
     </div>
     <div class="article-entry" itemprop="articleBody">
       
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
-<h3 id="先占坑😆">先占坑😆</h3>
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""><br><a id="more"></a></p>
+<h3 id="前言">前言</h3><p>好吧。。。并没有前言，直接进入正题。CSS3的<code>animation</code>是一个好东西，让页面动画更加<strong>纯净</strong>，但是之前一扯到动画流程的控制（比如执行完第一个动画后再执行第二个动画在执行某个动作）就有点懵逼<img src="http://waynecz.github.io/css/images/postimg/160424/1.png" style="display:inline-block"></p>
+<p>如果是jQuery动画呢，都会有个回调函数（或者.promise().done()），方便滴狠呐！但是<code>animation</code> 呢。。呢。。。呢。。。。</p>
+<p>粗粗的想一想吧，貌似给元素加上第一个动画的类后根据第一个动画的执行时间来设置个延迟再加入第二个动画的类也是可以实现的，但是总觉得这样不干净，而且setTimeout其实也不是那么的可控，</p>
+<p>然后塔哒，就遇到这篇好文章<a href="http://blog.jobbole.com/51889/" target="_blank" rel="external">你若触发，我就处理</a>，讲的是JS事件响应的，对，<strong>事！件！响！应！</strong>。如果动画结束时能有能触发某个事件，JS再响应一下，这不就完美了吗？</p>
+
       
     </div>
   
