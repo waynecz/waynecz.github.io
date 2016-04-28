@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CSS3 animation 动画的流程控制探索 - Wayne</title>
+  <title>CSS3 animation 动画的流程控制 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3 animation 动画的流程控制探索">
-<meta property="og:url" content="http://waynecz.github.io/2016/04/24/ CSS3 animation 动画的流程控制！/index.html">
+<meta property="og:title" content="CSS3 animation 动画的流程控制">
+<meta property="og:url" content="http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160424/1.png">
-<meta property="og:updated_time" content="2016-04-28T08:36:28.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160424/2.png">
+<meta property="og:updated_time" content="2016-04-28T09:10:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3 animation 动画的流程控制探索">
+<meta name="twitter:title" content="CSS3 animation 动画的流程控制">
 <meta name="twitter:description">
   
   
@@ -85,7 +86,7 @@ s.parentNode.insertBefore(hm, s);
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post- CSS3 animation 动画的流程控制！" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-CSS3 animation 动画的流程控制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -93,14 +94,14 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      CSS3 animation 动画的流程控制探索
+      CSS3 animation 动画的流程控制
     </h1>
   
 
       </header>
     
     <div class="article-meta">
-      <a href="/2016/04/24/ CSS3 animation 动画的流程控制！/" class="article-date">
+      <a href="/2016/04/24/CSS3 animation 动画的流程控制/" class="article-date">
   <time datetime="2016-04-24T15:53:53.000Z" itemprop="datePublished">2016-04-24</time>
 </a>
       
@@ -110,7 +111,7 @@ s.parentNode.insertBefore(hm, s);
 
       
         <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/04/24/ CSS3 animation 动画的流程控制！/#disqus_thread" class="article-comment-link">评论</a>
+          <a href="http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/#disqus_thread" class="article-comment-link">评论</a>
         </div>
       
     </div>
@@ -118,9 +119,15 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""><br><a id="more"></a></p>
 <h3 id="前言">前言</h3><p>好吧。。。并没有前言，直接进入正题。CSS3的<code>animation</code>是一个好东西，让页面动画更加<strong>纯净</strong>，但是之前一扯到动画流程的控制（比如执行完第一个动画后再执行第二个动画在执行某个动作）就有点懵逼<img src="http://waynecz.github.io/css/images/postimg/160424/1.png" style="display:inline-block"></p>
-<p>如果是jQuery动画呢，都会有个回调函数（或者.promise().done()），方便滴狠呐！但是<code>animation</code> 呢。。呢。。。呢。。。。</p>
+<p>如果是jQuery动画呢，有回调函数（或者.promise().done()），方便滴狠呐！但是<code>animation</code> 呢。。呢。。。呢。。。。呢。。。。。呢。。。。。。</p>
 <p>粗粗的想一想吧，貌似给元素加上第一个动画的类后根据第一个动画的执行时间来设置个延迟再加入第二个动画的类也是可以实现的，但是总觉得这样不干净，而且setTimeout其实也不是那么的可控，</p>
-<p>然后塔哒，就遇到这篇好文章<a href="http://blog.jobbole.com/51889/" target="_blank" rel="external">你若触发，我就处理</a>，讲的是JS事件响应的，对，<strong>事！件！响！应！</strong>。如果动画结束时能有能触发某个事件，JS再响应一下，这不就完美了吗？</p>
+<p>然后塔哒，就遇到这篇文章<a href="http://blog.jobbole.com/51889/" target="_blank" rel="external">你若触发，我就处理</a>，讲的是JS事件响应的，对， <strong>事！件！响！应！</strong>。如果动画结束时能有能触发某个事件，JS再监听响应一下，这不就完事儿了吗？</p>
+<p>诶，万能的JS还真有<img src="http://waynecz.github.io/css/images/postimg/160424/2.png" style="display:inline-block"></p>
+<h3 id="CSS动画事件_animationstart，animationend和animationiteration">CSS动画事件 animationstart，animationend和animationiteration</h3><p>看着三个事件名字就知道，这三个事件分别对应动画开始前，动画结束后，动画进行中，不废话了，直接上个<a href="https://jsfiddle.net/waynecz/fd8yz8bh/" target="_blank" rel="external">demo</a></p>
+<p>实现了个简单的删除动画，第一步让元素出视野，第二步让元素<code>height</code>和<code>margin,paddind</code>等都塌陷，最后直接移除元素</p>
+<iframe width="100%" height="500" src="//jsfiddle.net/waynecz/fd8yz8bh/15/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+<p>有几个自己觉得要注意写下注释<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">on(<span class="string">'.m1'</span>, <span class="string">'animationend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this.classList获取的是一个DOMtokenList并不是真的数组所以要转换一下</span></span><br><span class="line">  <span class="keyword">var</span> classlist = <span class="built_in">Array</span>.prototype.slice.apply(<span class="keyword">this</span>.classList);</span><br><span class="line">  <span class="comment">// 因为有两个动画，所以要判定是哪一个动画结束了来执行下一阶段</span></span><br><span class="line">  <span class="keyword">if</span> (classlist.indexOf(<span class="string">'dnone'</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.add(<span class="string">'dnone'</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.parentNode.removeChild(<span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">on(<span class="string">'button'</span>, <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  select(<span class="string">'.m1'</span>).classList.toggle(<span class="string">'leave'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(selector)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params">selector, eventName, cb</span>) </span>&#123;</span><br><span class="line">  select(selector).addEventListener(eventName, cb);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -177,7 +184,7 @@ s.parentNode.insertBefore(hm, s);
 <script>
   var disqus_shortname = 'waynecz';
   
-  var disqus_url = 'http://waynecz.github.io/2016/04/24/ CSS3 animation 动画的流程控制！/';
+  var disqus_url = 'http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/';
   
   (function(){
     var dsq = document.createElement('script');
