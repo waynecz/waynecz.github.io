@@ -3,20 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>CSS3 animation 动画的流程控制 - Wayne</title>
+  <title>CSS3 animation 动画的流程的简单控制 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CSS3 animation 动画的流程控制">
+<meta property="og:title" content="CSS3 animation 动画的流程的简单控制">
 <meta property="og:url" content="http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160424/1.png">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160424/2.png">
-<meta property="og:updated_time" content="2016-04-28T09:10:30.000Z">
+<meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg">
+<meta property="og:updated_time" content="2016-04-28T10:22:34.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS3 animation 动画的流程控制">
+<meta name="twitter:title" content="CSS3 animation 动画的流程的简单控制">
 <meta name="twitter:description">
   
   
@@ -94,7 +95,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      CSS3 animation 动画的流程控制
+      CSS3 animation 动画的流程的简单控制
     </h1>
   
 
@@ -128,6 +129,13 @@ s.parentNode.insertBefore(hm, s);
 <iframe width="100%" height="500" src="//jsfiddle.net/waynecz/fd8yz8bh/15/embedded/js,html,css,result/dark/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
 
 <p>有几个自己觉得要注意写下注释<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">on(<span class="string">'.m1'</span>, <span class="string">'animationend'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// this.classList获取的是一个DOMtokenList并不是真的数组所以要转换一下</span></span><br><span class="line">  <span class="keyword">var</span> classlist = <span class="built_in">Array</span>.prototype.slice.apply(<span class="keyword">this</span>.classList);</span><br><span class="line">  <span class="comment">// 因为有两个动画，所以要判定是哪一个动画结束了来执行下一阶段</span></span><br><span class="line">  <span class="keyword">if</span> (classlist.indexOf(<span class="string">'dnone'</span>) == -<span class="number">1</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.classList.add(<span class="string">'dnone'</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">this</span>.parentNode.removeChild(<span class="keyword">this</span>)</span><br><span class="line">    &#125;, <span class="number">1000</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">on(<span class="string">'button'</span>, <span class="string">'click'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  select(<span class="string">'.m1'</span>).classList.toggle(<span class="string">'leave'</span>);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">select</span>(<span class="params">selector</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">document</span>.querySelector(selector)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params">selector, eventName, cb</span>) </span>&#123;</span><br><span class="line">  select(selector).addEventListener(eventName, cb);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这么一看其实也是很简单的哈哈,顺带一提起时<code>transition</code>过渡动画也有个事件<code>transitionend</code>。</p>
+<h3 id="最后，兼容性">最后，兼容性</h3><ol>
+<li>CSS3动画相关属性的兼容性可以看<a href="http://waynecz.github.io/2016/02/01/CSS%E5%8A%A8%E7%94%BB%E4%BC%98%E9%9B%85%E9%99%8D%E7%BA%A7%E7%9A%84%E7%AE%80%E5%8D%95%E6%80%BB%E7%BB%93/">这里</a></li>
+<li><code>animation</code>事件，一般只需加两种前缀就可以了<br>webkit前缀：webkitAnimationStart<br>MS前缀：MSAnimationStart   </li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.prototype.perfixOn = <span class="function"><span class="keyword">function</span> (<span class="params">eventName, cb</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> perfix = [<span class="string">'webkit'</span>, <span class="string">'MS'</span>, <span class="string">''</span>]</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">var</span> i = perfix.length - <span class="number">1</span>; i &gt;= <span class="number">0</span>; i--) &#123;</span><br><span class="line">		<span class="keyword">if</span> (perfix[i] != <span class="string">''</span>) &#123;</span><br><span class="line">            eventName.replace(<span class="regexp">/^(\w)/</span>, <span class="function"><span class="keyword">function</span> (<span class="params">$1</span>) </span>&#123;</span><br><span class="line">                <span class="keyword">return</span> $<span class="number">1.</span>toUpperCase()</span><br><span class="line">            &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">		<span class="keyword">this</span>.addEventListener(perfix[i] + eventName, cb, <span class="literal">false</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">Obj.perfixOn(<span class="string">'animationend'</span>, cb)</span><br></pre></td></tr></table></figure>
+<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg" alt=""> </p>
 
       
     </div>
