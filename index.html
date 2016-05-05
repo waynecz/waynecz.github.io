@@ -83,6 +83,54 @@ s.parentNode.insertBefore(hm, s);
   </div>
 </header>
     <section id="main" class="outer">
+      <article id="post-(书摘) 计的几个关键原则 (一)" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/05/05/(书摘) 计的几个关键原则 (一)/">(书摘) 计的几个关键原则 (一)</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-meta">
+      <a href="/2016/05/05/(书摘) 计的几个关键原则 (一)/" class="article-date">
+  <time datetime="2016-05-05T15:53:32.000Z" itemprop="datePublished">2016-05-05</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/设计/">设计</a>
+  </div>
+
+      
+        <div class="article-comment-link-wrap">
+          <a href="http://waynecz.github.io/2016/05/05/(书摘) 计的几个关键原则 (一)/#disqus_thread" class="article-comment-link">评论</a>
+        </div>
+      
+    </div>
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg" alt=""></p>
+<h2 id="占坑">占坑</h2>
+      
+    </div>
+  
+    <footer class="article-footer">
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li></ul>
+
+    </footer>
+  
+  </div>
+  
+</article>
+
+
+    
       <article id="post-CSS3 animation 动画的流程控制" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -288,60 +336,6 @@ s.parentNode.insertBefore(hm, s);
     <footer class="article-footer">
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/">shell</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-Ajax的懒人姿势" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/05/Ajax的懒人姿势/">Ajax的懒人姿势</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/03/05/Ajax的懒人姿势/" class="article-date">
-  <time datetime="2016-03-05T01:56:02.000Z" itemprop="datePublished">2016-03-05</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/03/05/Ajax的懒人姿势/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/13.jpg" alt=""></p>
-<p>jq的ajax是个好东西，之前每次是这么写的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.xhrCtrl = &#123;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> doAjax = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (xhr.doAjax)&#123;</span><br><span class="line">		<span class="comment">// 重复点击控制</span></span><br><span class="line">		<span class="keyword">return</span> <span class="literal">false</span> </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">//按钮控制</span></span><br><span class="line">	$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">true</span>);</span><br><span class="line">	</span><br><span class="line">	xhr.doAjax = <span class="literal">true</span>;	</span><br><span class="line">	$.ajax(&#123;</span><br><span class="line">		url: url</span><br><span class="line">	    type: <span class="string">"post"</span>,</span><br><span class="line">	    dataType: <span class="string">"json"</span>,</span><br><span class="line">	    data: postData</span><br><span class="line">	&#125;).done(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用成功执行</span></span><br><span class="line">	    <span class="comment">// do something</span></span><br><span class="line">	&#125;).fail(<span class="function"><span class="keyword">function</span>(<span class="params">err</span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// Ajax 调用失败执行</span></span><br><span class="line">	    <span class="built_in">console</span>.log(<span class="string">'Fail!'</span>);</span><br><span class="line">	&#125;).always(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	    <span class="comment">// 不管成功与否，都会执行</span></span><br><span class="line">    	xhr.doAjax = <span class="literal">null</span>;</span><br><span class="line">   		$(<span class="string">"#theButton"</span>).prop(<span class="string">'disabled'</span>, <span class="literal">false</span>);</span><br><span class="line">	&#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2016/03/05/Ajax的懒人姿势/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/jquery/">jquery</a></li></ul>
 
     </footer>
   
