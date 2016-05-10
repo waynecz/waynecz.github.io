@@ -753,7 +753,7 @@ a.article-title:hover,
   line-height: 1em;
 }
 .article-entry {
-  color: #444;
+  color: #606060;
   padding: 0;
 }
 .article-entry:before,
@@ -778,6 +778,7 @@ a.article-title:hover,
   font-weight: 600;
   line-height: 1.4em;
   margin: 1em 0;
+  color: #000;
 }
 .article-entry a {
   color: #c7254e;
