@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-05-11T02:19:15.000Z</updated>
+  <updated>2016-05-11T05:18:14.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -15,9 +15,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title><![CDATA[简单的理解this]]></title>
+    <link href="http://waynecz.github.io/2016/05/11/%E7%AE%80%E5%8D%95%E7%9A%84%E7%90%86%E8%A7%A3this/"/>
+    <id>http://waynecz.github.io/2016/05/11/简单的理解this/</id>
+    <published>2016-05-11T05:17:01.000Z</published>
+    <updated>2016-05-11T05:18:14.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
+<p>#占坑</p>
+<a id="more"></a>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
+<p>#占坑</p>]]>
+    
+    </summary>
+    
+      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
+    
+      <category term="this" scheme="http://waynecz.github.io/tags/this/"/>
+    
+      <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title><![CDATA[设计的几个关键原则 (一)]]></title>
-    <link href="http://waynecz.github.io/2016/05/05/(%E4%B9%A6%E6%91%98)%20%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E5%8E%9F%E5%88%99%20(%E4%B8%80)/"/>
-    <id>http://waynecz.github.io/2016/05/05/(书摘) 设计的几个关键原则 (一)/</id>
+    <link href="http://waynecz.github.io/2016/05/05/(%E6%91%98)%20%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E5%8E%9F%E5%88%99%20(%E4%B8%80)/"/>
+    <id>http://waynecz.github.io/2016/05/05/(摘) 设计的几个关键原则 (一)/</id>
     <published>2016-05-05T15:53:32.000Z</published>
     <updated>2016-05-11T02:19:15.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg" alt=""></p>
