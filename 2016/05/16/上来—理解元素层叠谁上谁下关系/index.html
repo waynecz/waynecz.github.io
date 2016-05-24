@@ -3,19 +3,29 @@
 <head>
   <meta charset="utf-8">
   
-  <title>你，上来——理解元素层叠谁上谁下 - Wayne</title>
+  <title>你，上来——元素谁上谁下关系的理清 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="占个小坑。。。">
+  <meta name="description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
+
+直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你，上来——理解元素层叠谁上谁下">
+<meta property="og:title" content="你，上来——元素谁上谁下关系的理清">
 <meta property="og:url" content="http://waynecz.github.io/2016/05/16/上来—理解元素层叠谁上谁下关系/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="占个小坑。。。">
+<meta property="og:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
+
+直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg">
-<meta property="og:updated_time" content="2016-05-16T14:33:50.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/1.jpg">
+<meta property="og:updated_time" content="2016-05-24T15:54:38.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你，上来——理解元素层叠谁上谁下">
-<meta name="twitter:description" content="占个小坑。。。">
+<meta name="twitter:title" content="你，上来——元素谁上谁下关系的理清">
+<meta name="twitter:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
+
+直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -92,7 +102,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      你，上来——理解元素层叠谁上谁下
+      你，上来——元素谁上谁下关系的理清
     </h1>
   
 
@@ -116,7 +126,11 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
-<h1 id="占个小坑。。。">占个小坑。。。</h1><a id="more"></a>
+<h1 id="从浏览器渲染说起">从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
+<p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
+<p>直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
+<p>那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。</p>
+<a id="more"></a>
       
     </div>
   
