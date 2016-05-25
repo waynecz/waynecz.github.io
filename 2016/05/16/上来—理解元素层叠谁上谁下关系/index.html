@@ -3,29 +3,30 @@
 <head>
   <meta charset="utf-8">
   
-  <title>你，上来——元素谁上谁下关系的理清 - Wayne</title>
+  <title>你，上来——元素谁盖住谁体位的理清 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
 
-直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
-那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
+这里直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你，上来——元素谁上谁下关系的理清">
+<meta property="og:title" content="你，上来——元素谁盖住谁体位的理清">
 <meta property="og:url" content="http://waynecz.github.io/2016/05/16/上来—理解元素层叠谁上谁下关系/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
 
-直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
-那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
+这里直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/1.jpg">
-<meta property="og:updated_time" content="2016-05-24T15:54:38.000Z">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/2.png">
+<meta property="og:updated_time" content="2016-05-25T15:55:00.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你，上来——元素谁上谁下关系的理清">
+<meta name="twitter:title" content="你，上来——元素谁盖住谁体位的理清">
 <meta name="twitter:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
 
-直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。
-那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。">
+这里直接看最后一步Composite: 渲染层合并，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话图层很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。
+那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -102,7 +103,7 @@ s.parentNode.insertBefore(hm, s);
         
   
     <h1 class="article-title" itemprop="name">
-      你，上来——元素谁上谁下关系的理清
+      你，上来——元素谁盖住谁体位的理清
     </h1>
   
 
@@ -128,9 +129,29 @@ s.parentNode.insertBefore(hm, s);
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
 <h1 id="从浏览器渲染说起">从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
-<p>直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠遮罩关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
-<p>那么说这个对层叠理解有什么用呢？ 好吧，并没什么卵用，还是直接进入正题吧。</p>
+<p>这里直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
+<p>那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题吧，个人总结，会比较乱。</p>
 <a id="more"></a>
+<h2 id="普通我盖住你的几种情况">普通<code>我盖住你</code>的几种情况</h2><p>说几种常见情况，不会赘述：</p>
+<ol>
+<li>文档中后来的居上<br>结构如下，这里默认box都有长宽和不同的背景颜色<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>很显然如果<code>box2</code>有一个负值<code>margin-top</code>就会看到盖住<code>box1</code>的情况</p>
+<ol>
+<li><code>z-index</code>数值大的居上<br>这里首先要明白的是<code>z-index</code>只针对<strong><code>position</code>不是<code>static</code></strong>的元素起作用,所以我们这里说起<code>z-index</code>，那这个元素一定是和<code>position</code>一起使用，have a look<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box1"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"box2"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">style</span>&gt;</span><span class="css"></span><br><span class="line">    <span class="class">.box1</span> <span class="rules">&#123;</span><br><span class="line">           <span class="rule"><span class="attribute">position</span>:<span class="value"> relative</span></span>;</span><br><span class="line">           <span class="rule"><span class="attribute">z-index</span>:<span class="value"> <span class="number">2</span></span></span>;</span><br><span class="line">    &#125;</span></span><br><span class="line">    <span class="class">.box2</span> <span class="rules">&#123;</span><br><span class="line">    		<span class="rule"><span class="attribute">position</span>:<span class="value"> relaive</span></span>;</span><br><span class="line">    		<span class="rule"><span class="attribute">z-index</span>:<span class="value"> -<span class="number">1</span></span></span>;</span><br><span class="line">    &#125;</span>  </span><br><span class="line"></span><span class="tag">&lt;/<span class="title">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>嗯，这里1会盖住2。对于<code>z-index</code>的取值层叠关系就是<code>正值&gt;auto(0)&gt;负值</code></p>
+<ol>
+<li><code>float</code>比普通文档流的居上<br>就不演示了！</li>
+</ol>
+<p>好了！<strong>上面三种情况应该很好理解是吧</strong>，那么想一下,如果一个<code>z-index: -1``的和一个</code>只float<code>发生重叠呢？如果</code>z-inidex: auto<code>又或者</code>z-inidex: 1`呢？ 是不是要愣一下呢哈哈哈，不急，看个宝贝。</p>
+<h3 id="嗒哒！">嗒哒！</h3><h2 id="一个重要的概念——层叠上下文（stacking_context）">一个重要的概念——层叠上下文（stacking context）</h2><p>不得不说这个词对于像我这样的人从中文翻译上理解简直是十脸懵逼<img src="http://waynecz.github.io/css/images/postimg/160516/2.png" alt=""></p>
+<p>上下文？context？文本？环境？WTF？好吧，其实这玩意儿是一个抽象的三维的概念，如果让我来翻译它，我觉得比较合适的解释：它是一个<code>参考对象</code>。</p>
+<p>既然是一个参考对象，那么谁来参考它呢？答案是它的<code>子元素们</code>（其实这并不是完全正确，但是可以先这么认为）</p>
+<p>页面里你随便找两个元素，如果你要比较它们的高低顺序怎么办呢，浏览器会做的就是<code>不断向上检索祖辈元素，直到找到这个祖辈创建过层叠上下文</code></p>
+
       
     </div>
   
