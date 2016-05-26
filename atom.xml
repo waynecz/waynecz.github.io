@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-05-26T09:02:55.000Z</updated>
+  <updated>2016-05-26T11:26:58.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -19,7 +19,7 @@
     <link href="http://waynecz.github.io/2016/05/16/%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%E8%B0%81%E4%B8%8A%E8%B0%81%E4%B8%8B%E7%9A%84%E4%BD%93%E4%BD%8D%E6%80%BB%E7%BB%93/"/>
     <id>http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/</id>
     <published>2016-05-16T14:32:48.000Z</published>
-    <updated>2016-05-26T09:02:55.000Z</updated>
+    <updated>2016-05-26T11:26:58.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
 <h1 id="从浏览器渲染说起">从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
@@ -29,7 +29,7 @@
 <p>挂两篇大神的文章</p>
 <ul>
 <li><a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="external">鑫旭大神的深入理解CSS中的层叠上下文和层叠顺序</a></li>
-<li><a href="http://www.cnblogs.com/bfgis/p/5440956.html" target="_blank" rel="external">吹雪大大的不起眼的 z-index 却能牵扯出这么大的学问</a><br>首先其实看完上面两篇基本就够了，不过如果你实在闲的慌又想绕一下自己，好嘞，请继续观赏<br><img src="http://waynecz.github.io/css/images/postimg/160516/6.png" alt=""></li>
+<li><a href="http://www.cnblogs.com/bfgis/p/5440956.html" target="_blank" rel="external">吹雪大大的不起眼的 z-index 却能牵扯出这么大的学问</a><br>首先其实看完上面两篇基本就够了，不过如果你实在闲的慌又想绕一下自己，好嘞，当我没说，请继续观赏<br><img src="http://waynecz.github.io/css/images/postimg/160516/6.jpg" alt=""></li>
 </ul>
 <h2 id="普通我上还是你上的几种体位">普通<code>我上还是你上</code>的几种体位</h2><p>简单说几种常见情况：</p>
 <ul>
