@@ -11,7 +11,7 @@
 那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题">
 <meta property="og:type" content="article">
 <meta property="og:title" content="页面元素谁上谁下的体位总结">
-<meta property="og:url" content="http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/index.html">
+<meta property="og:url" content="http://waynecz.github.io/2016/05/16/上来—理解元素层叠谁上谁下关系/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
 
@@ -19,12 +19,12 @@
 那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/1.jpg">
-<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/6.png">
+<meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/6.jpg">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/3.png">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/2.png">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/4.png">
 <meta property="og:image" content="http://waynecz.github.io/css/images/postimg/160516/5.png">
-<meta property="og:updated_time" content="2016-05-26T09:02:55.000Z">
+<meta property="og:updated_time" content="2016-05-26T09:09:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="页面元素谁上谁下的体位总结">
 <meta name="twitter:description" content="从浏览器渲染说起一个页面的渲染，大致有下几个步骤
@@ -99,7 +99,7 @@ s.parentNode.insertBefore(hm, s);
     </div>
   </div>
 </header>
-    <section id="main" class="outer"><article id="post-页面元素谁上谁下的体位总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-上来—理解元素层叠谁上谁下关系" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
@@ -114,7 +114,7 @@ s.parentNode.insertBefore(hm, s);
       </header>
     
     <div class="article-meta">
-      <a href="/2016/05/16/页面元素谁上谁下的体位总结/" class="article-date">
+      <a href="/2016/05/16/上来—理解元素层叠谁上谁下关系/" class="article-date">
   <time datetime="2016-05-16T14:32:48.000Z" itemprop="datePublished">2016-05-16</time>
 </a>
       
@@ -124,7 +124,7 @@ s.parentNode.insertBefore(hm, s);
 
       
         <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/#disqus_thread" class="article-comment-link">评论</a>
+          <a href="http://waynecz.github.io/2016/05/16/上来—理解元素层叠谁上谁下关系/#disqus_thread" class="article-comment-link">评论</a>
         </div>
       
     </div>
@@ -136,11 +136,12 @@ s.parentNode.insertBefore(hm, s);
 <p>这里直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
 <p>那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题吧，个人总结，会比较乱。</p>
 <a id="more"></a>
-<p>挂两篇大神的文章</p>
+<p>开头挂两篇大神的文章保智商</p>
 <ul>
 <li><a href="http://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/" target="_blank" rel="external">鑫旭大神的深入理解CSS中的层叠上下文和层叠顺序</a></li>
-<li><a href="http://www.cnblogs.com/bfgis/p/5440956.html" target="_blank" rel="external">吹雪大大的不起眼的 z-index 却能牵扯出这么大的学问</a><br>首先其实看完上面两篇基本就够了，不过如果你实在闲的慌又想绕一下自己，好嘞，请继续观赏<br><img src="http://waynecz.github.io/css/images/postimg/160516/6.png" alt=""></li>
+<li><a href="http://www.cnblogs.com/bfgis/p/5440956.html" target="_blank" rel="external">吹雪大大的不起眼的 z-index 却能牵扯出这么大的学问</a></li>
 </ul>
+<p>其实看完上面两篇基本就够了，不过如果你实在闲的慌又想绕一下自己，好嘞，当我没说，请继续观赏<br><img src="http://waynecz.github.io/css/images/postimg/160516/6.jpg" alt=""></p>
 <h2 id="普通我上还是你上的几种体位">普通<code>我上还是你上</code>的几种体位</h2><p>简单说几种常见情况：</p>
 <ul>
 <li>文档中后来的居上</li>
@@ -207,9 +208,17 @@ s.parentNode.insertBefore(hm, s);
     
 <nav id="article-nav">
   
+    <a href="/2016/05/16/页面元素谁上谁下的体位总结/" id="article-nav-newer" class="article-nav-link-wrap">
+      <div class="article-nav-title"><span>&lt;</span>&nbsp;
+        
+          页面元素谁上谁下的体位总结
+        
+      </div>
+    </a>
   
-    <a href="/2016/05/16/上来—理解元素层叠谁上谁下关系/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">页面元素谁上谁下的体位总结&nbsp;<span>&gt;</span></div>
+  
+    <a href="/2016/05/11/简单的理解this/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">简单的理解this&nbsp;<span>&gt;</span></div>
     </a>
   
 </nav>
@@ -248,7 +257,7 @@ s.parentNode.insertBefore(hm, s);
 <script>
   var disqus_shortname = 'waynecz';
   
-  var disqus_url = 'http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/';
+  var disqus_url = 'http://waynecz.github.io/2016/05/16/上来—理解元素层叠谁上谁下关系/';
   
   (function(){
     var dsq = document.createElement('script');
