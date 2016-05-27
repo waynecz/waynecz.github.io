@@ -4,7 +4,7 @@
   <subtitle><![CDATA[看多了会瞎]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://waynecz.github.io/"/>
-  <updated>2016-05-26T11:26:58.000Z</updated>
+  <updated>2016-05-27T02:51:47.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <link href="http://waynecz.github.io/2016/05/16/%E9%A1%B5%E9%9D%A2%E5%85%83%E7%B4%A0%E8%B0%81%E4%B8%8A%E8%B0%81%E4%B8%8B%E7%9A%84%E4%BD%93%E4%BD%8D%E6%80%BB%E7%BB%93/"/>
     <id>http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/</id>
     <published>2016-05-16T14:32:48.000Z</published>
-    <updated>2016-05-26T11:26:58.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
+    <updated>2016-05-27T02:51:47.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/P40709-124114.jpg" alt=""></p>
 <h1 id="从浏览器渲染说起">从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
 <p>这里直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
@@ -84,7 +84,7 @@
 <p>有错误或者写的烂欢迎指出来批评讨论！</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/P40709-124114.jpg" alt=""></p>
 <h1 id="从浏览器渲染说起">从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
 <p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
 <p>这里直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
@@ -99,18 +99,53 @@
   </entry>
   
   <entry>
-    <title><![CDATA[简单的理解this]]></title>
+    <title><![CDATA[请问这this是那个？-- this指向理清]]></title>
     <link href="http://waynecz.github.io/2016/05/11/%E7%AE%80%E5%8D%95%E7%9A%84%E7%90%86%E8%A7%A3this/"/>
     <id>http://waynecz.github.io/2016/05/11/简单的理解this/</id>
     <published>2016-05-11T05:17:01.000Z</published>
-    <updated>2016-05-11T05:18:14.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
-<p>#占坑</p>
-<a id="more"></a>
+    <updated>2016-05-27T08:54:14.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Jasper,%20a%20humbling%20presence.jpg" alt=""></p>
+<h3 id="开头放结论">开头放结论</h3><p><strong>一个函数如果被调用或者执行了，那么函数中的this指向：</strong></p>
+<ul>
+<li>一般情况下指向执行时调用其的对象</li>
+<li>函数当作构造函数使用且函数内没有返回值，或返回值是5种基本型（Undefined类型、Null类型、Boolean类型、Number类型、String类型）之一，指向实例后的对象</li>
+<li>函数当作构造函数使用且有return值，返回是是数组啊、对象啊什么的，this指向返回值<br>接下来稍微解释下<a id="more"></a>
+</li>
+</ul>
+<p>其实上面也不是全部情况（例如use strict等），但是基本囊括了所有情况，来一一举例下，第一种：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> normal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">'你大爷'</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">&#125;</span><br><span class="line">a()</span><br><span class="line"><span class="comment">// Unddefined</span></span><br><span class="line"><span class="comment">// Window对象</span></span><br></pre></td></tr></table></figure>
+<p>这种有一定隐蔽性，但是如果换个写法</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.a()</span><br><span class="line"><span class="comment">// Unddefined</span></span><br><span class="line"><span class="comment">// Window对象</span></span><br></pre></td></tr></table></figure>
+<p>会不会好理解点了呢，因为a其实是定义在window上的，所以它的执行或者说被调用自然也是window来动手，所以按照第一条<code>指向执行时调用其的最近的对象</code>，这里的this就指向<code>window</code>对象，而window上并没有<code>a</code>这个变量，自然是undefined</p>
+<p>第二种:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> normal = &#123;</span><br><span class="line">    a: <span class="string">'你大爷'</span>,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line">normal.fn()</span><br><span class="line"><span class="comment">// normal</span></span><br><span class="line"><span class="comment">//你大爷</span></span><br></pre></td></tr></table></figure>
+<p>这里this在fn里面，而谁调用了fn呢？normal！所以this指向normal，<code>normal.a</code>就是<code>你大爷</code></p>
+<p>诶！这个时候可能你会说了，上面的代码不是和<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.normal.fn()</span><br></pre></td></tr></table></figure></p>
+<p>一样吗？那this为什么不是window而是nomal呢，让我们来补充下第一个结论</p>
+<blockquote>
+<p>一般情况下指向执行时调用其的<code>最近</code>的对象</p>
+</blockquote>
+<p>这样是不是会好理解点了呢？不急，我们再来看几个<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> normal = &#123; </span><br><span class="line">    a: <span class="string">'你大爷'</span>,</span><br><span class="line">    fn: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>);</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.a);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"><span class="comment">// 不一样在这里</span></span><br><span class="line"><span class="keyword">var</span> haha = normal.fn</span><br><span class="line">haha()</span><br><span class="line"><span class="comment">// window</span></span><br><span class="line"><span class="comment">// Undefined</span></span><br></pre></td></tr></table></figure></p>
+<p>是不是很奇怪？其实想一下<code>haha()</code>的执行其实是这样子的<code>window.haha()</code>就没问题了吧，但是为什么是这样呢？ 我们这样说，normal.fn并没有执行其实是一个函数的引用所以haha其实也是个引用，所以当haha()执行了，调用它的还是window 。</p>
+<h2 id="接下来说构造函数的情况">接下来说构造函数的情况</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> construction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'你大爷'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> construction()</span><br><span class="line"><span class="built_in">console</span>.log(me.a )</span><br><span class="line"><span class="comment">// 你大爷</span></span><br></pre></td></tr></table></figure>
+<p>new会创建一个匿名对象，然后把构造函数里的this指向这个匿名对象，这里最后又把匿名对象赋值给me，有点给匿名对象赋予名字的意思，所以匿名对象有a属性，me自然也有了，不知道讲明白没</p>
+<h3 id="然后，如果构造函数有返回值而且返回的是一个数组或对象">然后，如果构造函数有返回值而且返回的是一个数组或对象</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> construction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'你大爷'</span>;</span><br><span class="line">    <span class="keyword">return</span> &#123;a: <span class="string">'嘿嘿嘿'</span>&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> construction() </span><br><span class="line"><span class="built_in">console</span>.log(me.a)</span><br><span class="line"><span class="comment">// 嘿嘿嘿</span></span><br><span class="line"><span class="keyword">var</span> construction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'你大爷'</span>;</span><br><span class="line">    <span class="keyword">return</span> [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> construction() </span><br><span class="line"><span class="built_in">console</span>.log(me)</span><br><span class="line"><span class="comment">// [1,2,3,4]</span></span><br></pre></td></tr></table></figure>
+<p>这个时候其实new就像是并没有最终创建一个匿名对象，而是选择接受构造函数返回值然后再赋予实例，所以实例后的me会是构造函数的返回值，有点绕口啊～但是不是所有返回值都会产生这样的情况呢，答案是<code>不</code>！就像开头说的，如果返回值是<code>Undefined、Null、Boolean、Number、String</code>之一，情况就会</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> construction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.a = <span class="string">'你大爷'</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'哈哈哈'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> construction() </span><br><span class="line"><span class="built_in">console</span>.log(me.a)</span><br><span class="line"><span class="comment">// 你大爷</span></span><br></pre></td></tr></table></figure>
+<p>和没有返回值一样～总结差不多就结束了</p>
+<h3 id="最后说一下_apply,_call,_bind">最后说一下 apply, call, bind</h3><p>这些方法会改变this指向的问题其实很明了，比如平常常用的把args转化为数组</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].prototype.slice.call(<span class="built_in">arguments</span>)</span><br></pre></td></tr></table></figure>
+<p>想了想还是不赘述了，that’s all， 荆轲刺秦王</p>
+<p>参考：<a href="http://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="external">追梦大大的 彻底理解js中this的指向</a></p>
+<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
-<p>#占坑</p>]]>
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Jasper,%20a%20humbling%20presence.jpg" alt=""></p>
+<h3 id="开头放结论">开头放结论</h3><p><strong>一个函数如果被调用或者执行了，那么函数中的this指向：</strong></p>
+<ul>
+<li>一般情况下指向执行时调用其的对象</li>
+<li>函数当作构造函数使用且函数内没有返回值，或返回值是5种基本型（Undefined类型、Null类型、Boolean类型、Number类型、String类型）之一，指向实例后的对象</li>
+<li>函数当作构造函数使用且有return值，返回是是数组啊、对象啊什么的，this指向返回值<br>接下来稍微解释下]]>
     
     </summary>
     
@@ -203,9 +238,10 @@
     <link href="http://waynecz.github.io/2016/04/24/CSS3%20animation%20%E5%8A%A8%E7%94%BB%E7%9A%84%E6%B5%81%E7%A8%8B%E6%8E%A7%E5%88%B6/"/>
     <id>http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/</id>
     <published>2016-04-24T15:53:53.000Z</published>
-    <updated>2016-04-29T02:22:36.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""><br><a id="more"></a></p>
+    <updated>2016-05-27T08:55:50.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
 <h3 id="前言">前言</h3><p>好吧。。。并没有前言，直接进入正题。CSS3的<code>animation</code>是一个好东西，让页面动画更加<strong>纯净</strong>，但是之前一扯到动画流程的控制（比如执行完第一个动画后再执行第二个动画在执行某个动作）就有点懵逼<img src="http://waynecz.github.io/css/images/postimg/160424/1.png" style="display:inline-block"></p>
+<a id="more"></a>
 <p>如果是jQuery动画呢，有回调函数（或者.promise().done()），方便滴狠呐！但是<code>animation</code> 呢。。呢。。。呢。。。。呢。。。。。呢。。。。。。</p>
 <p>粗粗的想一想吧，貌似给元素加上第一个动画的类后根据第一个动画的执行时间来设置个延迟再加入第二个动画的类也是可以实现的，但是总觉得这样不干净，而且setTimeout其实也不是那么的可控，</p>
 <p>然后塔哒，就遇到这篇文章<a href="http://blog.jobbole.com/51889/" target="_blank" rel="external">你若触发，我就处理</a>，讲的是JS事件响应的，对， <strong>事！件！响！应！</strong>。如果动画结束时能有能触发某个事件，JS再监听响应一下，这不就完事儿了吗？</p>
@@ -224,7 +260,8 @@
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg" alt=""> </p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""><br>]]>
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
+<h3 id="前言">前言</h3><p>好吧。。。并没有前言，直接进入正题。CSS3的<code>animation</code>是一个好东西，让页面动画更加<strong>纯净</strong>，但是之前一扯到动画流程的控制（比如执行完第一个动画后再执行第二个动画在执行某个动作）就有点懵逼<img src="http://waynecz.github.io/css/images/postimg/160424/1.png" style="display:inline-block"></p>]]>
     
     </summary>
     
@@ -284,8 +321,8 @@
     <link href="http://waynecz.github.io/2016/04/06/%E6%80%9D%E8%80%83%E4%BA%A7%E5%93%81%E9%9C%80%E6%B1%826%E6%AD%A5%E6%B3%95/"/>
     <id>http://waynecz.github.io/2016/04/06/思考产品需求6步法/</id>
     <published>2016-04-06T11:12:28.000Z</published>
-    <updated>2016-05-26T11:23:14.000Z</updated>
-    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/P40709-124114.jpg" alt=""></p>
+    <updated>2016-05-27T02:51:51.000Z</updated>
+    <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
 <blockquote>
 <p>Form 沈晓马</p>
 </blockquote>
@@ -319,7 +356,7 @@
 <p>最后，是要分析一下如何才能证明自己的解决方案是对的，如果只是自己觉得这样改功能会很好，但是上线后也没法验证，那其实意义是不大的。比如原本注册流程是三个页面，分别是手机号-验证码-密码，如果为了提高注册转化率，把设置密码这个页面（流程）去掉，那么上线后就要看，注册转化率是否提升了，是否达到自己最初的目标了。比如评论功能，我们希望通过功能的改进能让用户写出更多高质量的评论，那么上线后就要看评论的字数有没有提高，点评率有没有上升，等等。可以通过数据，也可以通过用户反馈去判断一个新上线功能的好坏。</p>
 ]]></content>
     <summary type="html">
-    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/P40709-124114.jpg" alt=""></p>
+    <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/5.jpg" alt=""></p>
 <blockquote>
 <p>Form 沈晓马</p>
 </blockquote>
@@ -428,7 +465,7 @@
     <link href="http://waynecz.github.io/2016/03/06/%E4%BB%8Egit-add-commit-push-%E5%88%B0gamp/"/>
     <id>http://waynecz.github.io/2016/03/06/从git-add-commit-push-到gamp/</id>
     <published>2016-03-06T09:29:52.000Z</published>
-    <updated>2016-04-23T09:53:22.000Z</updated>
+    <updated>2016-05-27T02:53:46.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
 <p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
@@ -440,7 +477,7 @@
 <p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开这个.bash_profile </span></span><br><span class="line">vi ~/.bash_profile </span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入下面这些</span></span><br><span class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></span><br><span class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></span><br><span class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></span><br><span class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></span><br><span class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></span><br><span class="line">...<span class="comment">// 其他看着加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后</span></span><br><span class="line">vi ~/.zshrc </span><br><span class="line"><span class="comment">//加入下面这段</span></span><br><span class="line"><span class="keyword">source</span> ~/.bash_profile <span class="comment">//这样每次zsh的shell启动都会初始化alias了</span></span><br></pre></td></tr></table></figure></p>
 <p>保存,然后！<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交就变成了</span></span><br><span class="line">gaa</span><br><span class="line">gm <span class="string">""</span></span><br><span class="line">gp</span><br></pre></td></tr></table></figure></p>
 <p>就只需要这样了，<em>BUT</em> 一次提交还是要三行命令啊！敢不敢再短点？！好吧接下去新建一个<code>gitpush.sh</code>，里面内容写：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash.sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#添加所有文件到本地仓库</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交文件到本地仓库</span></span><br><span class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交到远程分支</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash.sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#提交前拉代码绝对是个好习惯</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加所有文件到本地仓库</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交文件到本地仓库</span></span><br><span class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交到远程分支</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 <p>OK，保存到｀~/shell｀ 下<br>然后<code>vi ~/.bash_profile</code>加入这句</p>
 <figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> gamp=<span class="string">"sh ~/shell/gitpush.sh"</span> <span class="comment">// 这里只要指定文件就行</span></span><br></pre></td></tr></table></figure>
 <p>嘻嘻嘻，使用的话</p>
