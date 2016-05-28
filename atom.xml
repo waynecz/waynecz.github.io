@@ -103,8 +103,10 @@
     <link href="http://waynecz.github.io/2016/05/11/%E7%AE%80%E5%8D%95%E7%9A%84%E7%90%86%E8%A7%A3this/"/>
     <id>http://waynecz.github.io/2016/05/11/简单的理解this/</id>
     <published>2016-05-11T05:17:01.000Z</published>
-    <updated>2016-05-27T08:54:14.000Z</updated>
+    <updated>2016-05-28T14:09:49.000Z</updated>
     <content type="html"><![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Jasper,%20a%20humbling%20presence.jpg" alt=""></p>
+<p>5.28日更新，最近发现ES6的尖头函数中的this有点巧妙，不适用于以下三条规则，在后面补充下</p>
+<hr>
 <h3 id="开头放结论">开头放结论</h3><p><strong>一个函数如果被调用或者执行了，那么函数中的this指向：</strong></p>
 <ul>
 <li>一般情况下指向执行时调用其的对象</li>
@@ -136,11 +138,17 @@
 <h3 id="最后说一下_apply,_call,_bind">最后说一下 apply, call, bind</h3><p>这些方法会改变this指向的问题其实很明了，比如平常常用的把args转化为数组</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[].prototype.slice.call(<span class="built_in">arguments</span>)</span><br></pre></td></tr></table></figure>
 <p>想了想还是不赘述了，that’s all， 荆轲刺秦王</p>
+<h2 id="ES6_中的_箭头函数_中的this指向问题">ES6 中的 箭头函数 中的this指向问题</h2><p>ES6貌似为了解决之前this变化无常的问题就通过箭头函数带来的词法作用域来消除this的问题<br>总的来说就是<strong>词法作用域的<code>this</code>特性让变量的<code>this</code>总是指向词法申明时的那个对象</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">logThisID</span> (<span class="params">id, callback</span>) </span>&#123;</span><br><span class="line">    setTimeout(() =&gt; &#123;</span><br><span class="line">        callback(<span class="number">1</span>)</span><br><span class="line">        &#125;, <span class="number">0</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'wayne'</span>,</span><br><span class="line">    ID: <span class="string">'10086'</span>,</span><br><span class="line">    logThisName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name) <span class="comment">// wayne</span></span><br><span class="line">        </span><br><span class="line">        logThisID(<span class="keyword">this</span>.id, (number) =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.ID) <span class="comment">// 10086</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'number = '</span> + number) <span class="comment">// 1</span></span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其实相当于是在<code>logThisName</code>里缓存了下this<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">    name: <span class="string">'wayne'</span>,</span><br><span class="line">    ID: <span class="string">'10086'</span>,</span><br><span class="line">    logThisName: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> _this = <span class="keyword">this</span></span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name) <span class="comment">// wayne</span></span><br><span class="line">        </span><br><span class="line">        logThisID(<span class="keyword">this</span>.id, (number) =&gt; &#123;</span><br><span class="line">            <span class="built_in">console</span>.log(_this.ID) <span class="comment">// 10086</span></span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">'number = '</span> + number) <span class="comment">// 1</span></span><br><span class="line">            &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这些都只是暂时看到，还没深入去理解，以后回来补充</p>
 <p>参考：<a href="http://www.cnblogs.com/pssp/p/5216085.html" target="_blank" rel="external">追梦大大的 彻底理解js中this的指向</a></p>
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/4.jpg" alt=""></p>
 ]]></content>
     <summary type="html">
     <![CDATA[<p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Jasper,%20a%20humbling%20presence.jpg" alt=""></p>
+<p>5.28日更新，最近发现ES6的尖头函数中的this有点巧妙，不适用于以下三条规则，在后面补充下</p>
+<hr>
 <h3 id="开头放结论">开头放结论</h3><p><strong>一个函数如果被调用或者执行了，那么函数中的this指向：</strong></p>
 <ul>
 <li>一般情况下指向执行时调用其的对象</li>
