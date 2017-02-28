@@ -3,53 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2b62f84b-659a-444e-8bd1-1907ba365e71" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/index.html" afterPath="$PROJECT_DIR$/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/01/12/一次网页访问各互联网协议实例/index.html" afterPath="$PROJECT_DIR$/2016/01/12/一次网页访问各互联网协议实例/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/01/25/纪录几个CSS奇技淫巧/index.html" afterPath="$PROJECT_DIR$/2016/01/25/纪录几个CSS奇技淫巧/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/02/01/CSS动画优雅降级的简单总结/index.html" afterPath="$PROJECT_DIR$/2016/02/01/CSS动画优雅降级的简单总结/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/03/05/Ajax的懒人姿势/index.html" afterPath="$PROJECT_DIR$/2016/03/05/Ajax的懒人姿势/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/03/06/从git-add-commit-push-到gamp/index.html" afterPath="$PROJECT_DIR$/2016/03/06/从git-add-commit-push-到gamp/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/03/25/流程控制： jQ Deffered 与 ES6 Promise 使用入坑！/index.html" afterPath="$PROJECT_DIR$/2016/03/25/流程控制： jQ Deffered 与 ES6 Promise 使用入坑！/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/04/06/思考产品需求6步法/index.html" afterPath="$PROJECT_DIR$/2016/04/06/思考产品需求6步法/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/index.html" afterPath="$PROJECT_DIR$/2016/04/11/express＋webpack-gulp＋nodemon前端自动化/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/04/24/CSS3 animation 动画的流程控制/index.html" afterPath="$PROJECT_DIR$/2016/04/24/CSS3 animation 动画的流程控制/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/05/05/(摘) 设计的几个关键原则 (一)/index.html" afterPath="$PROJECT_DIR$/2016/05/05/(摘) 设计的几个关键原则 (一)/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/05/11/简单的理解this/index.html" afterPath="$PROJECT_DIR$/2016/05/11/简单的理解this/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/2016/05/16/页面元素谁上谁下的体位总结/index.html" afterPath="$PROJECT_DIR$/2016/05/16/页面元素谁上谁下的体位总结/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2015/12/index.html" afterPath="$PROJECT_DIR$/archives/2015/12/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2015/index.html" afterPath="$PROJECT_DIR$/archives/2015/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/01/index.html" afterPath="$PROJECT_DIR$/archives/2016/01/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/02/index.html" afterPath="$PROJECT_DIR$/archives/2016/02/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/03/index.html" afterPath="$PROJECT_DIR$/archives/2016/03/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/04/index.html" afterPath="$PROJECT_DIR$/archives/2016/04/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/05/index.html" afterPath="$PROJECT_DIR$/archives/2016/05/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/2016/index.html" afterPath="$PROJECT_DIR$/archives/2016/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archives/index.html" afterPath="$PROJECT_DIR$/archives/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/atom.xml" afterPath="$PROJECT_DIR$/atom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/index.html" afterPath="$PROJECT_DIR$/categories/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/产品/index.html" afterPath="$PROJECT_DIR$/categories/产品/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/前端/index.html" afterPath="$PROJECT_DIR$/categories/前端/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/前端/page/2/index.html" afterPath="$PROJECT_DIR$/categories/前端/page/2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/计算机/index.html" afterPath="$PROJECT_DIR$/categories/计算机/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/categories/设计/index.html" afterPath="$PROJECT_DIR$/categories/设计/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/2/index.html" afterPath="$PROJECT_DIR$/page/2/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/page/3/index.html" afterPath="$PROJECT_DIR$/page/3/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitemap.xml" afterPath="$PROJECT_DIR$/sitemap.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/css/index.html" afterPath="$PROJECT_DIR$/tags/css/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/css3/index.html" afterPath="$PROJECT_DIR$/tags/css3/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/design/index.html" afterPath="$PROJECT_DIR$/tags/design/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/html/index.html" afterPath="$PROJECT_DIR$/tags/html/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/index.html" afterPath="$PROJECT_DIR$/tags/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/javascript/index.html" afterPath="$PROJECT_DIR$/tags/javascript/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/jquery/index.html" afterPath="$PROJECT_DIR$/tags/jquery/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/shell/index.html" afterPath="$PROJECT_DIR$/tags/shell/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/this/index.html" afterPath="$PROJECT_DIR$/tags/this/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/互网协议/index.html" afterPath="$PROJECT_DIR$/tags/互网协议/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/移动端/index.html" afterPath="$PROJECT_DIR$/tags/移动端/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/自动化构建/index.html" afterPath="$PROJECT_DIR$/tags/自动化构建/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tags/需求/index.html" afterPath="$PROJECT_DIR$/tags/需求/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -341,12 +294,12 @@
       <option name="presentableId" value="Default" />
       <updated>1487674408103</updated>
       <workItem from="1487674410406" duration="836000" />
-      <workItem from="1488250414232" duration="90000" />
+      <workItem from="1488250414232" duration="264000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="926000" />
+    <option name="totallyTimeSpent" value="1100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1680" y="-791" width="1920" height="1080" extended-state="6" />
