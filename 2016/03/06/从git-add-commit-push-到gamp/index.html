@@ -24,13 +24,14 @@
 <meta name="twitter:description" content="啊，新功能写完啦，提交！
 123git add .git commit &quot;new feature&quot;git push
 咦？好想有个字写错了，没事，改！改完，提交！">
+<meta name="twitter:image" content="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <script type="text/javascript">
 var _hmt = _hmt || [];
@@ -125,20 +126,20 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/14.jpg" alt=""></p>
 <p>啊，新功能写完啦，提交！</p>
-<p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"new feature"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
-<p>咦？好想有个字写错了，没事，改！改完，提交！<br><a id="more"></a><br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"fix word"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="http://cdn.aixifan.com/dotnet/artemis/u/cms/www/201602/17223025pojushtl.jpg" alt=""><br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line">git commit <span class="string">"new feature"</span></div><div class="line">git push</div></pre></td></tr></table></figure></p>
+<p>咦？好想有个字写错了，没事，改！改完，提交！<br><a id="more"></a><br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line">git commit <span class="string">"fix word"</span></div><div class="line">git push</div></pre></td></tr></table></figure></p>
 <p>喔？这里还不如这样，再来！</p>
-<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span> .</span><br><span class="line">git commit <span class="string">"xixixi"</span></span><br><span class="line">git <span class="keyword">push</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="keyword">add</span><span class="bash"> .</span></div><div class="line">git commit <span class="string">"xixixi"</span></div><div class="line">git push</div></pre></td></tr></table></figure>
 <p>。。。。。。。。。</p>
 <p>虽然不会每次都这么极端，但是有时候按步骤提交真的很烦。。</p>
-<p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 打开这个.bash_profile </span></span><br><span class="line">vi ~/.bash_profile </span><br><span class="line"></span><br><span class="line"><span class="comment">// 加入下面这些</span></span><br><span class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></span><br><span class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></span><br><span class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></span><br><span class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></span><br><span class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></span><br><span class="line">...<span class="comment">// 其他看着加</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//然后</span></span><br><span class="line">vi ~/.zshrc </span><br><span class="line"><span class="comment">//加入下面这段</span></span><br><span class="line"><span class="keyword">source</span> ~/.bash_profile <span class="comment">//这样每次zsh的shell启动都会初始化alias了</span></span><br></pre></td></tr></table></figure></p>
-<p>保存,然后！<br><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 提交就变成了</span></span><br><span class="line">gaa</span><br><span class="line">gm <span class="string">""</span></span><br><span class="line">gp</span><br></pre></td></tr></table></figure></p>
+<p>来点alias?好啊，这么做(以下均osx下为准，装载itern和ohmyzsh)<br><figure class="highlight mel"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 打开这个.bash_profile </span></div><div class="line">vi ~/.bash_profile </div><div class="line"></div><div class="line"><span class="comment">// 加入下面这些</span></div><div class="line"><span class="keyword">alias</span> gaa=<span class="string">"git add ."</span></div><div class="line"><span class="keyword">alias</span> gm=<span class="string">"git commit -m "</span></div><div class="line"><span class="keyword">alias</span> gp=<span class="string">"git push"</span></div><div class="line"><span class="keyword">alias</span> gc=<span class="string">"git checkout"</span></div><div class="line"><span class="keyword">alias</span> gcb=<span class="string">"git checkout -b"</span></div><div class="line">...<span class="comment">// 其他看着加</span></div><div class="line"></div><div class="line"><span class="comment">//然后</span></div><div class="line">vi ~/.zshrc </div><div class="line"><span class="comment">//加入下面这段</span></div><div class="line"><span class="keyword">source</span> ~/.bash_profile <span class="comment">//这样每次zsh的shell启动都会初始化alias了</span></div></pre></td></tr></table></figure></p>
+<p>保存,然后！<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 提交就变成了</span></div><div class="line">gaa</div><div class="line">gm <span class="string">""</span></div><div class="line">gp</div></pre></td></tr></table></figure></p>
 <p>就只需要这样了，<em>BUT</em> 一次提交还是要三行命令啊！敢不敢再短点？！好吧接下去新建一个<code>gitpush.sh</code>，里面内容写：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="shebang">#!/bin/bash.sh</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#提交前拉代码绝对是个好习惯</span></span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line"><span class="comment">#添加所有文件到本地仓库</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment">#提交文件到本地仓库</span></span><br><span class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#提交到远程分支</span></span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash.sh</span></div><div class="line"></div><div class="line"><span class="comment">#提交前拉代码绝对是个好习惯</span></div><div class="line">git pull</div><div class="line"></div><div class="line"><span class="comment">#添加所有文件到本地仓库</span></div><div class="line">git add .</div><div class="line"></div><div class="line"><span class="comment">#提交文件到本地仓库</span></div><div class="line">git commit -m <span class="string">"<span class="variable">$1</span>"</span></div><div class="line"></div><div class="line"><span class="comment">#提交到远程分支</span></div><div class="line">git push</div></pre></td></tr></table></figure>
 <p>OK，保存到｀~/shell｀ 下<br>然后<code>vi ~/.bash_profile</code>加入这句</p>
-<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">alias</span> gamp=<span class="string">"sh ~/shell/gitpush.sh"</span> <span class="comment">// 这里只要指定文件就行</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight ceylon"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">alias</span> gamp=<span class="string">"sh ~/shell/gitpush.sh"</span> <span class="comment">// 这里只要指定文件就行</span></div></pre></td></tr></table></figure>
 <p>嘻嘻嘻，使用的话</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title">gamp</span> <span class="string">"something"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">gamp</span> <span class="string">"something"</span></div></pre></td></tr></table></figure>
 <p>煲仔饭！再见（最后谢敏强，因为这一切其实是他的做的！）</p>
 <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/12.jpg" alt=""></p>
 
@@ -196,7 +197,7 @@ s.parentNode.insertBefore(hm, s);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Wayne&nbsp;
+      &copy; 2017 Wayne&nbsp;
       by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -220,11 +221,11 @@ s.parentNode.insertBefore(hm, s);
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
   </div>
 </body>
 </html>

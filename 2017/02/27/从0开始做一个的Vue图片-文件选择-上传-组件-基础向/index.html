@@ -3,17 +3,45 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Wayne</title>
+  <title>从0开始做一个的Vue图片选择(上传)组件[基础向] - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="somespace on which i was permitted to shrimp BB">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Wayne">
-<meta property="og:url" content="http://waynecz.github.io/index.html">
+  <meta name="description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
+
+
+样子要好看点
+图片/文件选择后预览
+实现拖拽选择文件
+图片">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从0开始做一个的Vue图片选择(上传)组件[基础向]">
+<meta property="og:url" content="http://waynecz.github.io/2017/02/27/从0开始做一个的Vue图片-文件选择-上传-组件-基础向/index.html">
 <meta property="og:site_name" content="Wayne">
-<meta property="og:description" content="somespace on which i was permitted to shrimp BB">
+<meta property="og:description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
+
+
+样子要好看点
+图片/文件选择后预览
+实现拖拽选择文件
+图片">
+<meta property="og:image" content="https://segmentfault.com/img/bVJQgt?w=1318&h=966">
+<meta property="og:image" content="https://segmentfault.com/img/bVJOJb?w=572&h=82">
+<meta property="og:image" content="https://segmentfault.com/img/bVJOSY?w=734&h=218">
+<meta property="og:image" content="https://segmentfault.com/img/bVJOTH?w=598&h=256">
+<meta property="og:image" content="https://segmentfault.com/img/bVJP3q?w=1184&h=348">
+<meta property="og:updated_time" content="2017-02-28T02:40:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Wayne">
-<meta name="twitter:description" content="somespace on which i was permitted to shrimp BB">
+<meta name="twitter:title" content="从0开始做一个的Vue图片选择(上传)组件[基础向]">
+<meta name="twitter:description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
+
+
+样子要好看点
+图片/文件选择后预览
+实现拖拽选择文件
+图片">
+<meta name="twitter:image" content="https://segmentfault.com/img/bVJQgt?w=1318&h=966">
   
   
     <link rel="icon" href="/favicon.ico">
@@ -82,16 +110,15 @@ s.parentNode.insertBefore(hm, s);
     </div>
   </div>
 </header>
-    <section id="main" class="outer">
-      <article id="post-从0开始做一个的Vue图片-文件选择-上传-组件-基础向" class="article article-type-post" itemscope itemprop="blogPost">
+    <section id="main" class="outer"><article id="post-从0开始做一个的Vue图片-文件选择-上传-组件-基础向" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/27/从0开始做一个的Vue图片-文件选择-上传-组件-基础向/">从0开始做一个的Vue图片选择(上传)组件[基础向]</a>
+    <h1 class="article-title" itemprop="name">
+      从0开始做一个的Vue图片选择(上传)组件[基础向]
     </h1>
   
 
@@ -215,235 +242,37 @@ s.parentNode.insertBefore(hm, s);
   
   </div>
   
-</article>
-
-
     
-      <article id="post-页面元素谁上谁下的体位总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/16/页面元素谁上谁下的体位总结/">页面元素谁上谁下的体位总结</a>
-    </h1>
   
+    <a href="/2016/05/16/页面元素谁上谁下的体位总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">页面元素谁上谁下的体位总结&nbsp;<span>&gt;</span></div>
+    </a>
+  
+</nav>
 
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/05/16/页面元素谁上谁下的体位总结/" class="article-date">
-  <time datetime="2016-05-16T14:32:48.000Z" itemprop="datePublished">2016-05-16</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/05/16/页面元素谁上谁下的体位总结/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/P40709-124114.jpg" alt=""></p>
-<h1 id="从浏览器渲染说起"><a href="#从浏览器渲染说起" class="headerlink" title="从浏览器渲染说起"></a>从浏览器渲染说起</h1><p>一个页面的渲染，大致有下几个步骤</p>
-<p><img src="http://waynecz.github.io/css/images/postimg/160516/1.jpg" alt=""></p>
-<p>这里直接看最后一步<code>Composite: 渲染层合并</code>，这步是渲染最后一个步骤，作用就是把之前绘制的图层（如果有PS的经验的话<code>图层</code>很好理解）按照规定的顺序合并成一个图层，元素的层叠谁在上面谁在下面的关系，就在这步里被规定被最终在浏览器里体现出来了。</p>
-<p>那么这个对层叠理解有什么用呢？。。。。。。。。。。并没什么卵用，只是最近看到了而已，科科，直接进入正题吧，个人总结，会比较乱。</p>
-        
-          <p class="article-more-link">
-            <a href="/2016/05/16/页面元素谁上谁下的体位总结/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css/">css</a></li></ul>
-
-    </footer>
-  
-  </div>
   
 </article>
 
 
+<section id="comments">
+  <div id="disqus_thread">
+  <script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES * * */
+    var disqus_shortname = 'waynecz';
     
-      <article id="post-简单的理解this" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/11/简单的理解this/">请问这this是那个？-- this指向理清</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/05/11/简单的理解this/" class="article-date">
-  <time datetime="2016-05-11T05:17:01.000Z" itemprop="datePublished">2016-05-11</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
   </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/05/11/简单的理解this/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/Jasper,%20a%20humbling%20presence.jpg" alt=""></p>
-<p>5.28日更新，最近发现ES6的尖头函数中的this有点巧妙，不适用于以下三条规则，在后面补充下</p>
-<hr>
-<h3 id="开头放结论"><a href="#开头放结论" class="headerlink" title="开头放结论"></a>开头放结论</h3><p><strong>一个函数如果被调用或者执行了，那么函数中的this指向：</strong></p>
-<ul>
-<li>一般情况下指向执行时调用其的对象</li>
-<li>函数当作构造函数使用且函数内没有返回值，或返回值是5种基本型（Undefined类型、Null类型、Boolean类型、Number类型、String类型）之一，指向实例后的对象</li>
-<li>函数当作构造函数使用且有return值，返回是是数组啊、对象啊什么的，this指向返回值<br>接下来稍微解释下
-        
-          <p class="article-more-link">
-            <a href="/2016/05/11/简单的理解this/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/this/">this</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-(摘) 设计的几个关键原则 (一)" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/05/05/(摘) 设计的几个关键原则 (一)/">设计的几个关键原则 (一)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/05/05/(摘) 设计的几个关键原则 (一)/" class="article-date">
-  <time datetime="2016-05-05T15:53:32.000Z" itemprop="datePublished">2016-05-05</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/设计/">设计</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/05/05/(摘) 设计的几个关键原则 (一)/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/2.jpg" alt=""></p>
-<h3 id="假设你没有足够的时间或者兴趣来专门学习设计和排版技术，但是又很想知道如何才能让页面看上去更好一些的话-看下这本书准没错！"><a href="#假设你没有足够的时间或者兴趣来专门学习设计和排版技术，但是又很想知道如何才能让页面看上去更好一些的话-看下这本书准没错！" class="headerlink" title="假设你没有足够的时间或者兴趣来专门学习设计和排版技术，但是又很想知道如何才能让页面看上去更好一些的话,  看下这本书准没错！"></a>假设你没有足够的时间或者兴趣来专门学习设计和排版技术，但是又很想知道如何才能让页面看上去更好一些的话,  看下这本书准没错！</h3>
-        
-          <p class="article-more-link">
-            <a href="/2016/05/05/(摘) 设计的几个关键原则 (一)/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/design/">design</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <article id="post-CSS3 animation 动画的流程控制" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/04/24/CSS3 animation 动画的流程控制/">CSS3 animation 动画的流程的简单控制</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-meta">
-      <a href="/2016/04/24/CSS3 animation 动画的流程控制/" class="article-date">
-  <time datetime="2016-04-24T15:53:53.000Z" itemprop="datePublished">2016-04-24</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/前端/">前端</a>
-  </div>
-
-      
-        <div class="article-comment-link-wrap">
-          <a href="http://waynecz.github.io/2016/04/24/CSS3 animation 动画的流程控制/#disqus_thread" class="article-comment-link">评论</a>
-        </div>
-      
-    </div>
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/1.jpg" alt=""> </p>
-<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>好吧。。。并没有前言，直接进入正题。CSS3的<code>animation</code>是一个好东西，让页面动画更加<strong>纯净</strong>，但是之前一扯到动画流程的控制（比如执行完第一个动画后再执行第二个动画在执行某个动作）就有点懵逼<img src="http://waynecz.github.io/css/images/postimg/160424/1.png" style="display:inline-block"></p>
-        
-          <p class="article-more-link">
-            <a href="/2016/04/24/CSS3 animation 动画的流程控制/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-  
-    <footer class="article-footer">
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/css3/">css3</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
-
-    </footer>
-  
-  </div>
-  
-</article>
-
-
-    
-      <nav id="page-nav">
-        <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-      </nav>
-    </section>
+</section>
+</section>
     <footer id="footer">
   
   <div class="outer">
@@ -457,11 +286,13 @@ s.parentNode.insertBefore(hm, s);
 <script>
   var disqus_shortname = 'waynecz';
   
+  var disqus_url = 'http://waynecz.github.io/2017/02/27/从0开始做一个的Vue图片-文件选择-上传-组件-基础向/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>

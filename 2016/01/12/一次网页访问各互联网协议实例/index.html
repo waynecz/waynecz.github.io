@@ -37,13 +37,14 @@
 *  DNS的IP地址：8.8.8.8
 
 访问www.google.com">
+<meta name="twitter:image" content="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <script type="text/javascript">
 var _hmt = _hmt || [];
@@ -137,10 +138,10 @@ s.parentNode.insertBefore(hm, s);
     <div class="article-entry" itemprop="articleBody">
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xingkong.jpg" alt="家门口"><br>摘抄自阮大的<a href="http://www.ruanyifeng.com/blog/2012/06/internet_protocol_suite_part_ii.html" target="_blank" rel="external">互联网协议入门</a>首先假定这是本机器设置</p>
-<pre><code>*  本机的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.100</span>
-*  子网掩码：<span class="number">255.255</span><span class="number">.255</span><span class="number">.0</span>
-*  网关的IP地址：<span class="number">192.168</span><span class="number">.1</span><span class="number">.1</span>
-*  DNS的IP地址：<span class="number">8.8</span><span class="number">.8</span><span class="number">.8</span>
+<pre><code>*  本机的IP地址：192.168.1.100
+*  子网掩码：255.255.255.0
+*  网关的IP地址：192.168.1.1
+*  DNS的IP地址：8.8.8.8
 </code></pre><ol>
 <li>访问<code>www.google.com</code><a id="more"></a></li>
 <li>DNS协议        <ul>
@@ -155,15 +156,15 @@ s.parentNode.insertBefore(hm, s);
 </li>
 <li><p>应用层协议    </p>
 <ul>
-<li>浏览网页用的是HTTP协议，他的整个数据包结构是这样的<br><img src="http://image.beekka.com/blog/201206/bg2012061106.png" alt="image"><br>HTTP部分的内容类似于下面这样：    <pre><code><span class="keyword">*</span> GET / HTTP/1.1            
-<span class="keyword">*</span> Host: www.google.com      
-<span class="keyword">*</span> Connection: keep-alive       
-<span class="keyword">*</span> User-Agent: Mozilla/5.0 (Windows NT 6.1) ......    
-<span class="keyword">*</span> Accept: text/html,application/xhtml+xml,application/xml;q=0.9,<span class="keyword">*</span>/<span class="keyword">*</span>;q=0.8    
-<span class="keyword">*</span> Accept-Encoding: gzip,deflate,sdch    
-<span class="keyword">*</span> Accept-Language: zh-CN,zh;q=0.8     
-<span class="keyword">*</span> Accept-Charset: GBK,utf-8;q=0.7,<span class="keyword">*</span>;q=0.3    
-<span class="keyword">*</span> Cookie: ... ...
+<li>浏览网页用的是HTTP协议，他的整个数据包结构是这样的<br><img src="http://image.beekka.com/blog/201206/bg2012061106.png" alt="image"><br>HTTP部分的内容类似于下面这样：    <pre><code>* GET / HTTP/1.1            
+* Host: www.google.com      
+* Connection: keep-alive       
+* User-Agent: Mozilla/5.0 (Windows NT 6.1) ......    
+* Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8    
+* Accept-Encoding: gzip,deflate,sdch    
+* Accept-Language: zh-CN,zh;q=0.8     
+* Accept-Charset: GBK,utf-8;q=0.7,*;q=0.3    
+* Cookie: ... ...
 </code></pre>我们假定这个部分的长度为<code>4960</code>字节，它被嵌在TCP数据包中。</li>
 </ul>
 </li>
@@ -247,7 +248,7 @@ s.parentNode.insertBefore(hm, s);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Wayne&nbsp;
+      &copy; 2017 Wayne&nbsp;
       by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -271,11 +272,11 @@ s.parentNode.insertBefore(hm, s);
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
   </div>
 </body>
 </html>

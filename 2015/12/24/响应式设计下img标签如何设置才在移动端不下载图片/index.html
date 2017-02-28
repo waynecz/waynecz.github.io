@@ -6,17 +6,17 @@
   <title>响应式设计下img标签如何设置才在移动端不下载图片 - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
+&amp;lt;img src=&amp;quot;pic.jpg&amp;quot; alt=&amp;quot;pic&amp;quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
+于是琢磨怎么把图">
 <meta property="og:type" content="article">
 <meta property="og:title" content="响应式设计下img标签如何设置才在移动端不下载图片">
 <meta property="og:url" content="http://waynecz.github.io/2015/12/24/响应式设计下img标签如何设置才在移动端不下载图片/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
+&amp;lt;img src=&amp;quot;pic.jpg&amp;quot; alt=&amp;quot;pic&amp;quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
+于是琢磨怎么把图">
 <meta property="og:image" content="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg">
 <meta property="og:image" content="http://pic.baike.soso.com/p/20130609/bki-20130609135228-704795420.jpg">
 <meta property="og:image" content="http://2d.zol-img.com.cn/product/87/187/cekJDCv3RNGw2.gif">
@@ -26,16 +26,17 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="响应式设计下img标签如何设置才在移动端不下载图片">
 <meta name="twitter:description" content="从前在一个页面中有一张很普通的图片，普通到像这个样子
-&amp;lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&amp;gt;  
+&amp;lt;img src=&amp;quot;pic.jpg&amp;quot; alt=&amp;quot;pic&amp;quot;/&amp;gt;  
 然后想要这张图片在移动端(比如max-device-width: 600px)下的时候隐藏该图片，但是直接display:none的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  
-于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先">
+于是琢磨怎么把图">
+<meta name="twitter:image" content="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg">
   
   
     <link rel="icon" href="/favicon.ico">
   
   <link href="/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
   <link href="/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <link rel="stylesheet" href="/css/style.css">
   
 <script type="text/javascript">
 var _hmt = _hmt || [];
@@ -130,14 +131,14 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="http://7xntdk.com1.z0.glb.clouddn.com/xihelajijiao.jpg" alt="西和垃圾角"></p>
 <p>从前在一个页面中有一张很普通的图片，普通到像这个样子</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> alt=<span class="string">"pic"</span>/&gt;  
+<pre><code>&lt;img src=&quot;pic.jpg&quot; alt=&quot;pic&quot;/&gt;  
 </code></pre><p>然后想要这张图片在移动端(比如<code>max-device-width: 600px</code>)下的时候隐藏该图片，<br>但是直接<code>display:none</code>的话发现浏览器还是会加载，这恐怕对于移动端寸KB寸金的资源来说是一场灾难。  </p>
 <p>于是琢磨怎么把图片弄消失掉，秉着能少写就少写写的原则，首先想到<code>img</code>标签的<code>srcset</code>属性。</p>
 <a id="more"></a>
 <p>关于<code>srcset</code>单个使用，简单的说就是<strong><code>让浏览器根据像素密度切换图片源</code></strong>，类似这个样子：</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"1.jpg"</span> srcset=<span class="string">" 2.jpg 2x, 3.jpg 3x"</span>/&gt;
+<pre><code>&lt;img src=&quot;1.jpg&quot; srcset=&quot; 2.jpg 2x, 3.jpg 3x&quot;/&gt;
 </code></pre><p>浏览器默认选择<code>1.jpg</code>，但是当设备像素密度为2的时候比如nexus5加载<code>2.jpg</code>，咦？？！！！有没有想到什么？！！！现在移动端貌似都是高像素比啊！，那我岂不是可以这样！：</p>
-<pre><code>&lt;<span class="tag">img</span> src=<span class="string">"pic.jpg"</span> srcset=<span class="string">"null.jpg 1.5x, null.jpg 2x, null.jpg 3x"</span> alt=<span class="string">"以此类推"</span>/&gt;
+<pre><code>&lt;img src=&quot;pic.jpg&quot; srcset=&quot;null.jpg 1.5x, null.jpg 2x, null.jpg 3x&quot; alt=&quot;以此类推&quot;/&gt;
 </code></pre><p> <code>null.jpg</code>是一张并不存在的图片，也可以是一张1K的小图。啊哈哈天真的我真这样写进公司的官网里面去了～ 自测：完美；用别人手机电脑测试：完美！天啊噜，简单到窒</p>
 <p> <img src="http://pic.baike.soso.com/p/20130609/bki-20130609135228-704795420.jpg" alt="">  </p>
 <p> 红红火火恍恍惚惚哈哈哈哈哈哈哈哈哈哈哈哈哈哈好！～～～～～个屁啊</p>
@@ -145,17 +146,17 @@ s.parentNode.insertBefore(hm, s);
 <p> <img src="http://2d.zol-img.com.cn/product/87/187/cekJDCv3RNGw2.gif" alt=""></p>
 <p>好吧，东问西问思索后再三还是得用CSS解决［下面都是把图片作为<code>background-image</code>呈现，这也是我刚开始是想极力避免的，我觉得作为背景就是复杂了，大小控制也不那么简单粗暴（需要通过<code>background-size</code>）］在segmentfault提问之后得到这么一篇文章：<strong><a href="https://timkadlec.com/2012/04/media-query-asset-downloading-results/" target="_blank" rel="external">Media Query &amp; Asset Downloading Results</a></strong></p>
 <p>里面很详细的测试了各种方案图片加载情况，我这里就不多废话了，直接上一个有效的方案</p>
-<h3 id="嵌套父元素，父元素设置为diaplay:none">嵌套父元素，父元素设置为<code>diaplay:none</code></h3><p>我也叫它 <strong>给一个爸爸，然后打死爸爸，就没有儿子了大法</strong></p>
-<pre><code>&lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"par"</span>&gt;
-    &lt;<span class="keyword">div</span> <span class="type">class</span>=<span class="string">"pic"</span>&gt;&lt;/<span class="keyword">div</span>&gt;
-&lt;/<span class="keyword">div</span>&gt;
+<h3 id="嵌套父元素，父元素设置为diaplay-none"><a href="#嵌套父元素，父元素设置为diaplay-none" class="headerlink" title="嵌套父元素，父元素设置为diaplay:none"></a>嵌套父元素，父元素设置为<code>diaplay:none</code></h3><p>我也叫它 <strong>给一个爸爸，然后打死爸爸，就没有儿子了大法</strong></p>
+<pre><code>&lt;div class=&quot;par&quot;&gt;
+    &lt;div class=&quot;pic&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
 
 .pic {
-    background-image:url('images/test.png');
-    width:<span class="number">200</span>px;
-    height:<span class="number">75</span>px;
+    background-image:url(&apos;images/test.png&apos;);
+    width:200px;
+    height:75px;
 }
-@media all <span class="keyword">and</span> (max-width: <span class="number">600</span>px) {
+@media all and (max-width: 600px) {
     .par  {
         display:none;
     }
@@ -216,7 +217,7 @@ s.parentNode.insertBefore(hm, s);
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2016 Wayne&nbsp;
+      &copy; 2017 Wayne&nbsp;
       by <a href="http://hexo.io/" target="_blank">Hexo</a>, theme by <a href="http://github.com/waynecz">waynecz</a> modify with <a href="http://github.com/ppoffice">PPOffice</a>
     </div>
   </div>
@@ -240,11 +241,11 @@ s.parentNode.insertBefore(hm, s);
 <script src="/js/jquery.min.js"></script>
 
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
-  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
-<script src="/js/script.js" type="text/javascript"></script>
+<script src="/js/script.js"></script>
   </div>
 </body>
 </html>
