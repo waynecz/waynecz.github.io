@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://waynecz.github.io/"/>
-  <updated>2017-02-28T02:40:44.000Z</updated>
+  <updated>2017-02-28T02:56:23.000Z</updated>
   <id>http://waynecz.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://waynecz.github.io/2017/02/27/%E4%BB%8E0%E5%BC%80%E5%A7%8B%E5%81%9A%E4%B8%80%E4%B8%AA%E7%9A%84Vue%E5%9B%BE%E7%89%87-%E6%96%87%E4%BB%B6%E9%80%89%E6%8B%A9-%E4%B8%8A%E4%BC%A0-%E7%BB%84%E4%BB%B6-%E5%9F%BA%E7%A1%80%E5%90%91/"/>
     <id>http://waynecz.github.io/2017/02/27/从0开始做一个的Vue图片-文件选择-上传-组件-基础向/</id>
     <published>2017-02-27T04:51:11.000Z</published>
-    <updated>2017-02-28T02:40:44.000Z</updated>
+    <updated>2017-02-28T02:56:23.000Z</updated>
     
     <content type="html"><![CDATA[<p><img src="https://segmentfault.com/img/bVJQgt?w=1318&amp;h=966" alt="clipboard.png"></p>
 <p>之前用Vue做了一个基础的组件<a href="https://github.com/waynecz/vue-img-inputer" target="_blank" rel="external">vue-img-inputer</a>，下面就叫<code>vii</code>，记录下在开发过程中遇到的<strong><em>知识点</em></strong>（都算比较基础，具体代码不会贴太多，都可以在<a href="https://github.com/waynecz/vue-img-inputer" target="_blank" rel="external">项目</a>仓库里看到）。</p>
-<p>上传文件很多项目都要用到，一些组件库里(ele/iview…)<code>文件上传组件</code>都是做成了标配，虽然<code>vii</code>和<code>uploader</code><a href="https://segmentfault.com/a/1190000008439300" target="_blank" rel="external">定位还是有些差别</a>，但实现上都有几个共同要点：</p>
+<p>上传文件很多项目都要用到，一些组件库里(ele/iview…)<code>文件上传组件</code>都是做成了标配，虽然<code>vii</code>和<code>uploader</code><a href="https://segmentfault.com/a/1190000008439300" target="_blank" rel="external">定位还是有些差别</a>，但实现上都有几个共同要点：<br><a id="more"></a></p>
 <blockquote>
 <ol>
 <li>样子要好看点</li>
@@ -116,7 +116,8 @@
     <summary type="html">
     
       &lt;p&gt;&lt;img src=&quot;https://segmentfault.com/img/bVJQgt?w=1318&amp;amp;h=966&quot; alt=&quot;clipboard.png&quot;&gt;&lt;/p&gt;
-&lt;p&gt;之前用Vue做了一个基础的组件&lt;a href=&quot;https://github.com/wa
+&lt;p&gt;之前用Vue做了一个基础的组件&lt;a href=&quot;https://github.com/waynecz/vue-img-inputer&quot;&gt;vue-img-inputer&lt;/a&gt;，下面就叫&lt;code&gt;vii&lt;/code&gt;，记录下在开发过程中遇到的&lt;strong&gt;&lt;em&gt;知识点&lt;/em&gt;&lt;/strong&gt;（都算比较基础，具体代码不会贴太多，都可以在&lt;a href=&quot;https://github.com/waynecz/vue-img-inputer&quot;&gt;项目&lt;/a&gt;仓库里看到）。&lt;/p&gt;
+&lt;p&gt;上传文件很多项目都要用到，一些组件库里(ele/iview…)&lt;code&gt;文件上传组件&lt;/code&gt;都是做成了标配，虽然&lt;code&gt;vii&lt;/code&gt;和&lt;code&gt;uploader&lt;/code&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000008439300&quot;&gt;定位还是有些差别&lt;/a&gt;，但实现上都有几个共同要点：&lt;br&gt;
     
     </summary>
     
@@ -670,9 +671,9 @@
       <category term="前端" scheme="http://waynecz.github.io/categories/%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
-    
       <category term="jquery" scheme="http://waynecz.github.io/tags/jquery/"/>
+    
+      <category term="javascript" scheme="http://waynecz.github.io/tags/javascript/"/>
     
   </entry>
   

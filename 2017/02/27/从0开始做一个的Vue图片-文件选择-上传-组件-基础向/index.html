@@ -6,41 +6,23 @@
   <title>从0开始做一个的Vue图片选择(上传)组件[基础向] - Wayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
-上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
-
-
-样子要好看点
-图片/文件选择后预览
-实现拖拽选择文件
-图片">
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="从0开始做一个的Vue图片选择(上传)组件[基础向]">
 <meta property="og:url" content="http://waynecz.github.io/2017/02/27/从0开始做一个的Vue图片-文件选择-上传-组件-基础向/index.html">
 <meta property="og:site_name" content="Wayne">
 <meta property="og:description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
-上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
-
-
-样子要好看点
-图片/文件选择后预览
-实现拖拽选择文件
-图片">
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：">
 <meta property="og:image" content="https://segmentfault.com/img/bVJQgt?w=1318&h=966">
 <meta property="og:image" content="https://segmentfault.com/img/bVJOJb?w=572&h=82">
 <meta property="og:image" content="https://segmentfault.com/img/bVJOSY?w=734&h=218">
 <meta property="og:image" content="https://segmentfault.com/img/bVJOTH?w=598&h=256">
 <meta property="og:image" content="https://segmentfault.com/img/bVJP3q?w=1184&h=348">
-<meta property="og:updated_time" content="2017-02-28T02:40:44.000Z">
+<meta property="og:updated_time" content="2017-02-28T02:56:23.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="从0开始做一个的Vue图片选择(上传)组件[基础向]">
 <meta name="twitter:description" content="之前用Vue做了一个基础的组件vue-img-inputer，下面就叫vii，记录下在开发过程中遇到的知识点（都算比较基础，具体代码不会贴太多，都可以在项目仓库里看到）。
-上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：
-
-
-样子要好看点
-图片/文件选择后预览
-实现拖拽选择文件
-图片">
+上传文件很多项目都要用到，一些组件库里(ele/iview…)文件上传组件都是做成了标配，虽然vii和uploader定位还是有些差别，但实现上都有几个共同要点：">
 <meta name="twitter:image" content="https://segmentfault.com/img/bVJQgt?w=1318&h=966">
   
   
@@ -143,7 +125,7 @@ s.parentNode.insertBefore(hm, s);
       
         <p><img src="https://segmentfault.com/img/bVJQgt?w=1318&amp;h=966" alt="clipboard.png"></p>
 <p>之前用Vue做了一个基础的组件<a href="https://github.com/waynecz/vue-img-inputer" target="_blank" rel="external">vue-img-inputer</a>，下面就叫<code>vii</code>，记录下在开发过程中遇到的<strong><em>知识点</em></strong>（都算比较基础，具体代码不会贴太多，都可以在<a href="https://github.com/waynecz/vue-img-inputer" target="_blank" rel="external">项目</a>仓库里看到）。</p>
-<p>上传文件很多项目都要用到，一些组件库里(ele/iview…)<code>文件上传组件</code>都是做成了标配，虽然<code>vii</code>和<code>uploader</code><a href="https://segmentfault.com/a/1190000008439300" target="_blank" rel="external">定位还是有些差别</a>，但实现上都有几个共同要点：</p>
+<p>上传文件很多项目都要用到，一些组件库里(ele/iview…)<code>文件上传组件</code>都是做成了标配，虽然<code>vii</code>和<code>uploader</code><a href="https://segmentfault.com/a/1190000008439300" target="_blank" rel="external">定位还是有些差别</a>，但实现上都有几个共同要点：<br><a id="more"></a></p>
 <blockquote>
 <ol>
 <li>样子要好看点</li>
